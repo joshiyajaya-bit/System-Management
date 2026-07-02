@@ -4,7 +4,7 @@ import {
   FaChalkboardTeacher,
   FaBook,
   FaSignOutAlt,
-  FaUserCircle,
+  
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
@@ -62,18 +62,9 @@ function Sidebar() {
       {/* Bottom */}
       <div className="border-t border-slate-700 p-5">
 
-        <div className="flex items-center gap-3 mb-5">
-          <FaUserCircle className="text-4xl text-blue-400" />
+       
 
-          <div>
-            <h3 className="font-semibold">Admin</h3>
-            <p className="text-sm text-gray-400">
-              Administrator
-            </p>
-          </div>
-        </div>
-
-        <button className="w-full flex items-center justify-center gap-3 py-3 rounded-xl bg-red-600 hover:bg-red-700 transition">
+        <button className="w-full flex items-center justify-center gap-3 py-3 rounded-xl bg-white-600 hover:bg-red-700 transition">
           <FaSignOutAlt />
           Logout
         </button>
