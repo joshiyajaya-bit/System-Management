@@ -4,7 +4,7 @@ import {
   FaChalkboardTeacher,
   FaBook,
   FaSignOutAlt,
-  FaUserCircle,
+  // FaUserCircle,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
