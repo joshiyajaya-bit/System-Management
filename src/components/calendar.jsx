@@ -17,7 +17,7 @@ export default function CalendarCard() {
   }, []);
 
   return (
-    <div className="bg-white rounded-2xl shadow-lg p-5">
+    <div className="bg-white rounded-3xl shadow-xl p-6 h-full">
 
       {/* Heading */}
       <div className="flex justify-center mb-5">

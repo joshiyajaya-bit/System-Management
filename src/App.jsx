@@ -51,7 +51,7 @@ export default function App() {
               element={
                 <>
                   {/* Cards */}
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
 
                     <AttendanceOverview />
 
@@ -64,7 +64,7 @@ export default function App() {
                   {/* Charts + Calendar */}
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
 
-                    <div className="lg:col-span-2 bg-white rounded-3xl shadow-xl p-6">
+                   <div className="lg:col-span-2 bg-white rounded-3xl shadow-xl p-8">
 
                       <Charts
                         attendanceData={attendanceData}
