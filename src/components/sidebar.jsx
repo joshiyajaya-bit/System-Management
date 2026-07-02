@@ -10,7 +10,7 @@ import { NavLink } from "react-router-dom";
 
 function Sidebar() {
   return (
-    <aside className="w-64 h-screen bg-slate-900 text-white fixed left-0 top-0 flex flex -col">
+    <aside className="fixed left-0 top-0 w-64 h-screen bg-slate-900 text-white flex flex-col shadow-xl z-50">
       {/* Logo */}
       <div className="p-6 text-2xl font-bold border-b border-slate-700">
         JKNS
