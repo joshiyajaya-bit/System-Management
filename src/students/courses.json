@@ -1,0 +1,86 @@
+[
+  {
+    "id": "C001",
+    "course": "Computer Science Engineering",
+    "code": "CSE",
+    "duration": "4 Years",
+    "students": 120
+  },
+  {
+    "id": "C002",
+    "course": "Information Technology",
+    "code": "IT",
+    "duration": "4 Years",
+    "students": 100
+  },
+  {
+    "id": "C003",
+    "course": "Electronics and Communication Engineering",
+    "code": "ECE",
+    "duration": "4 Years",
+    "students": 90
+  },
+  {
+    "id": "C004",
+    "course": "Electrical and Electronics Engineering",
+    "code": "EEE",
+    "duration": "4 Years",
+    "students": 80
+  },
+  {
+    "id": "C005",
+    "course": "Mechanical Engineering",
+    "code": "MECH",
+    "duration": "4 Years",
+    "students": 110
+  },
+  {
+    "id": "C006",
+    "course": "Civil Engineering",
+    "code": "CIVIL",
+    "duration": "4 Years",
+    "students": 75
+  },
+  {
+    "id": "C007",
+    "course": "Artificial Intelligence & Data Science",
+    "code": "AI&DS",
+    "duration": "4 Years",
+    "students": 60
+  },
+  {
+    "id": "C008",
+    "course": "Artificial Intelligence & Machine Learning",
+    "code": "AI&ML",
+    "duration": "4 Years",
+    "students": 60
+  },
+  {
+    "id": "C009",
+    "course": "Computer Science & Business Systems",
+    "code": "CSBS",
+    "duration": "4 Years",
+    "students": 60
+  },
+  {
+    "id": "C010",
+    "course": "Robotics and Automation",
+    "code": "R&A",
+    "duration": "4 Years",
+    "students": 40
+  },
+  {
+    "id": "C011",
+    "course": "Biotechnology",
+    "code": "BT",
+    "duration": "4 Years",
+    "students": 45
+  },
+  {
+    "id": "C012",
+    "course": "Chemical Engineering",
+    "code": "CHE",
+    "duration": "4 Years",
+    "students": 50
+  }
+]

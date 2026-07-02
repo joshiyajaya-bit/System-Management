@@ -1,0 +1,302 @@
+[
+  {
+    "id": "T001",
+    "name": "Dr. Rajesh Kumar",
+    "department": "CSE",
+    "subject": "Data Structures",
+    "email": "rajesh@college.edu",
+    "phone": "9876541001",
+    "experience": 10,
+    "attendance": 94
+  },
+  {
+    "id": "T002",
+    "name": "Dr. Anitha Devi",
+    "department": "CSE",
+    "subject": "Operating Systems",
+    "email": "anitha@college.edu",
+    "phone": "9876541002",
+    "experience": 9,
+    "attendance": 91
+  },
+  {
+    "id": "T003",
+    "name": "Karthik Raman",
+    "department": "CSE",
+    "subject": "Computer Networks",
+    "email": "karthik@college.edu",
+    "phone": "9876541003",
+    "experience": 8,
+    "attendance": 88
+  },
+  {
+    "id": "T004",
+    "name": "Lavanya S",
+    "department": "CSE",
+    "subject": "Database Management Systems",
+    "email": "lavanya@college.edu",
+    "phone": "9876541004",
+    "experience": 6,
+    "attendance": 82
+  },
+  {
+    "id": "T005",
+    "name": "Arun Prakash",
+    "department": "CSE",
+    "subject": "Artificial Intelligence",
+    "email": "arun@college.edu",
+    "phone": "9876541005",
+    "experience": 7,
+    "attendance": 58
+  },
+  {
+    "id": "T006",
+    "name": "Meena Krishnan",
+    "department": "CSE",
+    "subject": "Software Engineering",
+    "email": "meena@college.edu",
+    "phone": "9876541006",
+    "experience": 5,
+    "attendance": 90
+  },
+  {
+    "id": "T007",
+    "name": "Priya Menon",
+    "department": "IT",
+    "subject": "Web Technology",
+    "email": "priya@college.edu",
+    "phone": "9876541007",
+    "experience": 7,
+    "attendance": 96
+  },
+  {
+    "id": "T008",
+    "name": "Suresh Babu",
+    "department": "IT",
+    "subject": "Cloud Computing",
+    "email": "suresh@college.edu",
+    "phone": "9876541008",
+    "experience": 8,
+    "attendance": 92
+  },
+  {
+    "id": "T009",
+    "name": "Deepika R",
+    "department": "IT",
+    "subject": "Cyber Security",
+    "email": "deepika@college.edu",
+    "phone": "9876541009",
+    "experience": 6,
+    "attendance": 61
+  },
+  {
+    "id": "T010",
+    "name": "Hari Krishnan",
+    "department": "IT",
+    "subject": "Python Programming",
+    "email": "hari@college.edu",
+    "phone": "9876541010",
+    "experience": 5,
+    "attendance": 84
+  },
+  {
+    "id": "T011",
+    "name": "Nivetha S",
+    "department": "IT",
+    "subject": "Data Analytics",
+    "email": "nivetha@college.edu",
+    "phone": "9876541011",
+    "experience": 4,
+    "attendance": 89
+  },
+  {
+    "id": "T012",
+    "name": "Vignesh Kumar",
+    "department": "ECE",
+    "subject": "Digital Electronics",
+    "email": "vignesh@college.edu",
+    "phone": "9876541012",
+    "experience": 8,
+    "attendance": 95
+  },
+  {
+    "id": "T013",
+    "name": "Shalini Devi",
+    "department": "ECE",
+    "subject": "Microprocessors",
+    "email": "shalini@college.edu",
+    "phone": "9876541013",
+    "experience": 7,
+    "attendance": 93
+  },
+  {
+    "id": "T014",
+    "name": "Ramesh B",
+    "department": "ECE",
+    "subject": "VLSI Design",
+    "email": "ramesh@college.edu",
+    "phone": "9876541014",
+    "experience": 9,
+    "attendance": 60
+  },
+  {
+    "id": "T015",
+    "name": "Keerthana M",
+    "department": "ECE",
+    "subject": "Embedded Systems",
+    "email": "keerthana@college.edu",
+    "phone": "9876541015",
+    "experience": 5,
+    "attendance": 86
+  },
+  {
+    "id": "T016",
+    "name": "Balaji K",
+    "department": "EEE",
+    "subject": "Power Systems",
+    "email": "balaji@college.edu",
+    "phone": "9876541016",
+    "experience": 10,
+    "attendance": 97
+  },
+  {
+    "id": "T017",
+    "name": "Divya S",
+    "department": "EEE",
+    "subject": "Electrical Machines",
+    "email": "divya@college.edu",
+    "phone": "9876541017",
+    "experience": 6,
+    "attendance": 87
+  },
+  {
+    "id": "T018",
+    "name": "Sathish Kumar",
+    "department": "EEE",
+    "subject": "Control Systems",
+    "email": "sathish@college.edu",
+    "phone": "9876541018",
+    "experience": 7,
+    "attendance": 63
+  },
+  {
+    "id": "T019",
+    "name": "Prabhakaran R",
+    "department": "Mechanical",
+    "subject": "Thermodynamics",
+    "email": "prabha@college.edu",
+    "phone": "9876541019",
+    "experience": 11,
+    "attendance": 94
+  },
+  {
+    "id": "T020",
+    "name": "Harini P",
+    "department": "Mechanical",
+    "subject": "CAD/CAM",
+    "email": "harini@college.edu",
+    "phone": "9876541020",
+    "experience": 5,
+    "attendance": 90
+  },
+  {
+    "id": "T021",
+    "name": "Mohan Raj",
+    "department": "Mechanical",
+    "subject": "Manufacturing Technology",
+    "email": "mohan@college.edu",
+    "phone": "9876541021",
+    "experience": 8,
+    "attendance": 85
+  },
+  {
+    "id": "T022",
+    "name": "Revathi K",
+    "department": "Mechanical",
+    "subject": "Fluid Mechanics",
+    "email": "revathi@college.edu",
+    "phone": "9876541022",
+    "experience": 6,
+    "attendance": 62
+  },
+  {
+    "id": "T023",
+    "name": "Saravanan M",
+    "department": "Civil",
+    "subject": "Structural Engineering",
+    "email": "saravanan@college.edu",
+    "phone": "9876541023",
+    "experience": 9,
+    "attendance": 91
+  },
+  {
+    "id": "T024",
+    "name": "Aishwarya R",
+    "department": "Civil",
+    "subject": "Surveying",
+    "email": "aish@college.edu",
+    "phone": "9876541024",
+    "experience": 5,
+    "attendance": 88
+  },
+  {
+    "id": "T025",
+    "name": "Gopinath S",
+    "department": "Civil",
+    "subject": "Construction Management",
+    "email": "gopi@college.edu",
+    "phone": "9876541025",
+    "experience": 8,
+    "attendance": 93
+  },
+  {
+    "id": "T026",
+    "name": "Akash Kumar",
+    "department": "AI & DS",
+    "subject": "Machine Learning",
+    "email": "akash@college.edu",
+    "phone": "9876541026",
+    "experience": 6,
+    "attendance": 84
+  },
+  {
+    "id": "T027",
+    "name": "Sneha P",
+    "department": "AI & DS",
+    "subject": "Deep Learning",
+    "email": "sneha@college.edu",
+    "phone": "9876541027",
+    "experience": 5,
+    "attendance": 59
+  },
+  {
+    "id": "T028",
+    "name": "Ajith Kumar",
+    "department": "AI & DS",
+    "subject": "Data Science",
+    "email": "ajith@college.edu",
+    "phone": "9876541028",
+    "experience": 7,
+    "attendance": 90
+  },
+  {
+    "id": "T029",
+    "name": "Dr. Lakshmi Narayanan",
+    "department": "Mathematics",
+    "subject": "Engineering Mathematics",
+    "email": "lakshmi@college.edu",
+    "phone": "9876541029",
+    "experience": 12,
+    "attendance": 95
+  },
+  {
+    "id": "T030",
+    "name": "Jennifer Mary",
+    "department": "English",
+    "subject": "Communicative English",
+    "email": "jennifer@college.edu",
+    "phone": "9876541030",
+    "experience": 8,
+    "attendance": 92
+  }
+]
