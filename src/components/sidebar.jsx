@@ -66,13 +66,7 @@ function Sidebar() {
 
   
 
-          <NavLink to="/settings"
-              href="#"
-              className="flex items-center gap-3 px-6 py-3 hover:bg-slate-800 transition rounded-lg"
-            >
-              <FaCog />
-              Settings
-         </NavLink>
+         
 
         </ul>
       </nav>
