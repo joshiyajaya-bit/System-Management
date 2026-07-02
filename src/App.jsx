@@ -21,16 +21,25 @@ import students from "./students/students.json";
 export default function App() {
 
   const [sidebarOpen, setSidebarOpen] = useState(true);
+const attendanceData = [
+  { name: "Mon", attendance: 62 },
+  { name: "Tue", attendance: 72 },
+  { name: "Wed", attendance: 81 },
+  { name: "Thu", attendance: 64 },
+  { name: "Fri", attendance: 75 },
+  { name: "Sat", attendance: 92 },
+  { name: "Sun", attendance: 68 },
+];
 
-  const attendanceData = students.map((student) => ({
-    name: student["Full Name"],
-    attendance: Number(student["Attendance (%)"]),
-  }));
-
-  const performanceData = students.map((student) => ({
-    name: student["Full Name"],
-    score: Number(student["Marks (%)"]),
-  }));
+const performanceData = [
+  { name: "Rahul", score: 66 },
+  { name: "Meena", score: 74 },
+  { name: "Harish", score: 96 },
+  { name: "Sanjay", score: 67 },
+  { name: "Satish", score: 85 },
+  { name: "Naveen", score: 92 },
+  { name: "Monisha", score: 71 },
+];
 
   return (
     <div className="flex min-h-screen bg-slate-100">
