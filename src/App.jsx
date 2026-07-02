@@ -42,7 +42,7 @@ export default function App() {
 
       <Sidebar />
 
-      <div className="flex-1 ml-64">
+      <div className="flex-1">
 
         <Navbar />
 
