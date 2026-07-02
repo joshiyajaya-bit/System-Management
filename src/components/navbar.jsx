@@ -35,7 +35,7 @@ function Navbar() {
       {/* Right */}
       <div className="flex items-center gap-5">
 
-        {/* Search */}
+        {/* Search
         <div className="relative">
 
           <FaSearch className="absolute left-3 top-3 text-gray-400" />
@@ -47,7 +47,7 @@ function Navbar() {
                        focus:ring-2 focus:ring-blue-500"
           />
 
-        </div>
+        </div> */}
 
         {/* Notification */}
         <button className="relative text-xl text-gray-600 hover:text-blue-600">
