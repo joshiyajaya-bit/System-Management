@@ -18,6 +18,10 @@ import Settings from "./pages/settings";
 
 import students from "./students/students.json";
 
+import React from 'react';
+import StudentManagementPage from './pages/StudentManagementPage';
+import './App.css'; // ← ADD THIS LINE
+
 export default function App() {
 
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -34,6 +38,7 @@ export default function App() {
 
   return (
     <div className="flex min-h-screen bg-slate-100">
+       <StudentManagementPage />
 
       <Sidebar />
 
@@ -97,3 +102,7 @@ export default function App() {
     </div>
   );
 }
+// src/App.js
+
+
+
