@@ -4,7 +4,6 @@ import {
   FaChalkboardTeacher,
   FaBook,
   FaCalendarAlt,
-  FaCog,
   FaSignOutAlt,
   FaUserCircle,
 } from "react-icons/fa";
