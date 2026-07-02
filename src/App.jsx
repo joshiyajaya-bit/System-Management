@@ -14,7 +14,7 @@ import Calendar from "./components/calendar";
 import Students from "./pages/stu";
 import Teachers from "./pages/teachers";
 import Courses from "./pages/courses";
-import Settings from "./pages/settings";
+
 
 import students from "./students/students.json";
 
@@ -86,7 +86,7 @@ export default function App() {
 
             <Route path="/courses" element={<Courses />} />
 
-            <Route path="/settings" element={<Settings />} />
+          
 
           </Routes>
 

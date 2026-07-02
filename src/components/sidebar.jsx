@@ -3,7 +3,6 @@ import {
   FaUserGraduate,
   FaChalkboardTeacher,
   FaBook,
-  FaCalendarAlt,
   FaSignOutAlt,
   FaUserCircle,
 } from "react-icons/fa";
