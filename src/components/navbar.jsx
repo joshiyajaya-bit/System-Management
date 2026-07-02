@@ -8,8 +8,7 @@ import logo from "../assets/jkns-logo.png";
 
 function Navbar() {
   return (
-    <header className="h-20 bg-white shadow flex items-center justify-between px-6">
-
+   <header className="sticky top-0 z-40 h-20 bg-white border-b border-gray-200 flex items-center justify-between px-8 shadow-sm">
       {/* Left */}
       <div className="flex items-center gap-4">
 

@@ -37,7 +37,7 @@ export default function App() {
 
       <Sidebar />
 
-      <div className="flex-1 ml-64">
+     <div className="flex flex-col flex-1 ml-64 min-h-screen">
 
         <Navbar />
 

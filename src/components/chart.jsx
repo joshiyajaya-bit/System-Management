@@ -36,7 +36,7 @@ export default function Charts({
 ];
 
   return (
-    <div className="charts">
+  <div className="space-y-8">  
 
       {/* Line Chart */}
       <div>
