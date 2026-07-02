@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Sidebar from "./components/sidebar";
@@ -17,7 +17,7 @@ import Courses from "./pages/courses";
 import Settings from "./pages/settings";
 
 import students from "./students/students.json";
-
+import StudentForm from "./components/common/Studentform";
 import React from 'react';
 import StudentManagementPage from './pages/StudentManagementPage';
 import './App.css'; // ← ADD THIS LINE
@@ -35,10 +35,50 @@ export default function App() {
     name: student["Full Name"],
     score: Number(student["Marks (%)"]),
   }));
+  const [students, setStudents] = useState([]);
+  const [editStudent, setEditStudent] = useState(null);
+
+  // Load LocalStorage
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("students")) || [];
+    setStudents(data);
+  }, []);
+
+  // Save LocalStorage
+  useEffect(() => {
+    localStorage.setItem("students", JSON.stringify(students));
+  }, [students]);
+
+  // Add Student
+  const addStudent = (student) => {
+    setStudents([...students, student]);
+  };
+
+  // Update Student
+  const updateStudent = (updatedStudent) => {
+    const updated = students.map((item) =>
+      item.id === updatedStudent.id ? updatedStudent : item
+    );
+
+    setStudents(updated);
+    setEditStudent(null);
+  };
+
+  // Delete Student
+  const deleteStudent = (id) => {
+    const confirmDelete = window.confirm("Delete Student?");
+
+    if (confirmDelete) {
+      setStudents(students.filter((item) => item.id !== id));
+    }
+  };
+
+  
 
   return (
     <div className="flex min-h-screen bg-slate-100">
        <StudentManagementPage />
+       
 
       <Sidebar />
 
@@ -81,6 +121,17 @@ export default function App() {
                     <Calendar />
 
                   </div>
+                   <div>
+
+      <StudentForm
+        students={students}
+        addStudent={addStudent}
+        updateStudent={updateStudent}
+        editStudent={editStudent}
+      />
+
+    </div>
+
                 </>
               }
             />
@@ -94,12 +145,16 @@ export default function App() {
             <Route path="/settings" element={<Settings />} />
 
           </Routes>
+        
+
+
+  
 
         </main>
-
+  </div>
       </div>
 
-    </div>
+
   );
 }
 // src/App.js
