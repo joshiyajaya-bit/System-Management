@@ -1,5 +1,4 @@
-import { useState } from "react";
-import {Routes,Route,Navigate,} from"react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 
 import Sidebar from "./components/sidebar";
 import Navbar from "./components/navbar";
@@ -16,43 +15,58 @@ import Teachers from "./pages/teachers";
 import Courses from "./pages/courses";
 import Login from "./pages/login";
 
-import students from "./students/students.json";
-
 export default function App() {
-const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  const location = useLocation();
 
-if (!isLoggedIn) {
-  return <Navigate to="/login" replace />;
-}
-const attendanceData = [
-  { name: "Mon", attendance: 62 },
-  { name: "Tue", attendance: 72 },
-  { name: "Wed", attendance: 81 },
-  { name: "Thu", attendance: 64 },
-  { name: "Fri", attendance: 75 },
-  { name: "Sat", attendance: 92 },
-  { name: "Sun", attendance: 68 },
-];
+  const isLoggedIn =
+    localStorage.getItem("isLoggedIn") === "true";
 
-const performanceData = [
-  { name: "Rahul", score: 66 },
-  { name: "Meena", score: 74 },
-  { name: "Harish", score: 96 },
-  { name: "Sanjay", score: 67 },
-  { name: "Satish", score: 85 },
-  { name: "Naveen", score: 92 },
-  { name: "Monisha", score: 71 },
-];
+  const attendanceData = [
+    { name: "Mon", attendance: 62 },
+    { name: "Tue", attendance: 72 },
+    { name: "Wed", attendance: 81 },
+    { name: "Thu", attendance: 64 },
+    { name: "Fri", attendance: 75 },
+    { name: "Sat", attendance: 92 },
+    { name: "Sun", attendance: 68 },
+  ];
+
+  const performanceData = [
+    { name: "Rahul", score: 66 },
+    { name: "Meena", score: 74 },
+    { name: "Harish", score: 96 },
+    { name: "Sanjay", score: 67 },
+    { name: "Satish", score: 85 },
+    { name: "Naveen", score: 92 },
+    { name: "Monisha", score: 71 },
+  ];
+
+  // Show login page only
+  if (!isLoggedIn) {
+    return (
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="*"
+          element={<Navigate to="/login" replace />}
+        />
+      </Routes>
+    );
+  }
 
   return (
     <div className="flex min-h-screen bg-slate-100">
 
+      {/* Sidebar */}
       <Sidebar />
 
-     <div className="flex flex-col flex-1 ml-64 min-h-screen">
+      {/* Main */}
+      <div className="flex flex-col flex-1 ml-64 min-h-screen">
 
+        {/* Navbar */}
         <Navbar />
 
+        {/* Content */}
         <main className="p-6">
 
           <Routes>
@@ -62,39 +76,60 @@ const performanceData = [
               path="/"
               element={
                 <>
-                  {/* Cards */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-    <AttendanceOverview />
-    <TeacherAttendanceOverview />
-    <FeeOverview />
-    <Card title="Courses" value="24" />
-</div>
+                  {/* Top Cards */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
 
-<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+                    <AttendanceOverview />
 
-    <div className="lg:col-span-2">
-        <Charts
-            attendanceData={attendanceData}
-            performanceData={performanceData}
-        />
-    </div>
+                    <TeacherAttendanceOverview />
 
-    <Calendar />
+                    <FeeOverview />
 
-</div>
+                  </div>
+
+                  {/* Charts & Calendar */}
+                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
+
+                    <div className="lg:col-span-2 bg-white rounded-3xl shadow-xl p-6">
+
+                      <Charts
+                        attendanceData={attendanceData}
+                        performanceData={performanceData}
+                      />
+
+                    </div>
+
+                    <Calendar />
+
+                  </div>
                 </>
               }
             />
 
-            <Route path="/students" element={<Students />} />
+            <Route
+              path="/students"
+              element={<Students />}
+            />
 
-            <Route path="/teachers" element={<Teachers />} />
+            <Route
+              path="/teachers"
+              element={<Teachers />}
+            />
 
-            <Route path="/courses" element={<Courses />} />
+            <Route
+              path="/courses"
+              element={<Courses />}
+            />
 
-             <Route path="/login" element={<Login />} />
+            <Route
+              path="/login"
+              element={<Navigate to="/" replace />}
+            />
 
-          
+            <Route
+              path="*"
+              element={<Navigate to="/" replace />}
+            />
 
           </Routes>
 
