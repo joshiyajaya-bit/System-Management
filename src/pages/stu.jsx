@@ -30,21 +30,21 @@ export default function Students() {
     setCurrentPage(1);
   };
 
-  // View Student
+  // View
   const handleView = (student) => {
     setSelectedStudent(student);
     setMode("view");
     setModalOpen(true);
   };
 
-  // Edit Student
+  // Edit
   const handleEdit = (student) => {
     setSelectedStudent(student);
     setMode("edit");
     setModalOpen(true);
   };
 
-  // Save Student
+  // Save
   const handleSave = (updatedStudent) => {
     setStudents(
       students.map((student) =>
@@ -55,18 +55,20 @@ export default function Students() {
     );
   };
 
-  // Delete Student
+  // Delete
   const handleDelete = (studentId) => {
     if (window.confirm("Delete this student?")) {
       setStudents(
         students.filter(
-          (student) => student["Student ID"] !== studentId
+          (student) =>
+            student["Student ID"] !== studentId
         )
       );
     }
   };
 
-  // Filter Students
+  // Search & Filter
+
   const filteredStudents = students.filter((student) => {
     const matchesSearch =
       student["Full Name"]
@@ -98,6 +100,7 @@ export default function Students() {
   });
 
   // Pagination
+
   const totalPages = Math.ceil(
     filteredStudents.length / studentsPerPage
   );
@@ -111,22 +114,46 @@ export default function Students() {
   );
 
   return (
-    <div className="space-y-6">
+    <div className="min-h-screen bg-[#0F172A] p-6 space-y-8">
 
-      {/* Heading */}
-      <div>
-        <h1 className="text-3xl font-bold text-slate-800">
-          Student Management
-        </h1>
+      {/* Header */}
+
+      <div className="bg-[#1E293B] border border-slate-700 rounded-3xl p-8 shadow-xl">
+
+        <div className="flex items-center justify-between">
+
+          <div>
+
+            <h1 className="text-4xl font-bold text-white">
+              Student Management
+            </h1>
+
+            <p className="text-slate-400 mt-2">
+              Manage students, admissions, records and academic details.
+            </p>
+
+          </div>
+
+          <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-2xl bg-cyan-500/20">
+
+            <span className="text-3xl">
+              🎓
+            </span>
+
+          </div>
+
+        </div>
 
       </div>
 
-      {/* Form */}
+      {/* Add Student */}
+
       <StudentForm
         onAddStudent={handleAddStudent}
       />
 
       {/* Filters */}
+
       <StudentFilters
         searchTerm={searchTerm}
         setSearchTerm={(value) => {
@@ -150,7 +177,8 @@ export default function Students() {
         }}
       />
 
-      {/* Table */}
+      {/* Student Table */}
+
       <StudentTable
         students={currentStudents}
         onView={handleView}
@@ -159,6 +187,7 @@ export default function Students() {
       />
 
       {/* Pagination */}
+
       <StudentPagination
         currentPage={currentPage}
         totalPages={totalPages}
@@ -166,6 +195,7 @@ export default function Students() {
       />
 
       {/* Modal */}
+
       <StudentModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}

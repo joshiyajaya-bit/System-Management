@@ -6,41 +6,66 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import { Users } from "lucide-react";
-
+import { Award } from "lucide-react";
 import teachers from "../students/teachers.json";
 
-const COLORS = ["#22c55e", "#ef4444"];
-
 export default function TeacherAttendanceOverview() {
-  const totalTeachers = teachers.length;
-
-  const presentTeachers = teachers.filter(
-    (teacher) => Number(teacher.attendance) >= 75
+  const excellent = teachers.filter(
+    (teacher) => Number(teacher.attendance) >= 90
   ).length;
 
-  const absentTeachers = totalTeachers - presentTeachers;
+  const good = teachers.filter(
+    (teacher) =>
+      Number(teacher.attendance) >= 75 &&
+      Number(teacher.attendance) < 90
+  ).length;
+
+  const average = teachers.filter(
+    (teacher) =>
+      Number(teacher.attendance) >= 60 &&
+      Number(teacher.attendance) < 75
+  ).length;
+
+  const poor = teachers.filter(
+    (teacher) => Number(teacher.attendance) < 60
+  ).length;
 
   const data = [
     {
-      name: "Present",
-      value: presentTeachers,
+      name: "Excellent",
+      value: excellent,
     },
     {
-      name: "Absent",
-      value: absentTeachers,
+      name: "Good",
+      value: good,
+    },
+    {
+      name: "Average",
+      value: average,
+    },
+    {
+      name: "Poor",
+      value: poor,
     },
   ];
 
+  const COLORS = [
+    "#22C55E",
+    "#3B82F6",
+    "#F59E0B",
+    "#EF4444",
+  ];
+
   return (
-    <div className="bg-white rounded-3xl shadow-xl p-6 w-full h-[330px] overflow-hidden">
+    <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl p-6 w-full h-[360px]">
 
       <div className="flex h-full items-center gap-5">
 
-        {/* Pie Chart */}
-        <div className="w-[160px] flex justify-center items-center shrink-0">
+        {/* Chart */}
 
-          <div className="relative w-[150px] h-[150px]">
+        <div className="w-[170px] flex justify-center shrink-0">
+
+          <div className="relative w-[160px] h-[160px]">
 
             <ResponsiveContainer width="100%" height="100%">
 
@@ -50,15 +75,13 @@ export default function TeacherAttendanceOverview() {
                   data={data}
                   dataKey="value"
                   nameKey="name"
-                  cx="50%"
-                  cy="50%"
                   innerRadius={48}
                   outerRadius={72}
-                  paddingAngle={2}
-                  stroke="#fff"
+                  paddingAngle={3}
+                  stroke="#1E293B"
                   strokeWidth={3}
                 >
-                  {data.map((entry, index) => (
+                  {data.map((item, index) => (
                     <Cell
                       key={index}
                       fill={COLORS[index]}
@@ -67,23 +90,11 @@ export default function TeacherAttendanceOverview() {
                 </Pie>
 
                 <Tooltip
-                  cursor={false}
                   contentStyle={{
-                    backgroundColor: "#fff",
-                    border: "none",
-                    borderRadius: "12px",
-                    boxShadow: "0 10px 25px rgba(0,0,0,.15)",
-                  }}
-                  formatter={(value, name) => {
-                    const percentage = (
-                      (Number(value) / totalTeachers) *
-                      100
-                    ).toFixed(1);
-
-                    return [
-                      `${percentage}%`,
-                      name,
-                    ];
+                    background: "#111827",
+                    border: "1px solid #334155",
+                    borderRadius: "14px",
+                    color: "#fff",
                   }}
                 />
 
@@ -92,19 +103,20 @@ export default function TeacherAttendanceOverview() {
             </ResponsiveContainer>
 
             {/* Center */}
+
             <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none">
 
-              <Users
+              <Award
                 size={34}
-                className="text-gray-500"
+                className="text-cyan-400"
               />
 
-              <h2 className="text-xl font-bold mt-2">
+              <h2 className="text-white font-bold mt-2 text-xl">
                 Teachers
               </h2>
 
-              <p className="text-gray-500 text-sm">
-                Overview
+              <p className="text-slate-400 text-sm">
+                Performance
               </p>
 
             </div>
@@ -114,74 +126,103 @@ export default function TeacherAttendanceOverview() {
         </div>
 
         {/* Divider */}
-        <div className="w-[3px] self-stretch rounded-full bg-gradient-to-b from-green-500 via-cyan-500 to-purple-600"></div>
 
-        {/* Right Side */}
-        <div className="flex-1 flex flex-col justify-between h-full">
+        <div className="w-[2px] self-stretch rounded-full bg-slate-700"></div>
 
-          {/* Present */}
-          <div className="flex justify-between items-center py-4">
+        {/* Details */}
+
+        <div className="flex-1 flex flex-col justify-between">
+
+          {/* Excellent */}
+
+          <div className="flex justify-between items-center py-3">
 
             <div>
 
-              <h2 className="text-lg font-bold">
-                Present
-              </h2>
+              <h3 className="font-bold text-white text-lg">
+                Excellent
+              </h3>
 
-              <p className="text-sm text-gray-500">
-                Teachers Present
+              <p className="text-slate-400">
+                Attendance ≥ 90%
               </p>
 
             </div>
 
-            <h2 className="text-3xl font-bold text-green-600 whitespace-nowrap">
-              {presentTeachers}
+            <h2 className="text-3xl font-bold text-green-400">
+              {excellent}
             </h2>
 
           </div>
 
-          <hr />
+          <div className="border-b border-slate-700"></div>
 
-          {/* Absent */}
-          <div className="flex justify-between items-center py-4">
+          {/* Good */}
+
+          <div className="flex justify-between items-center py-3">
 
             <div>
 
-              <h2 className="text-lg font-bold">
-                Absent
-              </h2>
+              <h3 className="font-bold text-white text-lg">
+                Good
+              </h3>
 
-              <p className="text-sm text-gray-500">
-                Teachers Absent
+              <p className="text-slate-400">
+                75% - 89%
               </p>
 
             </div>
 
-            <h2 className="text-3xl font-bold text-red-500 whitespace-nowrap">
-              {absentTeachers}
+            <h2 className="text-3xl font-bold text-blue-400">
+              {good}
             </h2>
 
           </div>
 
-          <hr />
+          <div className="border-b border-slate-700"></div>
 
-          {/* Total */}
-          <div className="flex justify-between items-center py-4">
+          {/* Average */}
+
+          <div className="flex justify-between items-center py-3">
 
             <div>
 
-              <h2 className="text-lg font-bold">
-                Total Teachers
-              </h2>
+              <h3 className="font-bold text-white text-lg">
+                Average
+              </h3>
 
-              <p className="text-sm text-gray-500">
-                Registered Teachers
+              <p className="text-slate-400">
+                60% - 74%
               </p>
 
             </div>
 
-            <h2 className="text-3xl font-bold text-blue-600 whitespace-nowrap">
-              {totalTeachers}
+            <h2 className="text-3xl font-bold text-yellow-400">
+              {average}
+            </h2>
+
+          </div>
+
+          <div className="border-b border-slate-700"></div>
+
+          {/* Poor */}
+
+          <div className="flex justify-between items-center py-3">
+
+            <div>
+
+              <h3 className="font-bold text-white text-lg">
+                Poor
+              </h3>
+
+              <p className="text-slate-400">
+                Below 60%
+              </p>
+
+            </div>
+
+            <h2 className="text-3xl font-bold text-red-400">
+              {poor}
             </h2>
 
           </div>

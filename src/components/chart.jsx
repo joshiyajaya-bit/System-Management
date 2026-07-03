@@ -14,8 +14,10 @@ import {
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
-      <div className="bg-violet-600 text-white px-3 py-2 rounded-lg shadow-lg text-sm font-semibold">
-        {payload[0].value}%
+      <div className="bg-[#111827] border border-slate-700 text-white px-4 py-3 rounded-xl shadow-xl">
+        <p className="text-cyan-400 font-semibold">
+          {payload[0].value}%
+        </p>
       </div>
     );
   }
@@ -30,33 +32,38 @@ export default function Charts({
   return (
     <div className="space-y-8">
 
-      {/* ================= Attendance Card ================= */}
+      {/* Attendance Chart */}
 
-      <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-6">
+      <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl p-6">
 
-        {/* Header */}
+        <div className="flex justify-between items-center mb-8">
 
-        <div className="flex items-center justify-between mb-6">
+          <div>
 
-          <h2 className="text-xl font-bold text-gray-800">
-            Attendance Overview
-          </h2>
+            <h2 className="text-2xl font-bold text-white">
+              Attendance Overview
+            </h2>
+
+            <p className="text-slate-400 text-sm">
+              Weekly Attendance Report
+            </p>
+
+          </div>
 
           <select
             className="
+            bg-[#111827]
             border
-            border-gray-200
+            border-slate-700
             rounded-xl
             px-4
             py-2
-            text-sm
+            text-white
             outline-none
-            bg-white
-            shadow-sm
-          "
+            "
           >
+            <option>This Week</option>
             <option>This Month</option>
-            <option>Last Month</option>
             <option>This Year</option>
           </select>
 
@@ -66,15 +73,7 @@ export default function Charts({
           width="100%"
           height={320}
         >
-          <AreaChart
-            data={attendanceData}
-            margin={{
-              top: 10,
-              right: 20,
-              left: -15,
-              bottom: 0,
-            }}
-          >
+          <AreaChart data={attendanceData}>
 
             <defs>
 
@@ -88,13 +87,13 @@ export default function Charts({
 
                 <stop
                   offset="5%"
-                  stopColor="#6D5DFC"
-                  stopOpacity={0.35}
+                  stopColor="#06B6D4"
+                  stopOpacity={0.5}
                 />
 
                 <stop
                   offset="95%"
-                  stopColor="#6D5DFC"
+                  stopColor="#06B6D4"
                   stopOpacity={0}
                 />
 
@@ -103,29 +102,17 @@ export default function Charts({
             </defs>
 
             <CartesianGrid
+              stroke="#334155"
               vertical={false}
-              stroke="#F1F5F9"
             />
 
             <XAxis
               dataKey="name"
-              tick={{
-                fill: "#64748B",
-                fontSize: 13,
-              }}
-              tickLine={false}
-              axisLine={false}
+              stroke="#94A3B8"
             />
 
             <YAxis
-              domain={[0, 100]}
-              ticks={[0, 25, 50, 75, 100]}
-              tick={{
-                fill: "#64748B",
-                fontSize: 13,
-              }}
-              tickLine={false}
-              axisLine={false}
+              stroke="#94A3B8"
             />
 
             <Tooltip
@@ -135,24 +122,20 @@ export default function Charts({
             <Area
               type="monotone"
               dataKey="attendance"
-              stroke="none"
               fill="url(#attendanceGradient)"
+              stroke="none"
             />
 
             <Line
               type="monotone"
               dataKey="attendance"
-              stroke="#6D5DFC"
-              strokeWidth={3}
+              stroke="#06B6D4"
+              strokeWidth={4}
               dot={{
-                r: 6,
+                fill: "#06B6D4",
+                stroke: "#fff",
                 strokeWidth: 3,
-                stroke: "#ffffff",
-                fill: "#6D5DFC",
-              }}
-              activeDot={{
-                r: 8,
-                fill: "#6D5DFC",
+                r: 6,
               }}
             />
 
@@ -162,32 +145,37 @@ export default function Charts({
 
       </div>
 
-            {/* ================= Performance Card ================= */}
+      {/* Performance Chart */}
 
-      <div className="bg-white rounded-3xl shadow-lg border border-gray-100 p-6">
+      <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl p-6">
 
-        {/* Header */}
+        <div className="flex justify-between items-center mb-8">
 
-        <div className="flex items-center justify-between mb-6">
+          <div>
 
-          <h2 className="text-xl font-bold text-gray-800">
-            Performance Overview
-          </h2>
+            <h2 className="text-2xl font-bold text-white">
+              Student Performance
+            </h2>
+
+            <p className="text-slate-400 text-sm">
+              Top Performing Students
+            </p>
+
+          </div>
 
           <select
             className="
-              border
-              border-gray-200
-              rounded-xl
-              px-4
-              py-2
-              text-sm
-              outline-none
-              bg-white
-              shadow-sm
+            bg-[#111827]
+            border
+            border-slate-700
+            rounded-xl
+            px-4
+            py-2
+            text-white
+            outline-none
             "
           >
-            <option>All Classes</option>
+            <option>All Departments</option>
             <option>CSE</option>
             <option>IT</option>
             <option>ECE</option>
@@ -200,20 +188,13 @@ export default function Charts({
           width="100%"
           height={320}
         >
-          <BarChart
-            data={performanceData}
-            margin={{
-              top: 10,
-              right: 20,
-              left: -15,
-              bottom: 0,
-            }}
-          >
+
+          <BarChart data={performanceData}>
 
             <defs>
 
               <linearGradient
-                id="barGradient"
+                id="performanceGradient"
                 x1="0"
                 y1="0"
                 x2="0"
@@ -222,12 +203,12 @@ export default function Charts({
 
                 <stop
                   offset="0%"
-                  stopColor="#22C55E"
+                  stopColor="#3B82F6"
                 />
 
                 <stop
                   offset="100%"
-                  stopColor="#6EE7B7"
+                  stopColor="#06B6D4"
                 />
 
               </linearGradient>
@@ -235,42 +216,28 @@ export default function Charts({
             </defs>
 
             <CartesianGrid
+              stroke="#334155"
               vertical={false}
-              stroke="#F1F5F9"
             />
 
             <XAxis
               dataKey="name"
-              tick={{
-                fill: "#64748B",
-                fontSize: 12,
-              }}
-              tickLine={false}
-              axisLine={false}
+              stroke="#94A3B8"
             />
 
             <YAxis
-              domain={[0, 100]}
-              ticks={[0, 25, 50, 75, 100]}
-              tick={{
-                fill: "#64748B",
-                fontSize: 13,
-              }}
-              tickLine={false}
-              axisLine={false}
+              stroke="#94A3B8"
             />
 
             <Tooltip
-              cursor={{
-                fill: "#F8FAFC",
-              }}
+              content={<CustomTooltip />}
             />
 
             <Bar
               dataKey="score"
-              fill="url(#barGradient)"
-              radius={[8, 8, 0, 0]}
-              barSize={48}
+              fill="url(#performanceGradient)"
+              radius={[12,12,0,0]}
+              barSize={45}
             />
 
           </BarChart>

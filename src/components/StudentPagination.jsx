@@ -1,24 +1,25 @@
 import React from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+} from "lucide-react";
 
-const StudentPagination = ({
+export default function StudentPagination({
   currentPage,
   totalPages,
   onPageChange,
-}) => {
+}) {
   if (totalPages <= 1) return null;
 
   const getPages = () => {
     const pages = [];
 
-    // Always show first page
     pages.push(1);
 
-    // Left dots
     if (currentPage > 3) {
       pages.push("...");
     }
 
-    // Middle pages
     for (
       let i = Math.max(2, currentPage - 1);
       i <= Math.min(totalPages - 1, currentPage + 1);
@@ -27,12 +28,10 @@ const StudentPagination = ({
       pages.push(i);
     }
 
-    // Right dots
     if (currentPage < totalPages - 2) {
       pages.push("...");
     }
 
-    // Always show last page
     if (totalPages > 1) {
       pages.push(totalPages);
     }
@@ -41,69 +40,91 @@ const StudentPagination = ({
   };
 
   return (
-    <div className="flex flex-col md:flex-row items-center justify-between mt-6 gap-4">
-      {/* Page Info */}
-      <div className="text-sm text-gray-600">
-        Page <span className="font-semibold">{currentPage}</span> of{" "}
-        <span className="font-semibold">{totalPages}</span>
-      </div>
+    <div className="mt-8 bg-[#1E293B] border border-slate-700 rounded-2xl px-6 py-4 shadow-xl">
 
-      {/* Pagination */}
-      <div className="flex items-center gap-2">
-        {/* Previous */}
-        <button
-          onClick={() => onPageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-          className={`px-4 py-2 rounded-lg border font-medium transition
-            ${
+      <div className="flex flex-col lg:flex-row justify-between items-center gap-5">
+
+        {/* Page Info */}
+
+        <div className="text-slate-400 text-sm">
+
+          Showing Page
+
+          <span className="mx-2 px-3 py-1 rounded-lg bg-cyan-500/20 text-cyan-400 font-semibold">
+            {currentPage}
+          </span>
+
+          of
+
+          <span className="mx-2 px-3 py-1 rounded-lg bg-blue-500/20 text-blue-400 font-semibold">
+            {totalPages}
+          </span>
+
+        </div>
+
+        {/* Pagination */}
+
+        <div className="flex items-center gap-2">
+
+          {/* Previous */}
+
+          <button
+            onClick={() => onPageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
               currentPage === 1
-                ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                : "bg-white hover:bg-indigo-50 border-indigo-200 text-indigo-600"
+                ? "bg-slate-800 text-slate-600 cursor-not-allowed"
+                : "bg-[#111827] border border-slate-700 text-cyan-400 hover:bg-cyan-500 hover:text-white hover:scale-105"
             }`}
-        >
-          Previous
-        </button>
+          >
+            <ChevronLeft size={18} />
+            Previous
+          </button>
 
-        {getPages().map((page, index) =>
-          page === "..." ? (
-            <span
-              key={index}
-              className="px-2 text-gray-500 font-semibold"
-            >
-              ...
-            </span>
-          ) : (
-            <button
-              key={page}
-              onClick={() => onPageChange(page)}
-              className={`w-10 h-10 rounded-lg font-medium transition
-                ${
+          {/* Page Numbers */}
+
+          {getPages().map((page, index) =>
+            page === "..." ? (
+              <span
+                key={index}
+                className="text-slate-500 px-2 font-bold"
+              >
+                ...
+              </span>
+            ) : (
+              <button
+                key={page}
+                onClick={() => onPageChange(page)}
+                className={`w-11 h-11 rounded-xl font-semibold transition-all duration-300 ${
                   currentPage === page
-                    ? "bg-indigo-600 text-white"
-                    : "bg-white border border-gray-300 hover:bg-indigo-50"
+                    ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg shadow-cyan-500/30 scale-105"
+                    : "bg-[#111827] border border-slate-700 text-slate-300 hover:bg-cyan-500 hover:text-white hover:scale-105"
                 }`}
-            >
-              {page}
-            </button>
-          )
-        )}
+              >
+                {page}
+              </button>
+            )
+          )}
 
-        {/* Next */}
-        <button
-          onClick={() => onPageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-          className={`px-4 py-2 rounded-lg border font-medium transition
-            ${
+          {/* Next */}
+
+          <button
+            onClick={() => onPageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl font-medium transition-all duration-300 ${
               currentPage === totalPages
-                ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                : "bg-white hover:bg-indigo-50 border-indigo-200 text-indigo-600"
+                ? "bg-slate-800 text-slate-600 cursor-not-allowed"
+                : "bg-[#111827] border border-slate-700 text-cyan-400 hover:bg-cyan-500 hover:text-white hover:scale-105"
             }`}
-        >
-          Next
-        </button>
+          >
+            Next
+            <ChevronRight size={18} />
+          </button>
+
+        </div>
+
       </div>
+
     </div>
   );
-};
-
-export default StudentPagination;
+}

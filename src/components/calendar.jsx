@@ -2,6 +2,11 @@ import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
+import {
+  FaCalendarAlt,
+  FaClock,
+} from "react-icons/fa";
+
 import events from "./events";
 
 export default function CalendarCard() {
@@ -9,86 +14,135 @@ export default function CalendarCard() {
   const [time, setTime] = useState(new Date());
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timer = setInterval(() => {
       setTime(new Date());
     }, 1000);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(timer);
   }, []);
 
   return (
-    <div className="bg-white rounded-3xl shadow-xl p-6 h-full">
+    <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl p-6">
 
-      {/* Heading */}
-      <div className="flex justify-center mb-5">
-        <h2 className="text-xl font-bold bg-blue-100 text-blue-700 px-5 py-2 rounded-full">
-           Calendar
-        </h2>
+      {/* Header */}
+
+      <div className="flex items-center justify-between mb-6">
+
+        <div>
+
+          <h2 className="text-2xl font-bold text-white">
+            Calendar
+          </h2>
+
+          <p className="text-slate-400 text-sm">
+            Schedule & Events
+          </p>
+
+        </div>
+
+        <div className="w-12 h-12 rounded-2xl bg-cyan-500/20 flex items-center justify-center">
+
+          <FaCalendarAlt className="text-cyan-400 text-xl" />
+
+        </div>
+
       </div>
 
       {/* Date */}
-      <div className="text-center mb-3">
 
-        <h1 className="text-4xl font-bold text-blue-600">
+      <div className="bg-[#111827] rounded-2xl p-5 border border-slate-700 text-center">
+
+        <h1 className="text-5xl font-bold text-cyan-400">
+
           {time.toLocaleDateString("en-IN", {
             day: "2-digit",
             month: "short",
           })}
+
         </h1>
 
-        <p className="text-gray-500">
+        <p className="text-slate-400 mt-2">
+
           {time.toLocaleDateString("en-IN", {
             weekday: "long",
             year: "numeric",
           })}
+
         </p>
 
       </div>
 
       {/* Time */}
-      <div className="text-center mb-5">
 
-        <h2 className="text-3xl font-bold text-green-600">
+      <div className="bg-[#111827] rounded-2xl p-4 mt-5 border border-slate-700 flex items-center justify-center gap-3">
+
+        <FaClock className="text-cyan-400" />
+
+        <h2 className="text-2xl font-bold text-white">
+
           {time.toLocaleTimeString()}
+
         </h2>
 
       </div>
 
       {/* Calendar */}
-      <Calendar
-        onChange={setDate}
-        value={date}
-      />
 
-      {/* Upcoming Events */}
-      <div className="mt-6">
+      <div className="mt-6 calendar-dark">
 
-        <h3 className="text-lg font-bold text-gray-700 mb-3">
+        <Calendar
+          onChange={setDate}
+          value={date}
+        />
+
+      </div>
+
+      {/* Events */}
+
+      <div className="mt-8">
+
+        <h3 className="text-xl font-semibold text-white mb-4">
           Upcoming Events
         </h3>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
 
           {events.map((event) => (
 
             <div
               key={event.id}
-              className="flex items-center bg-gray-50 rounded-xl p-3 hover:bg-gray-100 transition"
+              className="flex items-center justify-between bg-[#111827] border border-slate-700 rounded-2xl p-4 hover:border-cyan-500 transition"
             >
 
-              <div
-                className={`w-3 h-3 rounded-full mr-3 ${event.color}`}
-              ></div>
+              <div className="flex items-center gap-3">
 
-              <div>
+                <div
+                  className={`w-3 h-3 rounded-full ${event.color}`}
+                />
 
-                <h4 className="font-semibold">
-                  {event.title}
-                </h4>
+                <div>
 
-                <p className="text-sm text-gray-500">
-                  {event.date}
-                </p>
+                  <div className="flex justify-between items-center w-full">
+
+  <div>
+
+    <h4 className="text-white font-semibold">
+      {event.title}
+    </h4>
+
+    <p className="text-slate-400 text-sm">
+      {event.date}
+    </p>
+
+  </div>
+
+  <span className="px-3 py-1 rounded-full bg-slate-700 text-cyan-400 text-xs font-semibold">
+    {event.type}
+  </span>
+
+</div>
+
+                </div>
 
               </div>
 
