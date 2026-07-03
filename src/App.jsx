@@ -19,7 +19,8 @@ import Login from "./pages/login";
 import students from "./students/students.json";
 
 export default function App() {
-
+const isLoggedIn =
+  localStorage.getItem("isLoggedIn") === "true";
   const [sidebarOpen, setSidebarOpen] = useState(true);
 const attendanceData = [
   { name: "Mon", attendance: 62 },
