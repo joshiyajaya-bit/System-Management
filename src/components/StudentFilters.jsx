@@ -1,4 +1,5 @@
 import React from "react";
+import { Search, RotateCcw } from "lucide-react";
 
 const StudentFilters = ({
   searchTerm,
@@ -18,34 +19,42 @@ const StudentFilters = ({
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-md p-5 mb-6">
-      <div className="flex flex-col lg:flex-row gap-4">
+    <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
 
         {/* Search */}
-        <div className="flex-1">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+        <div className="lg:col-span-2">
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
             Search Student
           </label>
 
-          <input
-            type="text"
-            placeholder="Search by Name, Email or Phone..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          />
+          <div className="relative">
+            <Search
+              size={18}
+              className="absolute left-3 top-3 text-gray-400"
+            />
+
+            <input
+              type="text"
+              placeholder="Search by Name, Email or Phone..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full border rounded-xl pl-10 pr-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            />
+          </div>
         </div>
 
         {/* Department */}
-        <div className="w-full lg:w-52">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
             Department
           </label>
 
           <select
             value={department}
             onChange={(e) => setDepartment(e.target.value)}
-            className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            className="w-full border rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           >
             <option value="">All Departments</option>
             <option value="CSE">CSE</option>
@@ -58,15 +67,15 @@ const StudentFilters = ({
         </div>
 
         {/* Year */}
-        <div className="w-full lg:w-40">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
             Year
           </label>
 
           <select
             value={year}
             onChange={(e) => setYear(e.target.value)}
-            className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            className="w-full border rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           >
             <option value="">All Years</option>
             <option value="1">1st Year</option>
@@ -76,34 +85,38 @@ const StudentFilters = ({
           </select>
         </div>
 
-        {/* Status */}
-        <div className="w-full lg:w-44">
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Status
+        {/* Fee Status */}
+        <div>
+          <label className="block text-sm font-semibold text-gray-700 mb-2">
+            Fee Status
           </label>
 
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            className="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            className="w-full border rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
           >
-            <option value="">All Status</option>
-            <option value="Active">Active</option>
-            <option value="Inactive">Inactive</option>
+            <option value="">All</option>
+            <option value="Paid">Paid</option>
+            <option value="Pending">Pending</option>
           </select>
         </div>
 
-        {/* Reset Button */}
-        <div className="flex items-end">
-          <button
-            onClick={handleReset}
-            className="w-full lg:w-auto bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded-lg transition"
-          >
-            Reset
-          </button>
-        </div>
+      </div>
+
+      {/* Reset Button */}
+      <div className="flex justify-end mt-5">
+
+        <button
+          onClick={handleReset}
+          className="flex items-center gap-2 bg-red-500 hover:bg-red-600 text-white px-5 py-2.5 rounded-xl transition"
+        >
+          <RotateCcw size={18} />
+          Reset Filters
+        </button>
 
       </div>
+
     </div>
   );
 };

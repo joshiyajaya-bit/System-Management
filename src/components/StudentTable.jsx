@@ -1,11 +1,5 @@
-// StudentTable.jsx
-
 import React from "react";
-import {
-  Eye,
-  Pencil,
-  Trash2,
-} from "lucide-react";
+import { Eye, Pencil, Trash2 } from "lucide-react";
 
 const StudentTable = ({
   students,
@@ -17,17 +11,18 @@ const StudentTable = ({
     <div className="bg-white rounded-xl shadow-md overflow-hidden">
       <div className="overflow-x-auto">
         <table className="min-w-full">
+
           {/* Table Header */}
           <thead className="bg-indigo-600 text-white">
             <tr>
-              <th className="px-4 py-3 text-left">Student</th>
+              <th className="px-4 py-3 text-left">Student ID</th>
+              <th className="px-4 py-3 text-left">Name</th>
               <th className="px-4 py-3 text-left">Email</th>
               <th className="px-4 py-3 text-left">Phone</th>
               <th className="px-4 py-3 text-left">Department</th>
               <th className="px-4 py-3 text-left">Year</th>
               <th className="px-4 py-3 text-left">Gender</th>
-              <th className="px-4 py-3 text-left">DOB</th>
-              <th className="px-4 py-3 text-center">Status</th>
+              <th className="px-4 py-3 text-center">Fee Status</th>
               <th className="px-4 py-3 text-center">Actions</th>
             </tr>
           </thead>
@@ -35,63 +30,63 @@ const StudentTable = ({
           {/* Table Body */}
           <tbody>
             {students.length > 0 ? (
-              students.map((student) => (
+              students.map((student, index) => (
                 <tr
-                  key={student.id}
+                  key={student["Student ID"] || index}
                   className="border-b hover:bg-gray-50 transition"
                 >
+                  {/* Student ID */}
+                  <td className="px-4 py-3 font-medium">
+                    {student["Student ID"]}
+                  </td>
+
                   {/* Name */}
-                  <td className="px-4 py-3 font-medium text-gray-700">
-                    {student.name}
+                  <td className="px-4 py-3">
+                    {student["Full Name"]}
                   </td>
 
                   {/* Email */}
                   <td className="px-4 py-3">
-                    {student.email}
+                    {student.Email}
                   </td>
 
                   {/* Phone */}
                   <td className="px-4 py-3">
-                    {student.phone}
+                    {student.Phone}
                   </td>
 
                   {/* Department */}
                   <td className="px-4 py-3">
-                    {student.dept}
+                    {student.Department}
                   </td>
 
                   {/* Year */}
                   <td className="px-4 py-3">
-                    {student.year}
+                    {student.Year}
                   </td>
 
                   {/* Gender */}
                   <td className="px-4 py-3">
-                    {student.gender}
+                    {student.Gender}
                   </td>
 
-                  {/* DOB */}
-                  <td className="px-4 py-3">
-                    {student.dob}
-                  </td>
-
-                  {/* Status */}
+                  {/* Fee Status */}
                   <td className="px-4 py-3 text-center">
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        student.status === "Active"
+                        student["Fee Status"] === "Paid"
                           ? "bg-green-100 text-green-700"
-                          : "bg-red-100 text-red-600"
+                          : "bg-red-100 text-red-700"
                       }`}
                     >
-                      {student.status}
+                      {student["Fee Status"]}
                     </span>
                   </td>
 
                   {/* Actions */}
                   <td className="px-4 py-3">
                     <div className="flex justify-center gap-2">
-                      {/* View */}
+
                       <button
                         onClick={() => onView(student)}
                         className="bg-blue-500 hover:bg-blue-600 text-white p-2 rounded-lg transition"
@@ -99,7 +94,6 @@ const StudentTable = ({
                         <Eye size={18} />
                       </button>
 
-                      {/* Edit */}
                       <button
                         onClick={() => onEdit(student)}
                         className="bg-yellow-500 hover:bg-yellow-600 text-white p-2 rounded-lg transition"
@@ -107,13 +101,15 @@ const StudentTable = ({
                         <Pencil size={18} />
                       </button>
 
-                      {/* Delete */}
                       <button
-                        onClick={() => onDelete(student.id)}
+                        onClick={() =>
+                          onDelete(student["Student ID"])
+                        }
                         className="bg-red-500 hover:bg-red-600 text-white p-2 rounded-lg transition"
                       >
                         <Trash2 size={18} />
                       </button>
+
                     </div>
                   </td>
                 </tr>
@@ -129,6 +125,7 @@ const StudentTable = ({
               </tr>
             )}
           </tbody>
+
         </table>
       </div>
     </div>

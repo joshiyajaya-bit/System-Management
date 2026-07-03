@@ -33,20 +33,18 @@ export default function StudentForm({ onAddStudent }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    if (
-      !student.id ||
-      !student.name ||
-      !student.email ||
-      !student.phone ||
-      !student.department ||
-      !student.year ||
-      !student.gender ||
-      !student.dob
-    ) {
-      alert("Please fill all fields.");
-      return;
-    }
+ if (
+    !student["Student ID"] ||
+    !student["Full Name"] ||
+    !student.Email ||
+    !student.Phone ||
+    !student.Department ||
+    !student.Year ||
+    !student.Gender
+  ) {
+    alert("Please fill all fields.");
+    return;
+  }
 
     if (onAddStudent) {
       onAddStudent(student);
@@ -88,8 +86,8 @@ export default function StudentForm({ onAddStudent }) {
 
               <input
                 type="text"
-                name="id"
-                value={student.id}
+                name="Student ID"
+value={student["Student ID"]}
                 onChange={handleChange}
                 placeholder="ST001"
                 className="w-full border rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
@@ -109,8 +107,8 @@ export default function StudentForm({ onAddStudent }) {
 
               <input
                 type="text"
-                name="name"
-                value={student.name}
+               name="Full Name"
+value={student["Full Name"]}
                 onChange={handleChange}
                 placeholder="Rahul Kumar"
                 className="w-full border rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
@@ -130,8 +128,8 @@ export default function StudentForm({ onAddStudent }) {
 
               <input
                 type="email"
-                name="email"
-                value={student.email}
+               name="Email"
+value={student.Email}
                 onChange={handleChange}
                 placeholder="student@gmail.com"
                 className="w-full border rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-green-500 outline-none"
@@ -151,8 +149,8 @@ export default function StudentForm({ onAddStudent }) {
 
               <input
                 type="text"
-                name="phone"
-                value={student.phone}
+                name="Phone"
+value={student.Phone}
                 onChange={handleChange}
                 placeholder="9876543210"
                 className="w-full border rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-cyan-500 outline-none"
@@ -171,8 +169,8 @@ export default function StudentForm({ onAddStudent }) {
               <FaBuilding className="absolute left-4 top-4 text-orange-500" />
 
               <select
-                name="department"
-                value={student.department}
+             name="Department"
+value={student.Department}
                 onChange={handleChange}
                 className="w-full border rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-orange-500 outline-none"
               >
@@ -196,18 +194,41 @@ export default function StudentForm({ onAddStudent }) {
             </label>
 
             <select
-              name="year"
-              value={student.year}
+            name="Year"
+value={student.Year}
               onChange={handleChange}
               className="w-full mt-2 border rounded-xl px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
             >
-              <option value="">Select Year</option>
-              <option>I Year</option>
-              <option>II Year</option>
-              <option>III Year</option>
-              <option>IV Year</option>
+             <option value="">Select Year</option>
+<option value="1">1st Year</option>
+<option value="2">2nd Year</option>
+<option value="3">3rd Year</option>
+<option value="4">4th Year</option>
             </select>
           </div>
+
+          <div>
+  <label className="font-semibold text-gray-700">
+    Semester
+  </label>
+
+  <select
+    name="Semester"
+    value={student.Semester}
+    onChange={handleChange}
+    className="w-full mt-2 border rounded-xl px-4 py-3"
+  >
+    <option value="">Select Semester</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+  </select>
+</div>
 
           {/* Gender */}
 
@@ -220,8 +241,8 @@ export default function StudentForm({ onAddStudent }) {
               <FaTransgender className="absolute left-4 top-4 text-pink-500" />
 
               <select
-                name="gender"
-                value={student.gender}
+                name="Gender"
+value={student.Gender}
                 onChange={handleChange}
                 className="w-full border rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-pink-500 outline-none"
               >
@@ -233,49 +254,57 @@ export default function StudentForm({ onAddStudent }) {
             </div>
           </div>
 
-          {/* DOB */}
-
-          <div>
-            <label className="font-semibold text-gray-700">
-              Date of Birth
-            </label>
-
-            <div className="relative mt-2">
-              <FaCalendarAlt className="absolute left-4 top-4 text-red-500" />
-
-              <input
-                type="date"
-                name="dob"
-                value={student.dob}
-                onChange={handleChange}
-                className="w-full border rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-red-500 outline-none"
-              />
-            </div>
-          </div>
-
+         
           {/* Status */}
 
           <div>
             <label className="font-semibold text-gray-700">
-              Status
+               Fee Status
             </label>
 
             <div className="relative mt-2">
               <FaCheckCircle className="absolute left-4 top-4 text-green-500" />
 
               <select
-                name="status"
-                value={student.status}
+                name="Fee Status"
                 onChange={handleChange}
                 className="w-full border rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-green-500 outline-none"
               >
-                <option>Active</option>
-                <option>Inactive</option>
+                <option value="Paid">Paid</option>
+<option value="Pending">Pending</option>
               </select>
             </div>
           </div>
 
         </div>
+
+        <div>
+  <label className="font-semibold">
+    Attendance (%)
+  </label>
+
+  <input
+    type="number"
+    name="Attendance (%)"
+    value={student["Attendance (%)"]}
+    onChange={handleChange}
+    className="w-full border rounded-xl px-4 py-3 mt-2"
+  />
+</div>
+
+<div>
+  <label className="font-semibold">
+    Marks (%)
+  </label>
+
+  <input
+    type="number"
+    name="Marks (%)"
+    value={student["Marks (%)"]}
+    onChange={handleChange}
+    className="w-full border rounded-xl px-4 py-3 mt-2"
+  />
+</div>
 
         {/* Buttons */}
 

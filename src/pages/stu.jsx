@@ -26,76 +26,80 @@ export default function Students() {
 
   // Add Student
   const handleAddStudent = (student) => {
-    setStudents([
-      {
-        ...student,
-        id: Date.now(),
-      },
-      ...students,
-    ]);
+    setStudents([student, ...students]);
   };
 
-  // View Student
+  // View
   const handleView = (student) => {
     setSelectedStudent(student);
     setMode("view");
     setModalOpen(true);
   };
 
-  // Edit Student
+  // Edit
   const handleEdit = (student) => {
     setSelectedStudent(student);
     setMode("edit");
     setModalOpen(true);
   };
 
-  // Save Student
+  // Save
   const handleSave = (updatedStudent) => {
     setStudents(
       students.map((student) =>
-        student.id === updatedStudent.id
+        student["Student ID"] === updatedStudent["Student ID"]
           ? updatedStudent
           : student
       )
     );
   };
 
-  // Delete Student
-  const handleDelete = (id) => {
+  // Delete
+  const handleDelete = (studentId) => {
     if (window.confirm("Delete this student?")) {
       setStudents(
-        students.filter((student) => student.id !== id)
+        students.filter(
+          (student) =>
+            student["Student ID"] !== studentId
+        )
       );
     }
   };
 
-  // Filtering
+  // Search & Filter
   const filteredStudents = students.filter((student) => {
 
-    const search =
-      student.name
+    const matchesSearch =
+      student["Full Name"]
         ?.toLowerCase()
         .includes(searchTerm.toLowerCase()) ||
-      student.email
-        ?.toLowerCase()
-        .includes(searchTerm.toLowerCase()) ||
-      student.phone
-        ?.includes(searchTerm);
 
-    const dept =
+      student.Email
+        ?.toLowerCase()
+        .includes(searchTerm.toLowerCase()) ||
+
+      String(student.Phone)
+        .includes(searchTerm);
+
+    const matchesDepartment =
       department === "" ||
-      student.dept === department ||
-      student.department === department;
+      student.Department === department;
 
-    const yr =
+    const matchesYear =
       year === "" ||
-      String(student.year) === year;
+      String(student.Year) === String(year);
 
-    const sts =
+    const matchesStatus =
       status === "" ||
-      student.status === status;
+      student["Fee Status"] === status;
 
-    return search && dept && yr && sts;
+    return (
+      matchesSearch &&
+      matchesDepartment &&
+      matchesYear &&
+      matchesStatus
+    );
+
   });
 
   // Pagination
@@ -103,12 +107,13 @@ export default function Students() {
     filteredStudents.length / studentsPerPage
   );
 
-  const start = (currentPage - 1) * studentsPerPage;
+  const startIndex =
+    (currentPage - 1) * studentsPerPage;
 
   const currentStudents =
     filteredStudents.slice(
-      start,
-      start + studentsPerPage
+      startIndex,
+      startIndex + studentsPerPage
     );
 
   return (
