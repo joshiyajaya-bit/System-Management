@@ -4,20 +4,26 @@ import {
   FaChalkboardTeacher,
   FaBook,
   FaSignOutAlt,
-
 } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+
+import { NavLink, useNavigate } from "react-router-dom";
 
 function Sidebar() {
- const handleLogout = () => {
-  localStorage.removeItem("isLoggedIn");
-  navigate("/login");
-};
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Remove login information
+    localStorage.removeItem("isLoggedIn");
+
+    // Redirect to Login page
+    navigate("/login");
+  };
+
   const menuClass = ({ isActive }) =>
-    `flex items-center gap-4 px-6 py-4 mx-3 rounded-xl transition-all duration-300 ${isActive
-      ? "bg-blue-600 text-white shadow-lg"
-      : "text-gray-300 hover:bg-slate-800 hover:text-white"
+    `flex items-center gap-4 px-6 py-4 mx-3 rounded-xl transition-all duration-300 ${
+      isActive
+        ? "bg-blue-600 text-white shadow-lg"
+        : "text-gray-300 hover:bg-slate-800 hover:text-white"
     }`;
 
   return (
@@ -28,7 +34,7 @@ function Sidebar() {
         <h1 className="text-3xl font-bold">JKNS</h1>
       </div>
 
-      {/* Menu */}
+      {/* Navigation */}
       <nav className="flex-1 py-6">
         <ul className="space-y-2">
 
@@ -63,27 +69,16 @@ function Sidebar() {
         </ul>
       </nav>
 
-      {/* Bottom */}
-    <button
-  onClick={handleLogout}
-  className="
-    w-full
-    flex
-    items-center
-    justify-center
-    gap-3
-    bg-red-600
-    hover:bg-red-700
-    py-3
-    rounded-xl
-    font-semibold
-  "
->
-  <FaSignOutAlt />
-  Logout
-</button>
-
-
+      {/* Logout */}
+      <div className="p-4 border-t border-slate-700">
+        <button
+          onClick={handleLogout}
+          className="w-full flex items-center justify-center gap-3 bg-red-600 hover:bg-red-700 py-3 rounded-xl font-semibold transition duration-300"
+        >
+          <FaSignOutAlt />
+          Logout
+        </button>
+      </div>
 
     </aside>
   );
