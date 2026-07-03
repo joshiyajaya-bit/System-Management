@@ -119,9 +119,6 @@ export default function Students() {
           Student Management
         </h1>
 
-        <p className="text-gray-500">
-          Add, Search, Edit and Manage Students
-        </p>
       </div>
 
       {/* Form */}

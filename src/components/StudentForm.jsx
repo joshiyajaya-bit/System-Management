@@ -11,18 +11,20 @@ import {
 
 export default function StudentForm({ onAddStudent }) {
   const initialState = {
-    id: "",
-    name: "",
-    email: "",
-    phone: "",
-    department: "",
-    year: "",
-    gender: "",
-    dob: "",
-    status: "Active",
-  };
+  "Student ID": "",
+  "Full Name": "",
+  Email: "",
+  Phone: "",
+  Department: "",
+  Year: "",
+  Semester: "",
+  Gender: "",
+  "Fee Status": "Paid",
+  "Attendance (%)": "",
+  "Marks (%)": "",
+};
 
-  const [student, setStudent] = useState(initialState);
+ const [student, setStudent] = useState({ ...initialState });
 
   const handleChange = (e) => {
     setStudent({
@@ -31,8 +33,13 @@ export default function StudentForm({ onAddStudent }) {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+const handleReset = () => {
+  setStudent({ ...initialState });
+};
+
+
+const handleSubmit = (e) => {
+  e.preventDefault();
  if (
     !student["Student ID"] ||
     !student["Full Name"] ||
@@ -52,7 +59,7 @@ export default function StudentForm({ onAddStudent }) {
 
     alert("Student Added Successfully!");
 
-    setStudent(initialState);
+    handleReset();
   };
 
   return (
@@ -214,7 +221,7 @@ value={student.Year}
 
   <select
     name="Semester"
-    value={student.Semester}
+   value={student.Semester || ""}
     onChange={handleChange}
     className="w-full mt-2 border rounded-xl px-4 py-3"
   >
@@ -265,9 +272,10 @@ value={student.Gender}
             <div className="relative mt-2">
               <FaCheckCircle className="absolute left-4 top-4 text-green-500" />
 
-              <select
-                name="Fee Status"
-                onChange={handleChange}
+             <select
+name="Fee Status"
+value={student["Fee Status"]}
+onChange={handleChange}
                 className="w-full border rounded-xl pl-12 pr-4 py-3 focus:ring-2 focus:ring-green-500 outline-none"
               >
                 <option value="Paid">Paid</option>
@@ -286,7 +294,7 @@ value={student.Gender}
   <input
     type="number"
     name="Attendance (%)"
-    value={student["Attendance (%)"]}
+   value={student["Attendance (%)"] || ""}
     onChange={handleChange}
     className="w-full border rounded-xl px-4 py-3 mt-2"
   />
@@ -300,7 +308,7 @@ value={student.Gender}
   <input
     type="number"
     name="Marks (%)"
-    value={student["Marks (%)"]}
+    value={student["Marks (%)"] || ""}
     onChange={handleChange}
     className="w-full border rounded-xl px-4 py-3 mt-2"
   />
@@ -311,12 +319,12 @@ value={student.Gender}
         <div className="mt-10 flex justify-end gap-4">
 
           <button
-            type="reset"
-            onClick={() => setStudent(initialState)}
-            className="px-6 py-3 rounded-xl border border-gray-300 hover:bg-gray-100 transition"
-          >
-            Reset
-          </button>
+  type="button"
+  onClick={handleReset}
+  className="px-6 py-3 rounded-xl border border-gray-300 hover:bg-gray-100 transition"
+>
+  Reset
+</button>
 
           <button
             type="submit"
