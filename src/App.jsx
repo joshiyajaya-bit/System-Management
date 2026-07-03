@@ -63,31 +63,25 @@ const performanceData = [
               element={
                 <>
                   {/* Cards */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+                  <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+    <AttendanceOverview />
+    <TeacherAttendanceOverview />
+    <FeeOverview />
+    <Card title="Courses" value="24" />
+</div>
 
-                    <AttendanceOverview />
+<div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
 
-                    <TeacherAttendanceOverview />
+    <div className="lg:col-span-2">
+        <Charts
+            attendanceData={attendanceData}
+            performanceData={performanceData}
+        />
+    </div>
 
-                    <FeeOverview />
+    <Calendar />
 
-                  </div>
-
-                  {/* Charts + Calendar */}
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
-
-                   <div className="lg:col-span-2 bg-white rounded-3xl shadow-xl p-8">
-
-                      <Charts
-                        attendanceData={attendanceData}
-                        performanceData={performanceData}
-                      />
-
-                    </div>
-
-                    <Calendar />
-
-                  </div>
+</div>
                 </>
               }
             />
