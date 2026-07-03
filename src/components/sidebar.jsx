@@ -4,16 +4,20 @@ import {
   FaChalkboardTeacher,
   FaBook,
   FaSignOutAlt,
-  
+
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Sidebar() {
+ const handleLogout = () => {
+  localStorage.removeItem("isLoggedIn");
+  navigate("/login");
+};
   const menuClass = ({ isActive }) =>
-    `flex items-center gap-4 px-6 py-4 mx-3 rounded-xl transition-all duration-300 ${
-      isActive
-        ? "bg-blue-600 text-white shadow-lg"
-        : "text-gray-300 hover:bg-slate-800 hover:text-white"
+    `flex items-center gap-4 px-6 py-4 mx-3 rounded-xl transition-all duration-300 ${isActive
+      ? "bg-blue-600 text-white shadow-lg"
+      : "text-gray-300 hover:bg-slate-800 hover:text-white"
     }`;
 
   return (
@@ -60,16 +64,26 @@ function Sidebar() {
       </nav>
 
       {/* Bottom */}
-      <div className="border-t border-slate-700 p-5">
+    <button
+  onClick={handleLogout}
+  className="
+    w-full
+    flex
+    items-center
+    justify-center
+    gap-3
+    bg-red-600
+    hover:bg-red-700
+    py-3
+    rounded-xl
+    font-semibold
+  "
+>
+  <FaSignOutAlt />
+  Logout
+</button>
 
-       
 
-        <button className="w-full flex items-center justify-center gap-3 py-3 rounded-xl bg-white-600 hover:bg-red-700 transition">
-          <FaSignOutAlt />
-          Logout
-        </button>
-
-      </div>
 
     </aside>
   );
