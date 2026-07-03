@@ -19,9 +19,11 @@ import Login from "./pages/login";
 import students from "./students/students.json";
 
 export default function App() {
-const isLoggedIn =
-  localStorage.getItem("isLoggedIn") === "true";
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+
+if (!isLoggedIn) {
+  return <Navigate to="/login" replace />;
+}
 const attendanceData = [
   { name: "Mon", attendance: 62 },
   { name: "Tue", attendance: 72 },

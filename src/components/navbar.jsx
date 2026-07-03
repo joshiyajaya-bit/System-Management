@@ -7,6 +7,12 @@ import {
 import logo from "../assets/jkns-logo.png";
 
 function Navbar() {
+const username =
+  localStorage.getItem("username");
+
+const role =
+  localStorage.getItem("role");
+
   return (
    <header className="sticky top-0 z-40 h-20 bg-white border-b border-gray-200 flex items-center justify-between px-8 shadow-sm">
       {/* Left */}
