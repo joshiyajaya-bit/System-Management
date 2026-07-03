@@ -50,7 +50,7 @@ export default function Dashboard() {
       </div>
 
       {/* Charts */}
-      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
         <div className="xl:col-span-2">
           <Charts
             attendanceData={attendanceData}

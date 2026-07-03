@@ -63,9 +63,9 @@ export default function TeacherAttendanceOverview() {
 
         {/* Chart */}
 
-        <div className="w-[170px] flex justify-center shrink-0">
+       <div className="w-[42%] flex items-center justify-center">
 
-          <div className="relative w-[160px] h-[160px]">
+          <div className="relative w-[220px] h-[220px]">
 
             <ResponsiveContainer width="100%" height="100%">
 
@@ -75,8 +75,8 @@ export default function TeacherAttendanceOverview() {
                   data={data}
                   dataKey="value"
                   nameKey="name"
-                  innerRadius={48}
-                  outerRadius={72}
+                  innerRadius={70}
+outerRadius={100}
                   paddingAngle={3}
                   stroke="#1E293B"
                   strokeWidth={3}
@@ -106,13 +106,17 @@ export default function TeacherAttendanceOverview() {
 
             <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none">
 
-              <h2 className="text-white font-bold mt-2 text-xl">
-                Teachers
-              </h2>
+             <h2 className="text-4xl font-bold text-white">
+92%
+</h2>
 
-              <p className="text-slate-400 text-sm">
-                Performance
-              </p>
+<p className="text-slate-400">
+Attendance
+</p>
+
+<p className="text-cyan-400 text-sm mt-1">
+Teachers
+</p>
 
             </div>
 

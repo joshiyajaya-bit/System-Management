@@ -12,10 +12,11 @@ import logo from "../assets/jkns-logo.png";
 export default function Sidebar() {
   const navigate = useNavigate();
 
-  const handleLogout = () => {
+const handleLogout = () => {
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("username");
   localStorage.removeItem("role");
+  localStorage.removeItem("rememberUser");
 
   navigate("/login", { replace: true });
 };

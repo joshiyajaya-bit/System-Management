@@ -21,40 +21,39 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
 
   const handleLogin = () => {
-    setError("");
+  setError("");
 
-    if (!username || !password) {
-      setError("Please enter username and password");
-      return;
-    }
+  if (!username.trim() || !password.trim()) {
+    setError("Please enter username and password");
+    return;
+  }
 
-    setLoading(true);
+  setLoading(true);
 
-    setTimeout(() => {
-      const user = users.find(
-        (u) =>
-          u.username === username &&
-          u.password === password
-      );
+  setTimeout(() => {
+    const user = users.find(
+      (u) =>
+        u.username === username.trim() &&
+        u.password === password.trim()
+    );
+if (user) {
+  localStorage.setItem("isLoggedIn", "true");
+  localStorage.setItem("username", user.username);
+  localStorage.setItem("role", user.role);
 
-      if (user) {
-        localStorage.setItem("isLoggedIn", "true");
-        localStorage.setItem("username", user.username);
-        localStorage.setItem("role", user.role);
+  if (remember) {
+    localStorage.setItem("rememberUser", username);
+  }
 
-        if (remember) {
-          localStorage.setItem("rememberUser", username);
-        }
+  navigate("/", { replace: true });
 
-        navigate("/");
-      } else {
-        setError("Invalid Username or Password");
-      }
+  return;
+}
 
-      setLoading(false);
-    }, 1000);
-  };
-
+setLoading(false);
+setError("Invalid Username or Password");
+  }, 1000);
+};
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-950 to-black flex items-center justify-center p-8">
 
@@ -66,9 +65,13 @@ export default function Login() {
       <div className="relative w-full max-w-6xl rounded-3xl overflow-hidden backdrop-blur-xl bg-white/5 border border-white/10 shadow-2xl grid lg:grid-cols-2">
 
         {/* Left Side */}
-
-        <div className="p-14 flex flex-col justify-center">
-
+<form
+  className="p-14 flex flex-col justify-center"
+  onSubmit={(e) => {
+    e.preventDefault();
+    handleLogin();
+  }}
+>
           <img
             src={logo}
             alt=""
@@ -171,17 +174,15 @@ export default function Login() {
             </div>
           )}
 
-          <button
-            onClick={handleLogin}
-            disabled={loading}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-[1.02] duration-300 text-white font-semibold shadow-xl"
-          >
-            {loading
-              ? "Signing In..."
-              : "Sign In"}
-          </button>
+      <button
+  type="submit"
+  disabled={loading}
+  className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:scale-[1.02] transition duration-300 text-white font-semibold shadow-xl disabled:opacity-60"
+>
+  {loading ? "Signing In..." : "Sign In"}
+</button>
 
-        </div>
+        </form>
 
         {/* Right Side */}
 
@@ -292,7 +293,7 @@ export default function Login() {
         </div>
 
       </div>
-
-    </div>
+</div>
+    
   );
 }

@@ -6,28 +6,28 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-
-
 import fees from "../students/fees.json";
 
-const COLORS = [
-  "#06B6D4",
-  "#3B82F6",
-];
+const COLORS = ["#06B6D4", "#3B82F6"];
+
 export default function FeeOverview() {
+  // ===============================
+  // Fee Calculations
+  // ===============================
+
   const totalStudents = fees.length;
 
   const paidStudents = fees.filter(
-    (s) => s.Status === "Paid"
+    (student) => student.Status === "Paid"
   ).length;
 
   const totalPaid = fees.reduce(
-    (sum, s) => sum + Number(s["Paid Amount"]),
+    (sum, student) => sum + Number(student["Paid Amount"]),
     0
   );
 
   const totalPending = fees.reduce(
-    (sum, s) => sum + Number(s["Pending Amount"]),
+    (sum, student) => sum + Number(student["Pending Amount"]),
     0
   );
 
@@ -43,16 +43,20 @@ export default function FeeOverview() {
   ];
 
   return (
-    <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl p-8 w-full min-h-[380px]">
+    <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl p-8 w-full h-[400px]">
 
-      <div className="flex h-full items-center gap-4">
+      <div className="flex h-full">
 
-        {/* Pie Chart */}
-        <div className="w-[140px] flex justify-center shrink-0">
+        {/* ============================
+             LEFT SIDE
+        ============================= */}
 
-          <div className="relative w-[130px] h-[130px]">
+        <div className="w-[42%] flex items-center justify-center">
+
+          <div className="relative w-[220px] h-[220px]">
 
             <ResponsiveContainer width="100%" height="100%">
+
               <PieChart>
 
                 <Pie
@@ -61,11 +65,11 @@ export default function FeeOverview() {
                   nameKey="name"
                   cx="50%"
                   cy="50%"
-                  innerRadius={42}
-                  outerRadius={62}
-                  paddingAngle={2}
-                  stroke="#fff"
-                  strokeWidth={3}
+                  innerRadius={72}
+                  outerRadius={100}
+                  paddingAngle={3}
+                  stroke="#ffffff"
+                  strokeWidth={4}
                 >
                   {data.map((entry, index) => (
                     <Cell
@@ -75,26 +79,16 @@ export default function FeeOverview() {
                   ))}
                 </Pie>
 
-           <Tooltip
-  contentStyle={{
-    background: "#111827",
-    border: "1px solid #334155",
-    borderRadius: "14px",
-    color: "#fff",
-  }}
-  formatter={(value, name) => {
-    const total = totalPaid + totalPending;
-
-    const percentage = (
-      (Number(value) / total) *
-      100
-    ).toFixed(1);
-
-    return [`${percentage}%`, name];
-  }}
-/>
+                <Tooltip
+                  contentStyle={{
+                    background: "#111827",
+                    border: "1px solid #334155",
+                    borderRadius: "12px",
+                    color: "#fff",
+                  }}
                   formatter={(value, name) => {
-                    const total = totalPaid + totalPending;
+                    const total =
+                      totalPaid + totalPending;
 
                     const percentage = (
                       (Number(value) / total) *
@@ -106,23 +100,29 @@ export default function FeeOverview() {
                       name,
                     ];
                   }}
-                
+                />
 
               </PieChart>
+
             </ResponsiveContainer>
 
-            {/* Center */}
+            {/* ============================
+                 CENTER CONTENT
+            ============================= */}
+
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
 
- 
+              <h2 className="text-4xl font-bold text-cyan-400">
+                ₹
+              </h2>
 
-<h2 className="text-xl font-bold text-white mt-2">
-  Fees
-</h2>
+              <h3 className="text-3xl font-bold text-white">
+                Fees
+              </h3>
 
-<p className="text-sm text-slate-400">
-  Collection
-</p>
+              <p className="text-slate-400 text-lg">
+                Collection
+              </p>
 
             </div>
 
@@ -130,82 +130,94 @@ export default function FeeOverview() {
 
         </div>
 
-        {/* Gradient Divider */}
-        <div className="w-[2px] rounded-full bg-slate-700"></div>
+        {/* Divider */}
 
-        {/* Right Side */}
-        <div className="flex-1 min-w-0 flex flex-col justify-between h-full">
+        <div className="w-px bg-slate-700 mx-5"></div>
 
-          {/* Paid */}
-         <div className="flex justify-between items-center gap-4 py-4">
+        {/* Right Side Starts Here */}
+        <div className="flex-1 flex flex-col justify-between">
+
+        </div>
+                  {/* =========================
+              Paid Section
+          ========================= */}
+
+          <div className="flex justify-between items-center py-2 gap-4">
 
             <div>
-              <h2 className="font-bold text-white text-lg">
-  Paid
-</h2>
 
-<p className="text-sm text-slate-400">
-  Fee Collected
-</p>
+              <h2 className="text-2xl font-bold text-white">
+                Paid
+              </h2>
 
-<h2 className="text-3xl font-bold text-cyan-400"></h2>
+              <p className="text-slate-400">
+                Fee Collected
+              </p>
+
             </div>
 
-           <h2 className="text-xl xl:text-2xl font-bold text-green-500 text-right break-all">
-  ₹{totalPaid.toLocaleString()}
-</h2>
+            <h2 className="text-4xl font-bold text-green-500 whitespace-nowrap">
+              ₹{(totalPaid / 100000).toFixed(2)}L
+            </h2>
+
           </div>
 
-      <div className="border-b border-slate-700"></div>
+          <div className="border-b border-slate-700 my-2"></div>
 
-          {/* Pending */}
-       <div className="flex justify-between items-center gap-4 py-4">
+          {/* =========================
+              Pending Section
+          ========================= */}
 
-  <div>
+          <div className="flex justify-between items-center py-2 gap-4">
 
-    <h2 className="font-bold text-white text-lg">
-      Pending
-    </h2>
+            <div>
 
-    <p className="text-sm text-slate-400">
-      Fee Balance
-    </p>
+              <h2 className="text-2xl font-bold text-white">
+                Pending
+              </h2>
 
-  </div>
+              <p className="text-slate-400">
+                Fee Balance
+              </p>
 
-  <h2 className="text-xl xl:text-2xl font-bold text-red-400 text-right break-all">
-  ₹{totalPending.toLocaleString()}
-</h2>
+            </div>
 
-</div>
+            <h2 className="text-4xl font-bold text-red-500 whitespace-nowrap">
+              ₹{(totalPending / 100000).toFixed(2)}L
+            </h2>
 
-        <div className="border-b border-slate-700"></div>
+          </div>
 
-          {/* Paid Students */}
-       <div className="flex justify-between items-center gap-4 py-4">
+          <div className="border-b border-slate-700 my-2"></div>
 
-  <div>
+          {/* =========================
+              Paid Students
+          ========================= */}
 
-    <h2 className="font-bold text-white text-lg">
-      Paid Students
-    </h2>
+          <div className="flex justify-between items-center py-2 gap-4">
 
-    <p className="text-sm text-slate-400">
-      {paidStudents} of {totalStudents} Students
-    </p>
+            <div>
 
-  </div>
+              <h2 className="text-2xl font-bold text-white">
+                Paid Students
+              </h2>
 
-  <h2 className="text-3xl font-bold text-cyan-400 whitespace-nowrap">
-    {paidStudents}
-  </h2>
+              <p className="text-slate-400">
+                {paidStudents} of {totalStudents} Students
+              </p>
 
-</div>
+            </div>
+
+            <h2 className="text-4xl font-bold text-cyan-400 whitespace-nowrap">
+              {paidStudents}
+            </h2>
+
+          </div>
 
         </div>
 
       </div>
 
-    </div>
+   
   );
 }

@@ -9,54 +9,60 @@ import Students from "./pages/stu";
 import Teachers from "./pages/teachers";
 import Courses from "./pages/courses";
 
+function ProtectedRoute({ children }) {
+  const isLoggedIn =
+    localStorage.getItem("isLoggedIn") === "true";
+
+  return isLoggedIn ? children : <Navigate to="/login" replace />;
+}
+
 export default function App() {
-  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-
-  // Login Page
-  if (!isLoggedIn) {
-    return (
-      <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="*" element={<Navigate to="/login" replace />} />
-      </Routes>
-    );
-  }
-
   return (
-    <div className="flex min-h-screen bg-[#0F172A]">
-      {/* Sidebar */}
-      <Sidebar />
+    <Routes>
+      {/* Login */}
+      <Route path="/login" element={<Login />} />
 
-      {/* Main Content */}
-      <div className="flex flex-col flex-1 ml-72">
-        {/* Navbar */}
-        <Navbar />
+      {/* Protected Layout */}
+      <Route
+        path="/*"
+        element={
+          <ProtectedRoute>
+            <div className="flex min-h-screen bg-[#0F172A]">
+              <Sidebar />
 
-        {/* Pages */}
-        <main className="flex-1 p-6 overflow-y-auto">
-          <Routes>
-            <Route path="/" element={<Dashboard />} />
+              <div className="flex flex-col flex-1 ml-72">
+                <Navbar />
 
-            <Route path="/students" element={<Students />} />
+                <main className="flex-1 p-6 overflow-y-auto">
+                  <Routes>
+                    <Route path="/" element={<Dashboard />} />
 
-            <Route path="/teachers" element={<Teachers />} />
+                    <Route
+                      path="/students"
+                      element={<Students />}
+                    />
 
-            <Route path="/courses" element={<Courses />} />
+                    <Route
+                      path="/teachers"
+                      element={<Teachers />}
+                    />
 
-            {/* Prevent opening login after login */}
-            <Route
-              path="/login"
-              element={<Navigate to="/" replace />}
-            />
+                    <Route
+                      path="/courses"
+                      element={<Courses />}
+                    />
 
-            {/* Unknown routes */}
-            <Route
-              path="*"
-              element={<Navigate to="/" replace />}
-            />
-          </Routes>
-        </main>
-      </div>
-    </div>
+                    <Route
+                      path="*"
+                      element={<Navigate to="/" replace />}
+                    />
+                  </Routes>
+                </main>
+              </div>
+            </div>
+          </ProtectedRoute>
+        }
+      />
+    </Routes>
   );
 }
