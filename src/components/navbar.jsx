@@ -55,23 +55,24 @@ const role =
         </button>
 
         {/* Profile */}
-        <div className="flex items-center gap-3">
+<div className="flex items-center gap-3">
 
-          <FaUserCircle className="text-4xl text-slate-700" />
+  <FaUserCircle className="text-4xl text-slate-700" />
 
-          <div>
+  <div>
 
-            <p className="font-semibold">
-              Admin
-            </p>
+    <p className="font-semibold">
+      {username || "Guest"}
+    </p>
 
-            <p className="text-sm text-gray-500">
-              Administrator
-            </p>
+    <p className="text-sm text-gray-500">
+      {role || "User"}
+    </p>
 
-          </div>
+  </div>
 
-        </div>
+</div>
+        
 
       </div>
 
