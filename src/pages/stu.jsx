@@ -27,23 +27,24 @@ export default function Students() {
   // Add Student
   const handleAddStudent = (student) => {
     setStudents([student, ...students]);
+    setCurrentPage(1);
   };
 
-  // View
+  // View Student
   const handleView = (student) => {
     setSelectedStudent(student);
     setMode("view");
     setModalOpen(true);
   };
 
-  // Edit
+  // Edit Student
   const handleEdit = (student) => {
     setSelectedStudent(student);
     setMode("edit");
     setModalOpen(true);
   };
 
-  // Save
+  // Save Student
   const handleSave = (updatedStudent) => {
     setStudents(
       students.map((student) =>
@@ -54,32 +55,27 @@ export default function Students() {
     );
   };
 
-  // Delete
+  // Delete Student
   const handleDelete = (studentId) => {
     if (window.confirm("Delete this student?")) {
       setStudents(
         students.filter(
-          (student) =>
-            student["Student ID"] !== studentId
+          (student) => student["Student ID"] !== studentId
         )
       );
     }
   };
 
-  // Search & Filter
+  // Filter Students
   const filteredStudents = students.filter((student) => {
-
     const matchesSearch =
       student["Full Name"]
         ?.toLowerCase()
         .includes(searchTerm.toLowerCase()) ||
-
       student.Email
         ?.toLowerCase()
         .includes(searchTerm.toLowerCase()) ||
-
-      String(student.Phone)
-        .includes(searchTerm);
+      String(student.Phone).includes(searchTerm);
 
     const matchesDepartment =
       department === "" ||
@@ -99,7 +95,6 @@ export default function Students() {
       matchesYear &&
       matchesStatus
     );
-
   });
 
   // Pagination
@@ -110,48 +105,55 @@ export default function Students() {
   const startIndex =
     (currentPage - 1) * studentsPerPage;
 
-  const currentStudents =
-    filteredStudents.slice(
-      startIndex,
-      startIndex + studentsPerPage
-    );
+  const currentStudents = filteredStudents.slice(
+    startIndex,
+    startIndex + studentsPerPage
+  );
 
   return (
     <div className="space-y-6">
 
       {/* Heading */}
-
       <div>
-
         <h1 className="text-3xl font-bold text-slate-800">
           Student Management
         </h1>
 
-    
-
+        <p className="text-gray-500">
+          Add, Search, Edit and Manage Students
+        </p>
       </div>
 
       {/* Form */}
-
       <StudentForm
         onAddStudent={handleAddStudent}
       />
 
       {/* Filters */}
-
       <StudentFilters
         searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
+        setSearchTerm={(value) => {
+          setSearchTerm(value);
+          setCurrentPage(1);
+        }}
         department={department}
-        setDepartment={setDepartment}
+        setDepartment={(value) => {
+          setDepartment(value);
+          setCurrentPage(1);
+        }}
         year={year}
-        setYear={setYear}
+        setYear={(value) => {
+          setYear(value);
+          setCurrentPage(1);
+        }}
         status={status}
-        setStatus={setStatus}
+        setStatus={(value) => {
+          setStatus(value);
+          setCurrentPage(1);
+        }}
       />
 
       {/* Table */}
-
       <StudentTable
         students={currentStudents}
         onView={handleView}
@@ -160,7 +162,6 @@ export default function Students() {
       />
 
       {/* Pagination */}
-
       <StudentPagination
         currentPage={currentPage}
         totalPages={totalPages}
@@ -168,7 +169,6 @@ export default function Students() {
       />
 
       {/* Modal */}
-
       <StudentModal
         isOpen={modalOpen}
         onClose={() => setModalOpen(false)}

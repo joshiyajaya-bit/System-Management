@@ -51,19 +51,19 @@ const StudentFilters = ({
             Department
           </label>
 
-          <select
-            value={department}
-            onChange={(e) => setDepartment(e.target.value)}
-            className="w-full border rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          >
-            <option value="">All Departments</option>
-            <option value="CSE">CSE</option>
-            <option value="IT">IT</option>
-            <option value="ECE">ECE</option>
-            <option value="EEE">EEE</option>
-            <option value="MECH">MECH</option>
-            <option value="CIVIL">CIVIL</option>
-          </select>
+         <select
+  value={department}
+  onChange={(e) => setDepartment(e.target.value)}
+  className="w-full border rounded-lg px-4 py-2"
+>
+  <option value="">All Departments</option>
+  <option value="CSE">CSE</option>
+  <option value="IT">IT</option>
+  <option value="ECE">ECE</option>
+  <option value="EEE">EEE</option>
+  <option value="MECH">MECH</option>
+  <option value="CIVIL">CIVIL</option>
+</select>
         </div>
 
         {/* Year */}
@@ -72,17 +72,17 @@ const StudentFilters = ({
             Year
           </label>
 
-          <select
-            value={year}
-            onChange={(e) => setYear(e.target.value)}
-            className="w-full border rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          >
-            <option value="">All Years</option>
-            <option value="1">1st Year</option>
-            <option value="2">2nd Year</option>
-            <option value="3">3rd Year</option>
-            <option value="4">4th Year</option>
-          </select>
+         <select
+  value={year}
+  onChange={(e) => setYear(e.target.value)}
+  className="w-full border rounded-lg px-4 py-2"
+>
+  <option value="">All Years</option>
+  <option value="1">1st Year</option>
+  <option value="2">2nd Year</option>
+  <option value="3">3rd Year</option>
+  <option value="4">4th Year</option>
+</select>
         </div>
 
         {/* Fee Status */}
@@ -91,15 +91,15 @@ const StudentFilters = ({
             Fee Status
           </label>
 
-          <select
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
-            className="w-full border rounded-xl px-4 py-2.5 focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          >
-            <option value="">All</option>
-            <option value="Paid">Paid</option>
-            <option value="Pending">Pending</option>
-          </select>
+         <select
+  value={status}
+  onChange={(e) => setStatus(e.target.value)}
+  className="w-full border rounded-lg px-4 py-2"
+>
+  <option value="">All</option>
+  <option value="Paid">Paid</option>
+  <option value="Pending">Pending</option>
+</select>
         </div>
 
       </div>
