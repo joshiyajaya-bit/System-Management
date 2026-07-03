@@ -30,9 +30,26 @@ const handleLogout = () => {
     <aside className="fixed top-0 left-0 w-64 h-screen bg-slate-900 text-white flex flex-col shadow-xl z-50">
 
       {/* Logo */}
-      <div className="h-20 flex items-center px-6 border-b border-slate-700">
-        <h1 className="text-3xl font-bold">JKNS</h1>
-      </div>
+      <div className="h-24 flex items-center gap-3 px-6 border-b border-slate-700">
+
+    <img
+        src={logo}
+        className="w-14 h-14 rounded-full"
+    />
+
+    <div>
+
+        <h1 className="text-2xl font-bold">
+            JKNS
+        </h1>
+
+        <p className="text-gray-400 text-sm">
+            Engineering College
+        </p>
+
+    </div>
+
+</div>
 
       {/* Navigation */}
       <nav className="flex-1 py-6">
