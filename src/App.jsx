@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import {Routes,Route,Navigate,} from"react-router-dom";
 
 import Sidebar from "./components/sidebar";
 import Navbar from "./components/navbar";

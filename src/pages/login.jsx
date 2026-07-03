@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import users from "./students/users.json";
+import users from "../students/users.json";
 
 export default function Login() {
   const navigate = useNavigate();
