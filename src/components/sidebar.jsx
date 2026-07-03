@@ -9,15 +9,15 @@ import {
 import { NavLink, useNavigate } from "react-router-dom";
 
 function Sidebar() {
-  const navigate = useNavigate();
+const navigate = useNavigate();
 
-  const handleLogout = () => {
-    // Remove login information
-    localStorage.removeItem("isLoggedIn");
+const handleLogout = () => {
+  localStorage.removeItem("isLoggedIn");
+  localStorage.removeItem("username");
+  localStorage.removeItem("role");
 
-    // Redirect to Login page
-    navigate("/login");
-  };
+  navigate("/login");
+};
 
   const menuClass = ({ isActive }) =>
     `flex items-center gap-4 px-6 py-4 mx-3 rounded-xl transition-all duration-300 ${
