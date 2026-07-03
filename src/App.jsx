@@ -95,6 +95,8 @@ const performanceData = [
 
             <Route path="/courses" element={<Courses />} />
 
+             <Route path="/login" element={<Login />} />
+
           
 
           </Routes>
