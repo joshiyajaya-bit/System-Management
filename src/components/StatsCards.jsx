@@ -1,9 +1,4 @@
-import {
-  FaUserGraduate,
-  FaChalkboardTeacher,
-  FaBook,
-  FaMoneyBillWave,
-} from "react-icons/fa";
+import { FaUserGraduate,FaChalkboardTeacher, FaBook,FaMoneyBillWave,} from "react-icons/fa";
 
 import students from "../students/students.json";
 import teachers from "../students/teachers.json";
@@ -98,19 +93,7 @@ export default function StatsCards() {
           <div className="flex justify-between items-center relative z-10">
 
             <div
-              className={`
-                w-16
-                h-16
-                rounded-2xl
-                flex
-                items-center
-                justify-center
-                bg-gradient-to-r
-                ${card.color}
-                text-white
-                shadow-xl
-                ${card.glow}
-              `}
+              className={`  w-16  h-16  rounded-2xl  flex  items-center justify-center bg-gradient-to-r ${card.color} text-white shadow-xl ${card.glow} `}
             >
               {card.icon}
             </div>

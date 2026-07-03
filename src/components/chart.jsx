@@ -1,15 +1,4 @@
-import {
-  ResponsiveContainer,
-  AreaChart,
-  Area,
-  Line,
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  Tooltip,
-  CartesianGrid,
-} from "recharts";
+import { ResponsiveContainer, AreaChart, Area, Line, BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -78,23 +67,15 @@ export default function Charts({
             <defs>
 
               <linearGradient
-                id="attendanceGradient"
-                x1="0"
-                y1="0"
-                x2="0"
-                y2="1"
+                id="attendanceGradient" x1="0" y1="0" x2="0" y2="1"
               >
 
                 <stop
-                  offset="5%"
-                  stopColor="#06B6D4"
-                  stopOpacity={0.5}
+                  offset="5%" stopColor="#06B6D4" stopOpacity={0.5}
                 />
 
                 <stop
-                  offset="95%"
-                  stopColor="#06B6D4"
-                  stopOpacity={0}
+                  offset="95%" stopColor="#06B6D4" stopOpacity={0}
                 />
 
               </linearGradient>
@@ -102,13 +83,11 @@ export default function Charts({
             </defs>
 
             <CartesianGrid
-              stroke="#334155"
-              vertical={false}
+              stroke="#334155" vertical={false}
             />
 
             <XAxis
-              dataKey="name"
-              stroke="#94A3B8"
+              dataKey="name" stroke="#94A3B8"
             />
 
             <YAxis
@@ -164,16 +143,7 @@ export default function Charts({
           </div>
 
           <select
-            className="
-            bg-[#111827]
-            border
-            border-slate-700
-            rounded-xl
-            px-4
-            py-2
-            text-white
-            outline-none
-            "
+            className="bg-[#111827] border border-slate-700 rounded-xl px-4 py-2 text-white outline-none "
           >
             <option>All Departments</option>
             <option>CSE</option>
@@ -236,7 +206,7 @@ export default function Charts({
             <Bar
               dataKey="score"
               fill="url(#performanceGradient)"
-              radius={[12,12,0,0]}
+              radius={[12, 12, 0, 0]}
               barSize={45}
             />
 

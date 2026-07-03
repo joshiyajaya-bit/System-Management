@@ -1,4 +1,5 @@
-import teachers from "../students/teachers.json";
+import { useEffect, useState } from "react";
+import api from "../api/api";
 import TeacherAttendanceOverview from "../components/teacherattendanceoverview";
 import {
   UserCircle2,
@@ -8,6 +9,16 @@ import {
 } from "lucide-react";
 
 export default function Teachers() {
+  const [teachers, setTeachers] = useState([]);
+
+useEffect(() => {
+  loadTeachers();
+}, []);
+
+const loadTeachers = async () => {
+  const res = await api.get("/teachers");
+  setTeachers(res.data);
+};
   return (
     <div className="space-y-8">
 

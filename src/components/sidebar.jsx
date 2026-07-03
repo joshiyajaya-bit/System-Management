@@ -1,10 +1,5 @@
 import {
-  FaHome,
-  FaUserGraduate,
-  FaChalkboardTeacher,
-  FaBook,
-  FaSignOutAlt,
-} from "react-icons/fa";
+  FaHome, FaUserGraduate,FaChalkboardTeacher,FaBook,FaSignOutAlt,} from "react-icons/fa";
 
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/jkns-logo.png";
@@ -29,20 +24,7 @@ const menuClass = ({ isActive }) =>
 
   return (
     <aside
-      className="
-      fixed
-      left-0
-      top-0
-      h-screen
-      w-72
-      bg-[#111827]/95
-      backdrop-blur-xl
-      border-r
-      border-slate-700
-      flex
-      flex-col
-      shadow-2xl
-    "
+      className="fixed left-0 top-0 h-screen w-72 bg-[#111827]/95 backdrop-blur-xl border-r border-slate-700 flex flex-col shadow-2xl"
     >
       {/* Logo */}
 
@@ -110,24 +92,7 @@ const menuClass = ({ isActive }) =>
 
         <button
           onClick={handleLogout}
-         className="
-w-full
-py-3
-rounded-2xl
-bg-gradient-to-r
-from-white-500
-to-blue-700
-hover:scale-105
-transition
-duration-300
-text-white
-font-semibold
-flex
-items-center
-justify-center
-gap-3
-shadow-lg
-"
+         className="w-full py-3 rounded-2xl bg-gradient-to-r from-white-500 to-blue-700 hover:scale-105 transition duration-300 text-white font-semibold flex items-center justify-center gap-3 shadow-lg"
         >
           <FaSignOutAlt />
           Logout

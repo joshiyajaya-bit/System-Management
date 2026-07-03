@@ -1,26 +1,14 @@
 import React from "react";
-import {
-  Search,
-  RotateCcw,
-  Filter,
-} from "lucide-react";
+import {Search, RotateCcw,Filter,} from "lucide-react";
 
 const StudentFilters = ({
-  searchTerm,
-  setSearchTerm,
-  department,
-  setDepartment,
-  year,
-  setYear,
-  status,
-  setStatus,
-}) => {
+  searchTerm,setSearchTerm,department,setDepartment,year,setYear,status,setStatus,}) => {
   const handleReset = () => {
     setSearchTerm("");
     setDepartment("");
     setYear("");
     setStatus("");
-  };
+};
 
   return (
     <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl p-6">

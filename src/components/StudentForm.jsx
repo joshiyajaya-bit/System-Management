@@ -4,9 +4,7 @@ import {
   FaEnvelope,
   FaPhone,
   FaBuilding,
-  FaTransgender,
-  FaCheckCircle,
-} from "react-icons/fa";
+  FaTransgender,FaCheckCircle,} from "react-icons/fa";
 
 export default function StudentForm({ onAddStudent }) {
   const initialState = {

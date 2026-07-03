@@ -44,22 +44,32 @@ export default function Dashboard() {
 
       {/* Overview */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        {/* <AttendanceOverview /> */}
+        <AttendanceOverview />
         <TeacherAttendanceOverview />
         <FeeOverview />
       </div>
 
-      {/* Charts */}
-      <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
-        <div className="xl:col-span-2">
-          <Charts
-            attendanceData={attendanceData}
-            performanceData={performanceData}
-          />
-        </div>
+      {/* Charts + Calendar */}
+<div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
 
-        <Calendar />
-      </div>
+  {/* Left Side */}
+  <div className="xl:col-span-2 space-y-6">
+
+    <Charts
+      attendanceData={attendanceData}
+      performanceData={performanceData}
+    />
+
+  </div>
+
+  {/* Right Side */}
+  <div>
+
+    <Calendar />
+
+  </div>
+
+</div>
     </div>
   );
 }

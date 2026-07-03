@@ -1,12 +1,26 @@
-import courses from "../students/courses.json";
+
+import { useState, useEffect } from "react";
+import api from "../api/api";
 import {
   BookOpen,
-  Users,
   Clock,
+  Users,
   ArrowRight,
 } from "lucide-react";
-
 export default function Courses() {
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    api.get("/courses")
+      .then((res) => {
+        setCourses(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
+
   return (
     <div className="space-y-8">
 

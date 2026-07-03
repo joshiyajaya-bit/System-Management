@@ -1,4 +1,6 @@
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
+import api from "../api/api";
 
 import StudentForm from "../components/StudentForm";
 import StudentFilters from "../components/StudentFilters";
@@ -9,7 +11,7 @@ import StudentModal from "../components/StudentModal";
 import studentsData from "../students/students.json";
 
 export default function Students() {
-  const [students, setStudents] = useState(studentsData);
+const [students, setStudents] = useState([]);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [department, setDepartment] = useState("");
@@ -21,14 +23,26 @@ export default function Students() {
   const [mode, setMode] = useState("view");
 
   const [currentPage, setCurrentPage] = useState(1);
-
   const studentsPerPage = 10;
 
+ useEffect(() => {
+  loadStudents();
+}, []);
+
+const loadStudents = async () => {
+  try {
+    const res = await api.get("/students");
+    setStudents(res.data);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
   // Add Student
-  const handleAddStudent = (student) => {
-    setStudents([student, ...students]);
-    setCurrentPage(1);
-  };
+ const handleAddStudent = async (student) => {
+  await api.post("/students", student);
+  loadStudents();
+};
 
   // View
   const handleView = (student) => {
@@ -45,27 +59,22 @@ export default function Students() {
   };
 
   // Save
-  const handleSave = (updatedStudent) => {
-    setStudents(
-      students.map((student) =>
-        student["Student ID"] === updatedStudent["Student ID"]
-          ? updatedStudent
-          : student
-      )
-    );
-  };
+  const handleSave = async (updatedStudent) => {
+  await api.put(
+    `/students/${updatedStudent.id}`,
+    updatedStudent
+  );
+
+  loadStudents();
+};
 
   // Delete
-  const handleDelete = (studentId) => {
-    if (window.confirm("Delete this student?")) {
-      setStudents(
-        students.filter(
-          (student) =>
-            student["Student ID"] !== studentId
-        )
-      );
-    }
-  };
+const handleDelete = async (id) => {
+  if (window.confirm("Delete Student?")) {
+    await api.delete(`/students/${id}`);
+    loadStudents();
+  }
+};
 
   // Search & Filter
 

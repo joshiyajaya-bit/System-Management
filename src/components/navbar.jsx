@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import {
-  FaBell,
-  FaSearch,
-  FaUserCircle,
-  FaCalendarAlt,
-  FaClock,
-} from "react-icons/fa";
+  FaBell,FaSearch,FaUserCircle,FaCalendarAlt,FaClock,} from "react-icons/fa";
 
 export default function Navbar() {
   const [dateTime, setDateTime] = useState(new Date());

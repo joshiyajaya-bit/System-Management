@@ -2,10 +2,7 @@ import { useEffect, useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
-import {
-  FaCalendarAlt,
-  FaClock,
-} from "react-icons/fa";
+import { FaCalendarAlt, FaClock, } from "react-icons/fa";
 
 import events from "./events";
 
@@ -124,23 +121,23 @@ export default function CalendarCard() {
 
                   <div className="flex justify-between items-center w-full">
 
-  <div>
+                    <div>
 
-    <h4 className="text-white font-semibold">
-      {event.title}
-    </h4>
+                      <h4 className="text-white font-semibold">
+                        {event.title}
+                      </h4>
 
-    <p className="text-slate-400 text-sm">
-      {event.date}
-    </p>
+                      <p className="text-slate-400 text-sm">
+                        {event.date}
+                      </p>
 
-  </div>
+                    </div>
 
-  <span className="px-3 py-1 rounded-full bg-slate-700 text-cyan-400 text-xs font-semibold">
-    {event.type}
-  </span>
+                    <span className="px-3 py-1 rounded-full bg-slate-700 text-cyan-400 text-xs font-semibold">
+                      {event.type}
+                    </span>
 
-</div>
+                  </div>
 
                 </div>
 
