@@ -6,9 +6,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import { IndianRupee } from "lucide-react";
-
-import fees from "../students/fees.json";
+import { useEffect, useState } from "react";
+import api from "../api/api";
 
 const COLORS = [
   "#10b981",
@@ -17,6 +16,14 @@ const COLORS = [
 
 export default function FeeOverview() {
   const totalStudents = fees.length;
+
+  const [fees, setFees] = useState([]);
+
+useEffect(() => {
+  api.get("/fees").then((res) => {
+    setFees(res.data);
+  });
+}, []);
 
   const paidStudents = fees.filter(
     (s) => s.Status === "Paid"
