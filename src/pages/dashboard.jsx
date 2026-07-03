@@ -44,7 +44,7 @@ export default function Dashboard() {
 
       {/* Overview */}
       <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
-        <AttendanceOverview />
+        {/* <AttendanceOverview /> */}
         <TeacherAttendanceOverview />
         <FeeOverview />
       </div>

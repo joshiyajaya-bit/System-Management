@@ -6,7 +6,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import { Award } from "lucide-react";
+
 import teachers from "../students/teachers.json";
 
 export default function TeacherAttendanceOverview() {
@@ -57,7 +57,7 @@ export default function TeacherAttendanceOverview() {
   ];
 
   return (
-    <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl p-6 w-full h-[360px]">
+ <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl p-8 w-full min-h-[380px]">
 
       <div className="flex h-full items-center gap-5">
 
@@ -105,11 +105,6 @@ export default function TeacherAttendanceOverview() {
             {/* Center */}
 
             <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none">
-
-              <Award
-                size={34}
-                className="text-cyan-400"
-              />
 
               <h2 className="text-white font-bold mt-2 text-xl">
                 Teachers

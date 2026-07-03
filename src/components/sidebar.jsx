@@ -75,9 +75,6 @@ const menuClass = ({ isActive }) =>
 
       <div className="flex-1 overflow-y-auto px-4 py-6">
 
-        <p className="text-slate-500 uppercase text-xs tracking-widest px-2 mb-4">
-          MAIN MENU
-        </p>
 
         <div className="space-y-3">
 
@@ -117,8 +114,8 @@ w-full
 py-3
 rounded-2xl
 bg-gradient-to-r
-from-red-500
-to-red-700
+from-white-500
+to-blue-700
 hover:scale-105
 transition
 duration-300

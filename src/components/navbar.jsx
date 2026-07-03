@@ -30,12 +30,7 @@ export default function Navbar() {
       {/* Left */}
 
       <div>
-
-        <h2 className="text-3xl font-bold text-white">
-          👋 Welcome, {username}
-        </h2>
-
-        <p className="text-slate-400 text-sm">
+        <p className="text-slate-100 text-lg">
           JKNS Engineering College ERP Dashboard
         </p>
 

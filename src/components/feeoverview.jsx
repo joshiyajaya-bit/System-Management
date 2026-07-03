@@ -6,7 +6,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-import { IndianRupee } from "lucide-react";
+
 
 import fees from "../students/fees.json";
 
@@ -43,7 +43,7 @@ export default function FeeOverview() {
   ];
 
   return (
-    <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl p-6 w-full h-[360px]">
+    <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl p-8 w-full min-h-[380px]">
 
       <div className="flex h-full items-center gap-4">
 
@@ -114,10 +114,7 @@ export default function FeeOverview() {
             {/* Center */}
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
 
-             <IndianRupee
-  size={32}
-  className="text-cyan-400"
-/>
+ 
 
 <h2 className="text-xl font-bold text-white mt-2">
   Fees
@@ -140,7 +137,7 @@ export default function FeeOverview() {
         <div className="flex-1 min-w-0 flex flex-col justify-between h-full">
 
           {/* Paid */}
-          <div className="flex justify-between items-center py-4">
+         <div className="flex justify-between items-center gap-4 py-4">
 
             <div>
               <h2 className="font-bold text-white text-lg">
@@ -154,16 +151,15 @@ export default function FeeOverview() {
 <h2 className="text-3xl font-bold text-cyan-400"></h2>
             </div>
 
-            <h2 className="text-2xl font-bold text-green-600 whitespace-nowrap text-right">
-              ₹{totalPaid.toLocaleString()}
-            </h2>
-
+           <h2 className="text-xl xl:text-2xl font-bold text-green-500 text-right break-all">
+  ₹{totalPaid.toLocaleString()}
+</h2>
           </div>
 
       <div className="border-b border-slate-700"></div>
 
           {/* Pending */}
-          <div className="flex justify-between items-center py-4">
+       <div className="flex justify-between items-center gap-4 py-4">
 
   <div>
 
@@ -177,16 +173,16 @@ export default function FeeOverview() {
 
   </div>
 
-  <h2 className="text-3xl font-bold text-red-400 whitespace-nowrap">
-    ₹{totalPending.toLocaleString()}
-  </h2>
+  <h2 className="text-xl xl:text-2xl font-bold text-red-400 text-right break-all">
+  ₹{totalPending.toLocaleString()}
+</h2>
 
 </div>
 
         <div className="border-b border-slate-700"></div>
 
           {/* Paid Students */}
-          <div className="flex justify-between items-center py-4">
+       <div className="flex justify-between items-center gap-4 py-4">
 
   <div>
 
