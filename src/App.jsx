@@ -14,7 +14,7 @@ import Calendar from "./components/calendar";
 import Students from "./pages/stu";
 import Teachers from "./pages/teachers";
 import Courses from "./pages/courses";
-
+import login from "./pages/login";
 
 import students from "./students/students.json";
 
