@@ -8,6 +8,8 @@ import {
 
 import { NavLink, useNavigate } from "react-router-dom";
 
+import logo from "../assets/jkns-logo.png";
+
 function Sidebar() {
 const navigate = useNavigate();
 
