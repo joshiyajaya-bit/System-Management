@@ -127,9 +127,7 @@ export default function Students() {
           Student Management
         </h1>
 
-        <p className="text-gray-500">
-          Add, Edit, Search and Manage Students
-        </p>
+    
 
       </div>
 
