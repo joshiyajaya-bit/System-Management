@@ -41,6 +41,8 @@ export default function App() {
     { name: "Monisha", score: 71 },
   ];
 
+
+
   // Show login page only
   if (!isLoggedIn) {
     return (
