@@ -1,28 +1,27 @@
 const events = [
   {
     id: 1,
-    title: "Fee Payment Deadline",
+    title: "Semester Fee Deadline",
     date: "05 Jul 2026",
     color: "bg-red-500",
-  },
-  {
-    id: 2,
-    title: "Internal Assessment",
-    date: "08 Jul 2026",
-    color: "bg-green-500",
+    type: "Finance",
   },
   {
     id: 3,
-    title: "Parent Meeting",
+    title: "Faculty Meeting",
     date: "10 Jul 2026",
     color: "bg-blue-500",
+    type: "Meeting",
   },
+
   {
-    id: 4,
-    title: "Semester Starts",
-    date: "15 Jul 2026",
+    id: 5,
+    title: "Placement Drive",
+    date: "20 Jul 2026",
     color: "bg-purple-500",
-  },
+    type: "Career",
+  }
+ 
 ];
 
 export default events;

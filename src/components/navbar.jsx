@@ -1,91 +1,107 @@
+import { useEffect, useState } from "react";
 import {
-  FaBell,
-  FaSearch,
-  FaUserCircle,
-} from "react-icons/fa";
+  FaBell,FaSearch,FaUserCircle,FaCalendarAlt,FaClock,} from "react-icons/fa";
 
-import logo from "../assets/jkns-logo.png";
+export default function Navbar() {
+  const [dateTime, setDateTime] = useState(new Date());
 
-function Navbar() {
+  const username =
+    localStorage.getItem("username") || "Admin";
+
+  const role =
+    localStorage.getItem("role") || "Administrator";
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDateTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <header className="h-20 bg-white shadow-md flex items-center justify-between px-8 sticky top-0 z-40">
+    <header className="sticky top-0 z-40 h-20 bg-[#111827]/95 backdrop-blur-xl border-b border-slate-700 flex items-center justify-between px-8 shadow-xl">
+
       {/* Left */}
-      <div className="flex items-center gap-4">
 
-        <img
-          src={logo}
-          alt="JKNS Logo"
-          className="w-14 h-14 rounded-full object-contain"
-        />
-
-        <div>
-          <h1 className="text-2xl font-bold text-slate-800">
-            JKNS Engineering College
-          </h1>
-
-          <p className="text-sm text-gray-500">
-            Student Management System
-          </p>
-        </div>
+      <div>
+        <p className="text-slate-100 text-lg">
+          JKNS Engineering College ERP Dashboard
+        </p>
 
       </div>
 
       {/* Right */}
-      <div className="flex items-center gap-6">
 
-        {/* Search */}
-        <div className="relative">
+      <div className="flex items-center gap-5">
 
-          <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
+       
+        {/* Date */}
 
-          <input
-            type="text"
-            placeholder="Search..."
-            className="
-              w-64
-              pl-10
-              pr-4
-              py-2.5
-              border
-              border-gray-300
-              rounded-xl
-              outline-none
-              focus:ring-2
-              focus:ring-blue-500
-            "
-          />
+        <div className="hidden xl:flex items-center gap-3 bg-slate-800 px-4 py-2 rounded-2xl">
+
+          <FaCalendarAlt className="text-cyan-400" />
+
+          <div>
+
+            <p className="text-white text-sm font-semibold">
+              {dateTime.toLocaleDateString()}
+            </p>
+
+            <p className="text-slate-400 text-xs">
+              {dateTime.toLocaleDateString("en-US", {
+                weekday: "long",
+              })}
+            </p>
+
+          </div>
+
+        </div>
+
+        {/* Time */}
+
+        <div className="hidden xl:flex items-center gap-3 bg-slate-800 px-4 py-2 rounded-2xl">
+
+          <FaClock className="text-green-400" />
+
+          <span className="text-white font-semibold">
+            {dateTime.toLocaleTimeString()}
+          </span>
 
         </div>
 
         {/* Notification */}
-        <button className="relative text-xl text-gray-600 hover:text-blue-600 transition">
 
-          <FaBell />
+        <button className="relative w-12 h-12 rounded-2xl bg-slate-800 hover:bg-slate-700 transition flex items-center justify-center">
 
-          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full bg-red-500"></span>
+          <FaBell className="text-white text-lg" />
+
+          <span className="absolute top-2 right-2 w-3 h-3 rounded-full bg-red-500 animate-pulse"></span>
 
         </button>
 
         {/* Profile */}
-        <div className="flex items-center gap-3 cursor-pointer">
 
-          <FaUserCircle className="text-5xl text-blue-600" />
+        <div className="flex items-center gap-3 bg-slate-800 rounded-2xl px-4 py-2">
+
+          <FaUserCircle className="text-5xl text-cyan-400" />
 
           <div>
-            <h2 className="font-bold text-lg text-slate-800">
-              Admin
-            </h2>
 
-            <p className="text-sm text-gray-500">
-              Administrator
+            <h3 className="text-white font-semibold">
+              {username}
+            </h3>
+
+            <p className="text-slate-400 text-sm">
+              {role}
             </p>
+
           </div>
 
         </div>
 
       </div>
+
     </header>
   );
 }
-
-export default Navbar;

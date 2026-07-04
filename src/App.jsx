@@ -1,108 +1,68 @@
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 
 import Sidebar from "./components/sidebar";
 import Navbar from "./components/navbar";
 
-import AttendanceOverview from "./components/attendanceoverview";
-import TeacherAttendanceOverview from "./components/teacherattendanceoverview";
-import FeeOverview from "./components/feeoverview";
-
-import Charts from "./components/chart";
-import Calendar from "./components/calendar";
-
+import Login from "./pages/login";
+import Dashboard from "./pages/dashboard";
 import Students from "./pages/stu";
 import Teachers from "./pages/teachers";
 import Courses from "./pages/courses";
-import Settings from "./pages/settings";
 
-import students from "./students/students.json";
+function ProtectedRoute({ children }) {
+  const isLoggedIn =
+    localStorage.getItem("isLoggedIn") === "true";
 
-import React from 'react';
-import StudentManagementPage from './pages/StudentManagementPage';
-import './App.css'; // ← ADD THIS LINE
+  return isLoggedIn ? children : <Navigate to="/login" replace />;
+}
 
 export default function App() {
-
-  const [sidebarOpen, setSidebarOpen] = useState(true);
-
-  const attendanceData = students.map((student) => ({
-    name: student["Full Name"],
-    attendance: Number(student["Attendance (%)"]),
-  }));
-
-  const performanceData = students.map((student) => ({
-    name: student["Full Name"],
-    score: Number(student["Marks (%)"]),
-  }));
-
   return (
-    <div className="flex min-h-screen bg-slate-100">
-       <StudentManagementPage />
+    <Routes>
+      {/* Login */}
+      <Route path="/login" element={<Login />} />
 
-      <Sidebar />
+      {/* Protected Layout */}
+      <Route
+        path="/*"
+        element={
+          <ProtectedRoute>
+            <div className="flex min-h-screen bg-[#0F172A]">
+              <Sidebar />
 
-      <div className="flex-1">
+              <div className="flex flex-col flex-1 ml-72">
+                <Navbar />
 
-        <Navbar />
+                <main className="flex-1 p-6 overflow-y-auto">
+                  <Routes>
+                    <Route path="/" element={<Dashboard />} />
 
-        <main className="p-6">
+                    <Route
+                      path="/students"
+                      element={<Students />}
+                    />
 
-          <Routes>
+                    <Route
+                      path="/teachers"
+                      element={<Teachers />}
+                    />
 
-            {/* Dashboard */}
-            <Route
-              path="/"
-              element={
-                <>
-                  {/* Cards */}
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                    <Route
+                      path="/courses"
+                      element={<Courses />}
+                    />
 
-                    <AttendanceOverview />
-
-                    <TeacherAttendanceOverview />
-
-                    <FeeOverview />
-
-                  </div>
-
-                  {/* Charts + Calendar */}
-                  <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-6">
-
-                    <div className="lg:col-span-2 bg-white rounded-3xl shadow-xl p-6">
-
-                      <Charts
-                        attendanceData={attendanceData}
-                        performanceData={performanceData}
-                      />
-
-                    </div>
-
-                    <Calendar />
-
-                  </div>
-                </>
-              }
-            />
-
-            <Route path="/students" element={<Students />} />
-
-            <Route path="/teachers" element={<Teachers />} />
-
-            <Route path="/courses" element={<Courses />} />
-
-            <Route path="/settings" element={<Settings />} />
-
-          </Routes>
-
-        </main>
-
-      </div>
-
-    </div>
+                    <Route
+                      path="*"
+                      element={<Navigate to="/" replace />}
+                    />
+                  </Routes>
+                </main>
+              </div>
+            </div>
+          </ProtectedRoute>
+        }
+      />
+    </Routes>
   );
 }
-// src/App.js
-
-
-

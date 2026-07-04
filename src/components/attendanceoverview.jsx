@@ -1,193 +1,67 @@
-import {
-  PieChart,
-  Pie,
-  Cell,
-  Tooltip,
-  ResponsiveContainer,
-} from "recharts";
+import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, } from "recharts";
 
-import { Users } from "lucide-react";
-
-import students from "../students/students.json";
-
-const COLORS = ["#22c55e", "#ef4444"];
+const data = [
+  { day: "Mon", attendance: 92 },
+  { day: "Tue", attendance: 88 },
+  { day: "Wed", attendance: 94 },
+  { day: "Thu", attendance: 90 },
+  { day: "Fri", attendance: 96 },
+  { day: "Sat", attendance: 91 },
+];
 
 export default function AttendanceOverview() {
-  const totalStudents = students.length;
-
-  const presentStudents = students.filter(
-    (student) => Number(student["Attendance (%)"]) >= 75
-  ).length;
-
-  const absentStudents = totalStudents - presentStudents;
-
-  const data = [
-    {
-      name: "Present",
-      value: presentStudents,
-    },
-    {
-      name: "Absent",
-      value: absentStudents,
-    },
-  ];
-
   return (
-    <div className="bg-white rounded-3xl shadow-xl p-6 w-full h-[330px] overflow-hidden">
+    <div className="bg-[#1E293B] rounded-3xl p-6 shadow-xl border border-slate-700">
 
-      <div className="flex h-full items-center gap-5">
+      <div className="flex justify-between items-center mb-6">
+        <div>
+          <h2 className="text-xl font-bold text-white">
+            Attendance Overview
+          </h2>
 
-        {/* Pie Chart */}
-        <div className="w-[160px] flex justify-center items-center shrink-0">
-
-          <div className="relative w-[150px] h-[150px]">
-
-            <ResponsiveContainer width="100%" height="100%">
-
-              <PieChart>
-
-                <Pie
-                  data={data}
-                  dataKey="value"
-                  nameKey="name"
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={48}
-                  outerRadius={72}
-                  paddingAngle={2}
-                  stroke="#fff"
-                  strokeWidth={3}
-                >
-                  {data.map((entry, index) => (
-                    <Cell
-                      key={index}
-                      fill={COLORS[index]}
-                    />
-                  ))}
-                </Pie>
-
-                <Tooltip
-                  cursor={false}
-                  contentStyle={{
-                    background: "#fff",
-                    border: "none",
-                    borderRadius: "12px",
-                    boxShadow: "0 10px 25px rgba(0,0,0,.15)",
-                  }}
-                  formatter={(value, name) => {
-                    const percentage = (
-                      (Number(value) / totalStudents) *
-                      100
-                    ).toFixed(1);
-
-                    return [
-                      `${Number(value)} Students (${percentage}%)`,
-                      name,
-                    ];
-                  }}
-                />
-
-              </PieChart>
-
-            </ResponsiveContainer>
-
-            {/* Center */}
-            <div className="absolute inset-0 flex flex-col justify-center items-center pointer-events-none">
-
-              <Users
-                size={34}
-                className="text-gray-500"
-              />
-
-              <h2 className="text-xl font-bold mt-2">
-                Students
-              </h2>
-
-              <p className="text-gray-500 text-sm">
-                Overview
-              </p>
-
-            </div>
-
-          </div>
-
+          <p className="text-slate-400 text-sm">
+            Weekly Attendance Report
+          </p>
         </div>
 
-        {/* Gradient Divider */}
-        <div className="w-[3px] self-stretch rounded-full bg-gradient-to-b from-green-500 via-cyan-500 to-purple-600"></div>
+        <div className="text-right">
+          <h3 className="text-3xl font-bold text-cyan-400">
+            92%
+          </h3>
 
-        {/* Right Side */}
-        <div className="flex-1 flex flex-col justify-between h-full">
-
-          {/* Present */}
-          <div className="flex justify-between items-center py-4">
-
-            <div>
-
-              <h2 className="text-lg font-bold">
-                Present
-              </h2>
-
-              <p className="text-sm text-gray-500">
-                Students Present
-              </p>
-
-            </div>
-
-            <h2 className="text-3xl font-bold text-green-600 whitespace-nowrap">
-              {presentStudents}
-            </h2>
-
-          </div>
-
-          <hr />
-
-          {/* Absent */}
-          <div className="flex justify-between items-center py-4">
-
-            <div>
-
-              <h2 className="text-lg font-bold">
-                Absent
-              </h2>
-
-              <p className="text-sm text-gray-500">
-                Students Absent
-              </p>
-
-            </div>
-
-            <h2 className="text-3xl font-bold text-red-500 whitespace-nowrap">
-              {absentStudents}
-            </h2>
-
-          </div>
-
-          <hr />
-
-          {/* Total */}
-          <div className="flex justify-between items-center py-4">
-
-            <div>
-
-              <h2 className="text-lg font-bold">
-                Total Students
-              </h2>
-
-              <p className="text-sm text-gray-500">
-                Registered Students
-              </p>
-
-            </div>
-
-            <h2 className="text-3xl font-bold text-blue-600 whitespace-nowrap">
-              {totalStudents}
-            </h2>
-
-          </div>
-
+          <p className="text-green-400 text-sm">
+            +4% this week
+          </p>
         </div>
+      </div>
 
+      <div className="h-72">
+        <ResponsiveContainer width="100%" height="100%">
+          <AreaChart data={data}>
+            <defs>
+              <linearGradient id="attendance" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="5%" stopColor="#06B6D4" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#06B6D4" stopOpacity={0} />
+              </linearGradient>
+            </defs>
+
+            <CartesianGrid stroke="#334155" />
+
+            <XAxis dataKey="day" stroke="#94A3B8" />
+
+            <YAxis stroke="#94A3B8" />
+
+            <Tooltip />
+
+            <Area
+              type="monotone"
+              dataKey="attendance"
+              stroke="#06B6D4"
+              strokeWidth={3}
+              fill="url(#attendance)"
+            />
+          </AreaChart>
+        </ResponsiveContainer>
       </div>
 
     </div>

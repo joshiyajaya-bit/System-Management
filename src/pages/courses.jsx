@@ -1,67 +1,228 @@
-import courses from "../students/courses.json";
-import { BookOpen, Users, Clock } from "lucide-react";
 
+import { useState, useEffect } from "react";
+import api from "../api/api";
+import {
+  BookOpen,
+  Clock,
+  Users,
+  ArrowRight,
+} from "lucide-react";
 export default function Courses() {
-  return (
-    <div className="p-6 bg-slate-100 min-h-screen">
-      <h1 className="text-3xl font-bold text-slate-800 mb-6">
-        Courses
-      </h1>
+  const [courses, setCourses] = useState([]);
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+  useEffect(() => {
+    api.get("/courses")
+      .then((res) => {
+        setCourses(res.data);
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
+
+
+  return (
+    <div className="space-y-8">
+
+      {/* Header */}
+
+      <div className="flex items-center justify-between">
+
+        <div>
+
+          <h1 className="text-4xl font-bold text-white">
+            Courses
+          </h1>
+
+          <p className="text-slate-400 mt-2">
+            Manage all available courses in JKNS ERP
+          </p>
+
+        </div>
+
+        <button
+          className="
+          bg-gradient-to-r
+          from-cyan-500
+          to-blue-600
+          hover:from-cyan-400
+          hover:to-blue-500
+          text-white
+          px-6
+          py-3
+          rounded-xl
+          shadow-lg
+          shadow-cyan-500/30
+          transition-all
+          duration-300
+          "
+        >
+          + Add Course
+        </button>
+
+      </div>
+
+      {/* Cards */}
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-7">
+
         {courses.map((course) => (
+
           <div
             key={course.id}
-            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border border-gray-100 hover:-translate-y-1"
+            className="
+            bg-[#1E293B]
+            border
+            border-slate-700
+            rounded-3xl
+            shadow-xl
+            hover:shadow-cyan-500/20
+            hover:border-cyan-500/40
+            hover:-translate-y-2
+            transition-all
+            duration-300
+            overflow-hidden
+            "
           >
-            {/* Icon */}
-            <div className="w-14 h-14 rounded-xl bg-indigo-100 flex items-center justify-center mb-4">
-              <BookOpen className="text-indigo-600" size={28} />
-            </div>
 
-            {/* Course Name */}
-            <h2 className="text-lg font-bold text-slate-800">
-              {course.course}
-            </h2>
+            {/* Top */}
 
-            {/* Course Code */}
-            <p className="text-indigo-600 font-semibold mt-1">
-              {course.code}
-            </p>
+            <div className="p-6">
 
-            <div className="border-t my-4"></div>
+              <div
+                className="
+                w-16
+                h-16
+                rounded-2xl
+                bg-gradient-to-r
+                from-cyan-500
+                to-blue-600
+                flex
+                items-center
+                justify-center
+                shadow-lg
+                shadow-cyan-500/30
+                "
+              >
 
-            {/* Duration */}
-            <div className="flex items-center justify-between text-gray-600 mb-3">
-              <div className="flex items-center gap-2">
-                <Clock size={18} />
-                <span>Duration</span>
+                <BookOpen
+                  size={32}
+                  className="text-white"
+                />
+
               </div>
 
-              <span className="font-semibold">
-                {course.duration}
-              </span>
+              <h2 className="text-2xl font-bold text-white mt-5">
+
+                {course.course}
+
+              </h2>
+
+              <p className="text-cyan-400 font-semibold mt-2">
+
+                {course.code}
+
+              </p>
+
             </div>
 
-            {/* Students */}
-            <div className="flex items-center justify-between text-gray-600">
-              <div className="flex items-center gap-2">
-                <Users size={18} />
-                <span>Students</span>
+            {/* Divider */}
+
+            <div className="border-t border-slate-700"></div>
+
+            {/* Body */}
+
+            <div className="p-6 space-y-5">
+
+              <div className="flex items-center justify-between">
+
+                <div className="flex items-center gap-3">
+
+                  <Clock
+                    className="text-orange-400"
+                    size={20}
+                  />
+
+                  <span className="text-slate-400">
+                    Duration
+                  </span>
+
+                </div>
+
+                <span className="font-bold text-white">
+
+                  {course.duration}
+
+                </span>
+
               </div>
 
-              <span className="font-bold text-green-600">
-                {course.students}
-              </span>
+              <div className="flex items-center justify-between">
+
+                <div className="flex items-center gap-3">
+
+                  <Users
+                    className="text-green-400"
+                    size={20}
+                  />
+
+                  <span className="text-slate-400">
+                    Students
+                  </span>
+
+                </div>
+
+                <span className="text-emerald-400 font-bold text-lg">
+
+                  {course.students}
+
+                </span>
+
+              </div>
+
             </div>
 
-            {/* Button */}
-            <button className="mt-6 w-full bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl py-2 transition">
-              View Details
-            </button>
+            {/* Footer */}
+
+            <div className="p-6 pt-0">
+
+              <button
+                className="
+                w-full
+                py-3
+                rounded-xl
+                bg-gradient-to-r
+                from-cyan-500
+                to-blue-600
+                hover:from-cyan-400
+                hover:to-blue-500
+                text-white
+                font-semibold
+                flex
+                items-center
+                justify-center
+                gap-2
+                shadow-lg
+                shadow-cyan-500/20
+                transition-all
+                duration-300
+                "
+              >
+
+                View Details
+
+                <ArrowRight size={18} />
+
+              </button>
+
+            </div>
+
           </div>
+
         ))}
+
       </div>
+
     </div>
   );
 }
