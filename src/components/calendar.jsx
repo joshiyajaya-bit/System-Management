@@ -109,7 +109,7 @@ export default function CalendarCard() {
   className="flex items-center justify-between bg-[#111827] border border-slate-700 rounded-2xl px-5 py-4 hover:border-cyan-500 hover:bg-slate-800 transition-all duration-300 shadow-lg"
 >
 
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-4 flex-1">
 
                 <div
                   className={`w-3 h-3 rounded-full ${event.color}`}
