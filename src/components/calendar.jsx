@@ -112,9 +112,9 @@ export default function CalendarCard() {
 
           {events.map((event) => (
 
-           <div
+  <div
   key={event.id}
-  className="flex items-center justify-between bg-[#111827] border border-slate-700 rounded-2xl px-5 py-4 hover:border-cyan-500 hover:bg-slate-800 transition-all duration-300 shadow-lg"
+  className="flex items-center justify-between bg-[#111827] border border-slate-700 rounded-xl px-4 py-3 hover:border-cyan-500 transition-all duration-300"
 >
 
               <div className="flex items-center gap-4 flex-1">
@@ -129,7 +129,7 @@ export default function CalendarCard() {
 
                     <div>
 
-                      <h4 className="text-white font-bold text-lg">
+                      <h4 className="text-white font-semibold text-base">
                         {event.title}
                       </h4>
 
