@@ -47,27 +47,23 @@ export default function CalendarCard() {
 
       {/* Date */}
 
-      <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-3xl p-6 border border-cyan-500/20 text-center">
+<div className="bg-[#111827] rounded-xl py-3 px-4 border border-slate-700 text-center">
 
-        <h1 className="text-5xl font-bold text-cyan-400">
+  <h1 className="text-3xl font-bold text-cyan-400">
+    {time.toLocaleDateString("en-IN", {
+      day: "2-digit",
+      month: "short",
+    })}
+  </h1>
 
-          {time.toLocaleDateString("en-IN", {
-            day: "2-digit",
-            month: "short",
-          })}
+  <p className="text-sm text-slate-400 mt-1">
+    {time.toLocaleDateString("en-IN", {
+      year: "numeric",
+      weekday: "long",
+    })}
+  </p>
 
-        </h1>
-
-        <p className="text-slate-400 mt-2">
-
-          {time.toLocaleDateString("en-IN", {
-            weekday: "long",
-            year: "numeric",
-          })}
-
-        </p>
-
-      </div>
+</div>
 
       {/* Time */}
 <div className="bg-[#111827] rounded-3xl p-5 mt-5 border border-slate-700 flex items-center justify-center gap-4 shadow-lg">
