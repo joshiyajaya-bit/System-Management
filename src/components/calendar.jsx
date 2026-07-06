@@ -121,7 +121,7 @@ export default function CalendarCard() {
 
                     <div>
 
-                      <h4 className="text-white font-semibold">
+                      <h4 className="text-white font-bold text-lg">
                         {event.title}
                       </h4>
 
