@@ -125,7 +125,7 @@ export default function CalendarCard() {
                         {event.title}
                       </h4>
 
-                      <p className="text-slate-400 text-sm">
+                     <p className="text-slate-400 text-sm mt-1">
                         {event.date}
                       </p>
 
