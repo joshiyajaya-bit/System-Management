@@ -19,7 +19,7 @@ export default function CalendarCard() {
   }, []);
 
   return (
-    <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl p-6">
+   <div className="bg-[#1E293B]/95 backdrop-blur-xl border border-cyan-500/20 rounded-3xl shadow-2xl p-6">
 
       {/* Header */}
 
