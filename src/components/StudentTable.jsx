@@ -30,7 +30,7 @@ export default function StudentTable({
 
       {/* Table */}
 
-      <div className="overflow-x-auto">
+      <div className="w-full overflow-x-auto">
 
 <table className="w-full table-auto">
           {/* Header */}
