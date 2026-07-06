@@ -123,12 +123,11 @@ const handleDelete = async (id) => {
   );
 
   return (
-    <div className="space-y-8 px-4">
+    <div className="space-y-8 px-6 lg:px-8">
 
       {/* Header */}
 
-      <div className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl px-8 py-8">
-
+     <div className="mx-2 bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl px-8 py-8">
         <div className="flex items-center justify-between">
 
           <div>

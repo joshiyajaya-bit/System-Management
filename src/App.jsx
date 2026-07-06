@@ -30,7 +30,7 @@ export default function App() {
             <div className="flex min-h-screen bg-[#0F172A] overflow-hidden">
               <Sidebar />
 
-              <div className="flex flex-col flex-1 ml-72">
+              <div className="flex flex-col flex-1 min-w-0 ml-72">
                 <Navbar />
 
                 <main className="px-8 py-6 lg:px-10">
