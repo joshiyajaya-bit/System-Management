@@ -63,22 +63,7 @@ const StudentFilters = ({
               onChange={(e) =>
                 setSearchTerm(e.target.value)
               }
-              className="
-              w-full
-              bg-[#111827]
-              border
-              border-slate-700
-              text-white
-              rounded-xl
-              pl-11
-              pr-4
-              py-3
-              outline-none
-              focus:border-cyan-500
-              focus:ring-2
-              focus:ring-cyan-500/30
-              transition
-              "
+              className="w-full bg-[#111827] border border-slate-700 text-white rounded-xl pl-11 pr-4 py-3 outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30 transition"
             />
 
           </div>
@@ -98,18 +83,7 @@ const StudentFilters = ({
             onChange={(e) =>
               setDepartment(e.target.value)
             }
-            className="
-            w-full
-            bg-[#111827]
-            border
-            border-slate-700
-            text-white
-            rounded-xl
-            px-4
-            py-3
-            outline-none
-            focus:border-cyan-500
-            "
+           className="w-full bg-[#111827] border border-slate-700 text-white rounded-xl px-4 py-3 outline-none focus:border-cyan-500"
           >
             <option value="">All</option>
             <option value="CSE">CSE</option>
@@ -135,18 +109,7 @@ const StudentFilters = ({
             onChange={(e) =>
               setYear(e.target.value)
             }
-            className="
-            w-full
-            bg-[#111827]
-            border
-            border-slate-700
-            text-white
-            rounded-xl
-            px-4
-            py-3
-            outline-none
-            focus:border-cyan-500
-            "
+           className="w-full bg-[#111827] border border-slate-700 text-white rounded-xl px-4 py-3 outline-none focus:border-cyan-500"
           >
             <option value="">All</option>
             <option value="1">1st Year</option>
@@ -170,18 +133,7 @@ const StudentFilters = ({
             onChange={(e) =>
               setStatus(e.target.value)
             }
-            className="
-            w-full
-            bg-[#111827]
-            border
-            border-slate-700
-            text-white
-            rounded-xl
-            px-4
-            py-3
-            outline-none
-            focus:border-cyan-500
-            "
+            className="w-full bg-[#111827] border border-slate-700 text-white rounded-xl px-4 py-3 outline-none focus:border-cyan-500"
           >
             <option value="">All</option>
             <option value="Paid">Paid</option>
@@ -201,26 +153,8 @@ const StudentFilters = ({
         </p>
 
         <button
-          onClick={handleReset}
-          className="
-          flex
-          items-center
-          gap-2
-          bg-gradient-to-r
-          from-red-500
-          to-red-600
-          hover:from-red-600
-          hover:to-red-700
-          px-6
-          py-3
-          rounded-xl
-          text-white
-          font-semibold
-          shadow-lg
-          transition
-          duration-300
-          hover:scale-105
-          "
+         onClick={handleReset}
+className="flex items-center gap-2 bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 px-6 py-3 rounded-xl text-white font-semibold shadow-lg transition duration-300 hover:scale-105"
         >
           <RotateCcw size={18} />
           Reset Filters

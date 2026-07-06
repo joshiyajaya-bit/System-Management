@@ -1,14 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  FaUserGraduate,
-  FaEnvelope,
-  FaPhone,
-  FaBuilding,
-  FaVenusMars,
-  FaBook,
-  FaPercent,
-  FaMoneyBillWave,
-} from "react-icons/fa";
+import { FaUserGraduate, FaEnvelope, FaPhone, FaBuilding, FaVenusMars, FaBook, FaPercent, FaMoneyBillWave } from "react-icons/fa";
 
 export default function StudentModal({
   isOpen,
@@ -41,23 +32,7 @@ export default function StudentModal({
     onClose();
   };
 
-  const inputStyle = `
-  w-full
-  bg-[#111827]
-  border
-  border-slate-700
-  text-white
-  rounded-xl
-  pl-12
-  pr-4
-  py-3
-  outline-none
-  transition-all
-  duration-300
-  focus:border-cyan-500
-  focus:ring-2
-  focus:ring-cyan-500/30
-`;
+  const inputStyle = "w-full bg-[#111827] border border-slate-700 text-white rounded-xl pl-12 pr-4 py-3 outline-none transition-all duration-300 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/30";
 
   return (
     <div
@@ -65,9 +40,9 @@ export default function StudentModal({
       onClick={onClose}
     >
       <div
-  onClick={(e) => e.stopPropagation()}
-  className="w-full max-w-5xl max-h-[90vh] rounded-3xl border border-slate-700 bg-[#1E293B] shadow-2xl overflow-hidden flex flex-col"
->
+        onClick={(e) => e.stopPropagation()}
+        className="w-full max-w-5xl max-h-[90vh] rounded-3xl border border-slate-700 bg-[#1E293B] shadow-2xl overflow-hidden flex flex-col"
+      >
         {/* Header */}
 
         <div className="flex justify-between items-center px-8 py-5 border-b border-slate-700">
@@ -104,9 +79,9 @@ export default function StudentModal({
 
         {/* Body */}
 
-<div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto">
 
-<div className="grid md:grid-cols-2 gap-6 p-8"></div>
+          <div className="grid md:grid-cols-2 gap-6 p-8"></div>
 
           {/* Student ID */}
 
@@ -287,7 +262,7 @@ export default function StudentModal({
               disabled={readOnly}
               className={inputStyle}
             >
-              {[1,2,3,4,5,6,7,8].map((sem)=>(
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((sem) => (
                 <option key={sem}>{sem}</option>
               ))}
             </select>

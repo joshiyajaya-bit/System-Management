@@ -19,7 +19,7 @@ export default function CalendarCard() {
   }, []);
 
   return (
-   <div className="bg-[#1E293B]/95 backdrop-blur-xl border border-cyan-500/20 rounded-3xl shadow-2xl p-6">
+    <div className="bg-[#1E293B]/95 backdrop-blur-xl border border-cyan-500/20 rounded-3xl shadow-2xl p-6">
 
       {/* Header */}
 
@@ -31,7 +31,7 @@ export default function CalendarCard() {
             Calendar
           </h2>
 
-         <p className="text-slate-400 text-xs mt-1">
+          <p className="text-slate-400 text-xs mt-1">
             Schedule & Events
           </p>
 
@@ -47,26 +47,26 @@ export default function CalendarCard() {
 
       {/* Date */}
 
-<div className="bg-[#111827] rounded-xl py-3 px-4 border border-slate-700 text-center">
+      <div className="bg-[#111827] rounded-xl py-3 px-4 border border-slate-700 text-center">
 
-  <h1 className="text-3xl font-bold text-cyan-400">
-    {time.toLocaleDateString("en-IN", {
-      day: "2-digit",
-      month: "short",
-    })}
-  </h1>
+        <h1 className="text-3xl font-bold text-cyan-400">
+          {time.toLocaleDateString("en-IN", {
+            day: "2-digit",
+            month: "short",
+          })}
+        </h1>
 
-  <p className="text-sm text-slate-400 mt-1">
-    {time.toLocaleDateString("en-IN", {
-      year: "numeric",
-      weekday: "long",
-    })}
-  </p>
+        <p className="text-sm text-slate-400 mt-1">
+          {time.toLocaleDateString("en-IN", {
+            year: "numeric",
+            weekday: "long",
+          })}
+        </p>
 
-</div>
+      </div>
 
       {/* Time */}
-<div className="bg-[#111827] rounded-3xl p-5 mt-5 border border-slate-700 flex items-center justify-center gap-4 shadow-lg">
+      <div className="bg-[#111827] rounded-3xl p-5 mt-5 border border-slate-700 flex items-center justify-center gap-4 shadow-lg">
         <FaClock className="text-cyan-400" />
 
         <h2 className="text-2xl font-bold text-white">
@@ -92,32 +92,32 @@ export default function CalendarCard() {
 
       <div className="mt-8">
 
-       <div className="flex items-center justify-between mb-5">
+        <div className="flex items-center justify-between mb-5">
 
-  <h3 className="text-xl font-bold text-white">
-    Upcoming Events
-  </h3>
+          <h3 className="text-xl font-bold text-white">
+            Upcoming Events
+          </h3>
 
-  <span className="text-cyan-400 text-sm">
-    {events.length} Events
-  </span>
+          <span className="text-cyan-400 text-sm">
+            {events.length} Events
+          </span>
 
-</div>
+        </div>
 
         <div className="space-y-3">
 
           {events.map((event) => (
 
-  <div
-  key={event.id}
-  className="flex items-center justify-between bg-[#111827] border border-slate-700 rounded-xl px-4 py-3 hover:border-cyan-500 transition-all duration-300"
->
+            <div
+              key={event.id}
+              className="flex items-center justify-between bg-[#111827] border border-slate-700 rounded-xl px-4 py-3 hover:border-cyan-500 transition-all duration-300"
+            >
 
               <div className="flex items-center gap-4 flex-1">
 
-<div
-  className={`w-2.5 h-2.5 rounded-full ${event.color}`}
-/>
+                <div
+                  className={`w-2.5 h-2.5 rounded-full ${event.color}`}
+                />
 
                 <div>
 
@@ -129,7 +129,7 @@ export default function CalendarCard() {
                         {event.title}
                       </h4>
 
-                     <p className="text-slate-400 text-sm mt-1">
+                      <p className="text-slate-400 text-sm mt-1">
                         {event.date}
                       </p>
 

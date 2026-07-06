@@ -1,8 +1,6 @@
 import React from "react";
 import {
-  Eye,
-  Pencil,
-  Trash2,
+  Eye, Pencil, Trash2,
 } from "lucide-react";
 
 export default function StudentTable({
@@ -32,7 +30,7 @@ export default function StudentTable({
 
       <div className="w-full overflow-x-auto">
 
-<table className="w-full table-auto">
+        <table className="w-full table-auto">
           {/* Header */}
 
           <thead className="bg-[#111827] border-b border-slate-700">
@@ -71,9 +69,9 @@ export default function StudentTable({
                 Fee Status
               </th>
 
-    <th className="w-52 px-6 py-4 text-center text-cyan-400 font-semibold">
-  Actions
-</th>
+              <th className="w-52 px-6 py-4 text-center text-cyan-400 font-semibold">
+                Actions
+              </th>
             </tr>
 
           </thead>
@@ -88,13 +86,7 @@ export default function StudentTable({
 
                 <tr
                   key={student["Student ID"] || index}
-                  className="
-                  border-b
-                  border-slate-700
-                  hover:bg-slate-800/60
-                  transition-all
-                  duration-300
-                  "
+                  className="border-b border-slate-700 hover:bg-slate-800/60 transition-all duration-300"
                 >
 
                   {/* Student ID */}
@@ -154,94 +146,51 @@ export default function StudentTable({
                   <td className="px-5 py-4 text-center">
 
                     <span
-                      className={`px-4 py-1 rounded-full text-sm font-semibold ${
-                        student["Fee Status"] === "Paid"
+                      className={`px-4 py-1 rounded-full text-sm font-semibold ${student["Fee Status"] === "Paid"
                           ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40"
                           : "bg-red-500/20 text-red-400 border border-red-500/40"
-                      }`}
+                        }`}
                     >
                       {student["Fee Status"]}
                     </span>
 
                   </td>
-{/* Actions */}
+                  {/* Actions */}
 
-<td className="w-52 px-6 py-4">
+                  <td className="w-52 px-6 py-4">
 
-  <div className="flex items-center justify-center gap-3 whitespace-nowrap">
+                    <div className="flex items-center justify-center gap-3 whitespace-nowrap">
 
-    {/* View */}
+                      {/* View */}
 
-    <button
-      onClick={() => onView(student)}
-      className="
-        w-11
-        h-11
-        flex
-        items-center
-        justify-center
-        rounded-xl
-        bg-cyan-500/20
-        text-cyan-400
-        hover:bg-cyan-500
-        hover:text-white
-        hover:scale-110
-        transition-all
-        duration-300
-      "
-    >
-      <Eye size={18} />
-    </button>
+                      <button
+                        onClick={() => onView(student)}
+                        className="w-11 h-11 flex items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500 hover:text-white hover:scale-110 transition-all duration-300"
+                      >
+                        <Eye size={18} />
+                      </button>
 
-    {/* Edit */}
+                      {/* Edit */}
 
-    <button
-      onClick={() => onEdit(student)}
-      className="
-        w-11
-        h-11
-        flex
-        items-center
-        justify-center
-        rounded-xl
-        bg-yellow-500/20
-        text-yellow-400
-        hover:bg-yellow-500
-        hover:text-white
-        hover:scale-110
-        transition-all
-        duration-300
-      "
-    >
-      <Pencil size={18} />
-    </button>
+                      <button
+                        onClick={() => onEdit(student)}
+                        className="w-11 h-11 flex items-center justify-center rounded-xl bg-yellow-500/20 text-yellow-400 hover:bg-yellow-500 hover:text-white hover:scale-110 transition-all duration-300"
+                      >
+                        <Pencil size={18} />
+                      </button>
 
-    {/* Delete */}
+                      {/* Delete */}
 
-    <button
-      onClick={() => onDelete(student["Student ID"])}
-      className="
-        w-11
-        h-11
-        flex
-        items-center
-        justify-center
-        rounded-xl
-        bg-red-500/20
-        text-red-400
-        hover:bg-red-500
-        hover:text-white
-        hover:scale-110
-        transition-all
-        duration-300
-      "
-    >
-      <Trash2 size={18} />
-    </button>
+                      <button
+                        onClick={() => onDelete(student["Student ID"])}
+                        className="w-11 h-11 flex items-center justify-center rounded-xl bg-cyan-500/20 text-cyan-400 hover:bg-cyan-500 hover:text-white hover:scale-110 transition-all duration-300"
+                      >
+                        <Trash2 size={18} />
+                      </button>
 
-  </div>
+                    </div>
 
-</td>
+                  </td>
 
                 </tr>
 
@@ -283,8 +232,8 @@ export default function StudentTable({
         </table>
 
       </div>
-      </div>
+    </div>
 
-    
+
   );
 }

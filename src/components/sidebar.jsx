@@ -1,5 +1,6 @@
 import {
-  FaHome, FaUserGraduate,FaChalkboardTeacher,FaBook,FaSignOutAlt,} from "react-icons/fa";
+  FaHome, FaUserGraduate, FaChalkboardTeacher, FaBook, FaSignOutAlt,
+} from "react-icons/fa";
 
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/jkns-logo.png";
@@ -7,20 +8,19 @@ import logo from "../assets/jkns-logo.png";
 export default function Sidebar() {
   const navigate = useNavigate();
 
-const handleLogout = () => {
-  localStorage.removeItem("isLoggedIn");
-  localStorage.removeItem("username");
-  localStorage.removeItem("role");
-  localStorage.removeItem("rememberUser");
+  const handleLogout = () => {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("username");
+    localStorage.removeItem("role");
+    localStorage.removeItem("rememberUser");
 
-  navigate("/login", { replace: true });
-};
-const menuClass = ({ isActive }) =>
-  `group flex items-center gap-4 px-5 py-3 rounded-2xl transition-all duration-300 ${
-    isActive
+    navigate("/login", { replace: true });
+  };
+  const menuClass = ({ isActive }) =>
+    `group flex items-center gap-4 px-5 py-3 rounded-2xl transition-all duration-300 ${isActive
       ? "bg-gradient-to-r from-cyan-500 to-blue-600 text-white shadow-lg border-l-4 border-cyan-300"
       : "text-slate-300 hover:bg-slate-800 hover:text-white"
-  }`;
+    }`;
 
   return (
     <aside
@@ -92,7 +92,7 @@ const menuClass = ({ isActive }) =>
 
         <button
           onClick={handleLogout}
-         className="w-full py-3 rounded-2xl bg-gradient-to-r from-white-500 to-blue-700 hover:scale-105 transition duration-300 text-white font-semibold flex items-center justify-center gap-3 shadow-lg"
+          className="w-full py-3 rounded-2xl bg-gradient-to-r from-white-500 to-blue-700 hover:scale-105 transition duration-300 text-white font-semibold flex items-center justify-center gap-3 shadow-lg"
         >
           <FaSignOutAlt />
           Logout

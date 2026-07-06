@@ -50,26 +50,26 @@ export default function Dashboard() {
       </div>
 
       {/* Charts + Calendar */}
-<div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
 
-  {/* Left Side */}
-  <div className="xl:col-span-2 space-y-6">
+        {/* Left Side */}
+        <div className="xl:col-span-2 space-y-6">
 
-    <Charts
-      attendanceData={attendanceData}
-      performanceData={performanceData}
-    />
+          <Charts
+            attendanceData={attendanceData}
+            performanceData={performanceData}
+          />
 
-  </div>
+        </div>
 
-  {/* Right Side */}
-  <div>
+        {/* Right Side */}
+        <div>
 
-    <Calendar />
+          <Calendar />
 
-  </div>
+        </div>
 
-</div>
+      </div>
     </div>
   );
 }

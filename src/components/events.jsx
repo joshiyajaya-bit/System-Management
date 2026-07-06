@@ -21,7 +21,7 @@ const events = [
     color: "bg-purple-500",
     type: "Career",
   }
- 
+
 ];
 
 export default events;

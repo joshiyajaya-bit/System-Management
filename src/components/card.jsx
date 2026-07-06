@@ -1,7 +1,7 @@
-import { FaArrowUp,} from "react-icons/fa";
+import { FaArrowUp, } from "react-icons/fa";
 
 export default function Card({
-  title,value,icon,color = "from-cyan-500 to-blue-600",
+  title, value, icon, color = "from-cyan-500 to-blue-600",
 }) {
   return (
     <div
@@ -9,18 +9,7 @@ export default function Card({
     >
       {/* Background Glow */}
 
-      <div
-        className="
-        absolute
-        -right-10
-        -top-10
-        w-32
-        h-32
-        rounded-full
-        bg-cyan-500/10
-        blur-3xl
-        "
-      />
+      <div className="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-cyan-500/10 blur-3xl" />
 
       {/* Header */}
 
@@ -39,7 +28,7 @@ export default function Card({
         </div>
 
         <div
-         className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center text-white text-3xl shadow-lg`}
+          className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center text-white text-3xl shadow-lg`}
         >
           {icon}
         </div>

@@ -1,10 +1,5 @@
 import { useState } from "react";
-import {
-  FaUserGraduate,
-  FaEnvelope,
-  FaPhone,
-  FaBuilding,
-  FaTransgender,FaCheckCircle,} from "react-icons/fa";
+import { FaUserGraduate, FaEnvelope, FaPhone, FaBuilding, FaTransgender, FaCheckCircle } from "react-icons/fa";
 
 export default function StudentForm({ onAddStudent }) {
   const initialState = {
@@ -35,37 +30,37 @@ export default function StudentForm({ onAddStudent }) {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  if (
-    !student["Student ID"]?.trim() ||
-    !student["Full Name"]?.trim() ||
-    !student.Email?.trim() ||
-    !student.Phone?.trim() ||
-    !student.Department ||
-    !student.Year ||
-    !student.Gender
-  ) {
-    alert("Please fill all required fields.");
-    return;
-  }
+    if (
+      !student["Student ID"]?.trim() ||
+      !student["Full Name"]?.trim() ||
+      !student.Email?.trim() ||
+      !student.Phone?.trim() ||
+      !student.Department ||
+      !student.Year ||
+      !student.Gender
+    ) {
+      alert("Please fill all required fields.");
+      return;
+    }
 
-  const newStudent = {
-    id: Date.now(),
-    ...student,
+    const newStudent = {
+      id: Date.now(),
+      ...student,
+    };
+
+    try {
+      await onAddStudent(newStudent);
+
+      alert("Student Added Successfully!");
+
+      handleReset();
+    } catch (error) {
+      console.error(error);
+      alert("Failed to add student.");
+    }
   };
-
-  try {
-    await onAddStudent(newStudent);
-
-    alert("Student Added Successfully!");
-
-    handleReset();
-  } catch (error) {
-    console.error(error);
-    alert("Failed to add student.");
-  }
-};
 
   return (
     <div className="bg-[#111827] border border-slate-700 rounded-3xl shadow-2xl p-8">
@@ -103,27 +98,15 @@ export default function StudentForm({ onAddStudent }) {
               />
 
               <input
+
                 type="text"
                 name="Student ID"
                 value={student["Student ID"]}
                 onChange={handleChange}
                 placeholder="ST001"
-                className="
-                  w-full
-                  bg-[#1E293B]
-                  border
-                  border-slate-700
-                  rounded-xl
-                  pl-12
-                  pr-4
-                  py-3
-                  text-white
-                  placeholder-slate-500
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-cyan-500
-                "
+                className="w-full bg-[#1E293B] border border-slate-700 rounded-xl pl-12 pr-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
               />
+
 
             </div>
 
@@ -149,21 +132,7 @@ export default function StudentForm({ onAddStudent }) {
                 value={student["Full Name"]}
                 onChange={handleChange}
                 placeholder="Rahul Kumar"
-                className="
-                  w-full
-                  bg-[#1E293B]
-                  border
-                  border-slate-700
-                  rounded-xl
-                  pl-12
-                  pr-4
-                  py-3
-                  text-white
-                  placeholder-slate-500
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-cyan-500
-                "
+                className="w-full bg-[#1E293B] border border-slate-700 rounded-xl pl-12 pr-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
               />
 
             </div>
@@ -190,21 +159,7 @@ export default function StudentForm({ onAddStudent }) {
                 value={student.Email}
                 onChange={handleChange}
                 placeholder="student@jkns.edu.in"
-                className="
-                  w-full
-                  bg-[#1E293B]
-                  border
-                  border-slate-700
-                  rounded-xl
-                  pl-12
-                  pr-4
-                  py-3
-                  text-white
-                  placeholder-slate-500
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-cyan-500
-                "
+                className="w-full bg-[#1E293B] border border-slate-700 rounded-xl pl-12 pr-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
               />
 
             </div>
@@ -231,28 +186,14 @@ export default function StudentForm({ onAddStudent }) {
                 value={student.Phone}
                 onChange={handleChange}
                 placeholder="9876543210"
-                className="
-                  w-full
-                  bg-[#1E293B]
-                  border
-                  border-slate-700
-                  rounded-xl
-                  pl-12
-                  pr-4
-                  py-3
-                  text-white
-                  placeholder-slate-500
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-cyan-500
-                "
+                className="w-full bg-[#1E293B] border border-slate-700 rounded-xl pl-12 pr-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
               />
 
             </div>
 
           </div>
 
-                    {/* Department */}
+          {/* Department */}
 
           <div>
 
@@ -268,20 +209,7 @@ export default function StudentForm({ onAddStudent }) {
                 name="Department"
                 value={student.Department}
                 onChange={handleChange}
-                className="
-                  w-full
-                  bg-[#1E293B]
-                  border
-                  border-slate-700
-                  rounded-xl
-                  pl-12
-                  pr-4
-                  py-3
-                  text-white
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-cyan-500
-                "
+                className="w-full bg-[#1E293B] border border-slate-700 rounded-xl pl-12 pr-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
               >
                 <option value="">Select Department</option>
                 <option value="CSE">CSE</option>
@@ -309,19 +237,7 @@ export default function StudentForm({ onAddStudent }) {
               name="Year"
               value={student.Year}
               onChange={handleChange}
-              className="
-                w-full
-                bg-[#1E293B]
-                border
-                border-slate-700
-                rounded-xl
-                px-4
-                py-3
-                text-white
-                focus:outline-none
-                focus:ring-2
-                focus:ring-cyan-500
-              "
+              className="w-full bg-[#1E293B] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
             >
               <option value="">Select Year</option>
               <option value="1">1st Year</option>
@@ -344,19 +260,7 @@ export default function StudentForm({ onAddStudent }) {
               name="Semester"
               value={student.Semester}
               onChange={handleChange}
-              className="
-                w-full
-                bg-[#1E293B]
-                border
-                border-slate-700
-                rounded-xl
-                px-4
-                py-3
-                text-white
-                focus:outline-none
-                focus:ring-2
-                focus:ring-cyan-500
-              "
+              className="w-full bg-[#1E293B] border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
             >
               <option value="">Select Semester</option>
               <option value="1">Semester 1</option>
@@ -387,20 +291,7 @@ export default function StudentForm({ onAddStudent }) {
                 name="Gender"
                 value={student.Gender}
                 onChange={handleChange}
-                className="
-                  w-full
-                  bg-[#1E293B]
-                  border
-                  border-slate-700
-                  rounded-xl
-                  pl-12
-                  pr-4
-                  py-3
-                  text-white
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-cyan-500
-                "
+                className="w-full bg-[#1E293B] border border-slate-700 rounded-xl pl-12 pr-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
               >
                 <option value="">Select Gender</option>
                 <option value="Male">Male</option>
@@ -428,20 +319,7 @@ export default function StudentForm({ onAddStudent }) {
                 name="Fee Status"
                 value={student["Fee Status"]}
                 onChange={handleChange}
-                className="
-                  w-full
-                  bg-[#1E293B]
-                  border
-                  border-slate-700
-                  rounded-xl
-                  pl-12
-                  pr-4
-                  py-3
-                  text-white
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-cyan-500
-                "
+                className="w-full bg-[#1E293B] border border-slate-700 rounded-xl pl-12 pr-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
               >
                 <option value="Paid">Paid</option>
                 <option value="Pending">Pending</option>
@@ -465,20 +343,7 @@ export default function StudentForm({ onAddStudent }) {
               value={student["Attendance (%)"]}
               onChange={handleChange}
               placeholder="95"
-              className="
-                w-full
-                bg-[#1E293B]
-                border
-                border-slate-700
-                rounded-xl
-                px-4
-                py-3
-                text-white
-                placeholder-slate-500
-                focus:outline-none
-                focus:ring-2
-                focus:ring-cyan-500
-              "
+              className="w-full bg-[#1E293B] border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
             />
 
           </div>
@@ -497,25 +362,12 @@ export default function StudentForm({ onAddStudent }) {
               value={student["Marks (%)"]}
               onChange={handleChange}
               placeholder="88"
-              className="
-                w-full
-                bg-[#1E293B]
-                border
-                border-slate-700
-                rounded-xl
-                px-4
-                py-3
-                text-white
-                placeholder-slate-500
-                focus:outline-none
-                focus:ring-2
-                focus:ring-cyan-500
-              "
+              className="w-full bg-[#1E293B] border border-slate-700 rounded-xl px-4 py-3 text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-cyan-500"
             />
 
           </div>
 
-                  </div>
+        </div>
 
         {/* Buttons */}
 
@@ -526,19 +378,7 @@ export default function StudentForm({ onAddStudent }) {
           <button
             type="button"
             onClick={handleReset}
-            className="
-              px-6
-              py-3
-              rounded-xl
-              border
-              border-slate-600
-              bg-[#1E293B]
-              text-slate-300
-              hover:bg-slate-700
-              hover:text-white
-              transition-all
-              duration-300
-            "
+            className="px-6 py-3 rounded-xl border border-slate-600 bg-[#1E293B] text-slate-300 hover:bg-slate-700 hover:text-white transition-all duration-300"
           >
             Reset
           </button>
@@ -547,21 +387,7 @@ export default function StudentForm({ onAddStudent }) {
 
           <button
             type="submit"
-            className="
-              px-8
-              py-3
-              rounded-xl
-              bg-gradient-to-r
-              from-cyan-500
-              to-blue-600
-              text-white
-              font-semibold
-              shadow-lg
-              shadow-cyan-500/20
-              hover:scale-105
-              transition-all
-              duration-300
-            "
+            className="px-8 py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold shadow-lg shadow-cyan-500/20 hover:scale-105 transition-all duration-300"
           >
             Add Student
           </button>

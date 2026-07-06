@@ -11,11 +11,11 @@ import StudentModal from "../components/StudentModal";
 import studentsData from "../students/students.json";
 
 export default function Students() {
-const [students, setStudents] = useState([]);
+  const [students, setStudents] = useState([]);
 
-useEffect(() => {
-  console.log("Students State:", students);
-}, [students]);
+  useEffect(() => {
+    console.log("Students State:", students);
+  }, [students]);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [department, setDepartment] = useState("");
@@ -29,43 +29,43 @@ useEffect(() => {
   const [currentPage, setCurrentPage] = useState(1);
   const studentsPerPage = 10;
 
- useEffect(() => {
-  loadStudents();
-}, []);
+  useEffect(() => {
+    loadStudents();
+  }, []);
 
-const loadStudents = async () => {
-  try {
-    const res = await api.get("/students");
+  const loadStudents = async () => {
+    try {
+      const res = await api.get("/students");
 
-    console.log("Students Loaded:", res.data);
+      console.log("Students Loaded:", res.data);
 
-    setStudents([...res.data]); 
+      setStudents([...res.data]);
 
-  } catch (err) {
-    console.error(err);
-  }
-};
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
- // Add Student
-const handleAddStudent = async (student) => {
-  try {
-    await api.post("/students", student);
+  // Add Student
+  const handleAddStudent = async (student) => {
+    try {
+      await api.post("/students", student);
 
-    await loadStudents(); 
+      await loadStudents();
 
-    setSearchTerm("");
-    setDepartment("");
-    setYear("");
-    setStatus("");
+      setSearchTerm("");
+      setDepartment("");
+      setYear("");
+      setStatus("");
 
       setCurrentPage(1);
 
-    alert("Student Added Successfully!");
-  } catch (err) {
-    console.error("Error adding student:", err);
-    alert("Failed to add student.");
-  }
-}; 
+      alert("Student Added Successfully!");
+    } catch (err) {
+      console.error("Error adding student:", err);
+      alert("Failed to add student.");
+    }
+  };
 
   // View
   const handleView = (student) => {
@@ -83,68 +83,68 @@ const handleAddStudent = async (student) => {
 
   // Save
   const handleSave = async (updatedStudent) => {
-  await api.put(
-    `/students/${updatedStudent.id}`,
-    updatedStudent
-  );
-
-  loadStudents();
-};
-
-  // Delete
-const handleDelete = async (id) => {
-  if (window.confirm("Delete Student?")) {
-    await api.delete(`/students/${id}`);
-    loadStudents();
-  }
-};
-
-  // Search & Filter
-const filteredStudents = students.filter((student) => {
-  const search = searchTerm.trim().toLowerCase();
-
-  const matchesSearch =
-    search === "" ||
-    Object.values(student).some((value) =>
-      String(value).toLowerCase().includes(search)
+    await api.put(
+      `/students/${updatedStudent.id}`,
+      updatedStudent
     );
 
-  const matchesDepartment =
-    department === "" || student.Department === department;
+    loadStudents();
+  };
 
-  const matchesYear =
-    year === "" || String(student.Year) === String(year);
+  // Delete
+  const handleDelete = async (id) => {
+    if (window.confirm("Delete Student?")) {
+      await api.delete(`/students/${id}`);
+      loadStudents();
+    }
+  };
 
-  const matchesStatus =
-    status === "" || student["Fee Status"] === status;
+  // Search & Filter
+  const filteredStudents = students.filter((student) => {
+    const search = searchTerm.trim().toLowerCase();
 
-  return (
-    matchesSearch &&
-    matchesDepartment &&
-    matchesYear &&
-    matchesStatus
-  );
-});
+    const matchesSearch =
+      search === "" ||
+      Object.values(student).some((value) =>
+        String(value).toLowerCase().includes(search)
+      );
+
+    const matchesDepartment =
+      department === "" || student.Department === department;
+
+    const matchesYear =
+      year === "" || String(student.Year) === String(year);
+
+    const matchesStatus =
+      status === "" || student["Fee Status"] === status;
+
+    return (
+      matchesSearch &&
+      matchesDepartment &&
+      matchesYear &&
+      matchesStatus
+    );
+  });
   // Pagination
 
- const totalPages = Math.max(
-  1,
-  Math.ceil(filteredStudents.length / studentsPerPage)
-);
+  const totalPages = Math.max(
+    1,
+    Math.ceil(filteredStudents.length / studentsPerPage)
+  );
 
-const startIndex = (currentPage - 1) * studentsPerPage;
+  const startIndex = (currentPage - 1) * studentsPerPage;
 
-const currentStudents = filteredStudents.slice(
-  startIndex,
-  startIndex + studentsPerPage
-);
+  const currentStudents = filteredStudents.slice(
+    startIndex,
+    startIndex + studentsPerPage
+  );
 
   return (
-   <div className="mx-2 bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl px-8 py-8">
+    <div className="mx-2 bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl px-8 py-8">
 
       {/* Header */}
 
-     <div className="mx-2 bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl px-8 py-8">
+      <div className="mx-2 bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl px-8 py-8">
         <div className="flex items-center justify-between">
 
           <div>
