@@ -37,7 +37,7 @@ export default function CalendarCard() {
 
         </div>
 
-        <div className="w-12 h-12 rounded-2xl bg-cyan-500/20 flex items-center justify-center">
+        <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center shadow-lg">
 
           <FaCalendarAlt className="text-cyan-400 text-xl" />
 
