@@ -96,9 +96,17 @@ export default function CalendarCard() {
 
       <div className="mt-8">
 
-        <h3 className="text-xl font-semibold text-white mb-4">
-          Upcoming Events
-        </h3>
+       <div className="flex items-center justify-between mb-5">
+
+  <h3 className="text-xl font-bold text-white">
+    Upcoming Events
+  </h3>
+
+  <span className="text-cyan-400 text-sm">
+    {events.length} Events
+  </span>
+
+</div>
 
         <div className="space-y-4">
 
