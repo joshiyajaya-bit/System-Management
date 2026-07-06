@@ -131,7 +131,7 @@ export default function CalendarCard() {
 
                     </div>
 
-                    <span className="px-3 py-1 rounded-full bg-slate-700 text-cyan-400 text-xs font-semibold">
+                    <span className="px-4 py-2 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-400 text-xs font-bold whitespace-nowrap">
                       {event.type}
                     </span>
 
