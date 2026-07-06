@@ -32,7 +32,7 @@ export default function StudentTable({
 
       <div className="overflow-x-auto">
 
-<table className="w-full min-w-[1300px]">
+<table className="w-full table-auto">
           {/* Header */}
 
           <thead className="bg-[#111827] border-b border-slate-700">
