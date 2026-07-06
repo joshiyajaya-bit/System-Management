@@ -65,9 +65,9 @@ export default function StudentModal({
       onClick={onClose}
     >
       <div
-        onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-5xl rounded-3xl border border-slate-700 bg-[#1E293B] shadow-2xl overflow-hidden"
-      >
+  onClick={(e) => e.stopPropagation()}
+  className="w-full max-w-5xl max-h-[90vh] rounded-3xl border border-slate-700 bg-[#1E293B] shadow-2xl overflow-hidden flex flex-col"
+>
         {/* Header */}
 
         <div className="flex justify-between items-center px-8 py-5 border-b border-slate-700">
@@ -102,7 +102,11 @@ export default function StudentModal({
 
         {/* Body */}
 
-        <div className="grid md:grid-cols-2 gap-6 p-8">
+        {/* Body */}
+
+<div className="flex-1 overflow-y-auto">
+
+<div className="grid md:grid-cols-2 gap-6 p-8"></div>
 
           {/* Student ID */}
 
@@ -405,7 +409,7 @@ export default function StudentModal({
 
         {/* Footer */}
 
-        <div className="flex justify-end gap-4 px-8 py-5 border-t border-slate-700">
+        <div className="sticky bottom-0 bg-[#1E293B] flex justify-end gap-4 px-8 py-5 border-t border-slate-700">
 
           <button
             onClick={onClose}

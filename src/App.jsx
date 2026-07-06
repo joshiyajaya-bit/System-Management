@@ -33,7 +33,7 @@ export default function App() {
               <div className="flex flex-col flex-1 min-w-0 ml-72">
                 <Navbar />
 
-                <main className="px-8 py-6 lg:px-10">
+                <main className="px-8 py-6 overflow-x-hidden">
                   <Routes>
                     <Route path="/" element={<Dashboard />} />
 

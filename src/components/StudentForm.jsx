@@ -34,28 +34,38 @@ export default function StudentForm({ onAddStudent }) {
     setStudent(initialState);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    if (
-      !student["Student ID"] ||
-      !student["Full Name"] ||
-      !student.Email ||
-      !student.Phone ||
-      !student.Department ||
-      !student.Year ||
-      !student.Gender
-    ) {
-      alert("Please fill all required fields.");
-      return;
-    }
+  if (
+    !student["Student ID"]?.trim() ||
+    !student["Full Name"]?.trim() ||
+    !student.Email?.trim() ||
+    !student.Phone?.trim() ||
+    !student.Department ||
+    !student.Year ||
+    !student.Gender
+  ) {
+    alert("Please fill all required fields.");
+    return;
+  }
 
-    onAddStudent(student);
+  const newStudent = {
+    id: Date.now(),
+    ...student,
+  };
+
+  try {
+    await onAddStudent(newStudent);
 
     alert("Student Added Successfully!");
 
     handleReset();
-  };
+  } catch (error) {
+    console.error(error);
+    alert("Failed to add student.");
+  }
+};
 
   return (
     <div className="bg-[#111827] border border-slate-700 rounded-3xl shadow-2xl p-8">

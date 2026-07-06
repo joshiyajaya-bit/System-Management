@@ -13,6 +13,10 @@ import studentsData from "../students/students.json";
 export default function Students() {
 const [students, setStudents] = useState([]);
 
+useEffect(() => {
+  console.log("Students State:", students);
+}, [students]);
+
   const [searchTerm, setSearchTerm] = useState("");
   const [department, setDepartment] = useState("");
   const [year, setYear] = useState("");
@@ -32,17 +36,36 @@ const [students, setStudents] = useState([]);
 const loadStudents = async () => {
   try {
     const res = await api.get("/students");
-    setStudents(res.data);
+
+    console.log("Students Loaded:", res.data);
+
+    setStudents([...res.data]); 
+
   } catch (err) {
     console.error(err);
   }
 };
 
-  // Add Student
- const handleAddStudent = async (student) => {
-  await api.post("/students", student);
-  loadStudents();
-};
+ // Add Student
+const handleAddStudent = async (student) => {
+  try {
+    await api.post("/students", student);
+
+    await loadStudents(); 
+
+    setSearchTerm("");
+    setDepartment("");
+    setYear("");
+    setStatus("");
+
+      setCurrentPage(1);
+
+    alert("Student Added Successfully!");
+  } catch (err) {
+    console.error("Error adding student:", err);
+    alert("Failed to add student.");
+  }
+}; 
 
   // View
   const handleView = (student) => {
@@ -77,53 +100,47 @@ const handleDelete = async (id) => {
 };
 
   // Search & Filter
+const filteredStudents = students.filter((student) => {
+  const search = searchTerm.trim().toLowerCase();
 
-  const filteredStudents = students.filter((student) => {
-    const matchesSearch =
-      student["Full Name"]
-        ?.toLowerCase()
-        .includes(searchTerm.toLowerCase()) ||
-      student.Email
-        ?.toLowerCase()
-        .includes(searchTerm.toLowerCase()) ||
-      String(student.Phone).includes(searchTerm);
-
-    const matchesDepartment =
-      department === "" ||
-      student.Department === department;
-
-    const matchesYear =
-      year === "" ||
-      String(student.Year) === String(year);
-
-    const matchesStatus =
-      status === "" ||
-      student["Fee Status"] === status;
-
-    return (
-      matchesSearch &&
-      matchesDepartment &&
-      matchesYear &&
-      matchesStatus
+  const matchesSearch =
+    search === "" ||
+    Object.values(student).some((value) =>
+      String(value).toLowerCase().includes(search)
     );
-  });
 
-  // Pagination
+  const matchesDepartment =
+    department === "" || student.Department === department;
 
-  const totalPages = Math.ceil(
-    filteredStudents.length / studentsPerPage
-  );
+  const matchesYear =
+    year === "" || String(student.Year) === String(year);
 
-  const startIndex =
-    (currentPage - 1) * studentsPerPage;
-
-  const currentStudents = filteredStudents.slice(
-    startIndex,
-    startIndex + studentsPerPage
-  );
+  const matchesStatus =
+    status === "" || student["Fee Status"] === status;
 
   return (
-    <div className="space-y-8 px-6 lg:px-8">
+    matchesSearch &&
+    matchesDepartment &&
+    matchesYear &&
+    matchesStatus
+  );
+});
+  // Pagination
+
+ const totalPages = Math.max(
+  1,
+  Math.ceil(filteredStudents.length / studentsPerPage)
+);
+
+const startIndex = (currentPage - 1) * studentsPerPage;
+
+const currentStudents = filteredStudents.slice(
+  startIndex,
+  startIndex + studentsPerPage
+);
+
+  return (
+   <div className="mx-2 bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl px-8 py-8">
 
       {/* Header */}
 
