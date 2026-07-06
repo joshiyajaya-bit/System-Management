@@ -70,9 +70,7 @@ export default function CalendarCard() {
       </div>
 
       {/* Time */}
-
-      <div className="bg-[#111827] rounded-2xl p-4 mt-5 border border-slate-700 flex items-center justify-center gap-3">
-
+<div className="bg-[#111827] rounded-3xl p-5 mt-5 border border-slate-700 flex items-center justify-center gap-4 shadow-lg">
         <FaClock className="text-cyan-400" />
 
         <h2 className="text-2xl font-bold text-white">
