@@ -112,8 +112,8 @@ export default function CalendarCard() {
               <div className="flex items-center gap-4 flex-1">
 
                 <div
-                  className={`w-3 h-3 rounded-full ${event.color}`}
-                />
+  className={`w-4 h-4 rounded-full ${event.color} shadow-md`}
+/>
 
                 <div>
 
