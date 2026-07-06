@@ -47,7 +47,7 @@ export default function CalendarCard() {
 
       {/* Date */}
 
-      <div className="bg-[#111827] rounded-2xl p-5 border border-slate-700 text-center">
+      <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 rounded-3xl p-6 border border-cyan-500/20 text-center">
 
         <h1 className="text-5xl font-bold text-cyan-400">
 
