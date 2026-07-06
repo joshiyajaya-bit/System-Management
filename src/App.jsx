@@ -27,13 +27,13 @@ export default function App() {
         path="/*"
         element={
           <ProtectedRoute>
-            <div className="flex min-h-screen bg-[#0F172A]">
+            <div className="flex min-h-screen bg-[#0F172A] overflow-hidden">
               <Sidebar />
 
               <div className="flex flex-col flex-1 ml-72">
                 <Navbar />
 
-                <main className="flex-1 p-6 overflow-y-auto">
+                <main className="p-6 overflow-x-hidden">
                   <Routes>
                     <Route path="/" element={<Dashboard />} />
 
