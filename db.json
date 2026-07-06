@@ -16,7 +16,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "7BoctgU5gcM"
     },
     {
       "Student ID": "STU1002",
@@ -34,7 +35,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "AY3u34wHICw"
     },
     {
       "Student ID": "STU1003",
@@ -52,7 +54,8 @@
       "Fee Status": "Pending",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "zuKQHK_crJ8"
     },
     {
       "Student ID": "STU1004",
@@ -70,7 +73,8 @@
       "Fee Status": "Paid",
       "Assignment": "Pending",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "nloy7I43CG0"
     },
     {
       "Student ID": "STU1005",
@@ -88,7 +92,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "1 Book Issued"
+      "Library Status": "1 Book Issued",
+      "id": "cDeSD4-or8E"
     },
     {
       "Student ID": "STU1006",
@@ -106,7 +111,8 @@
       "Fee Status": "Pending",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "mIQSe05LxdU"
     },
     {
       "Student ID": "STU1007",
@@ -124,7 +130,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "_PWTg0f0TGI"
     },
     {
       "Student ID": "STU1008",
@@ -142,7 +149,8 @@
       "Fee Status": "Paid",
       "Assignment": "Pending",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "qQKiFXHNRCw"
     },
     {
       "Student ID": "STU1009",
@@ -160,7 +168,8 @@
       "Fee Status": "Pending",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "yz-fg_C3iKc"
     },
     {
       "Student ID": "STU1010",
@@ -178,7 +187,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "1 Book Issued"
+      "Library Status": "1 Book Issued",
+      "id": "DW5FxsRhNcI"
     },
     {
       "Student ID": "STU1011",
@@ -196,7 +206,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "3TghYnnU2mY"
     },
     {
       "Student ID": "STU1012",
@@ -214,7 +225,8 @@
       "Fee Status": "Pending",
       "Assignment": "Pending",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "207qPt0SlgY"
     },
     {
       "Student ID": "STU1013",
@@ -232,7 +244,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "7tJWfBo2Exc"
     },
     {
       "Student ID": "STU1014",
@@ -250,7 +263,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "OM2REYR8D-o"
     },
     {
       "Student ID": "STU1015",
@@ -268,7 +282,8 @@
       "Fee Status": "Pending",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "1 Book Issued"
+      "Library Status": "1 Book Issued",
+      "id": "t1KuKQFgK5o"
     },
     {
       "Student ID": "STU1016",
@@ -286,7 +301,8 @@
       "Fee Status": "Paid",
       "Assignment": "Pending",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "m9lltFt3cpo"
     },
     {
       "Student ID": "STU1017",
@@ -304,7 +320,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "krioI7Bs9Zo"
     },
     {
       "Student ID": "STU1018",
@@ -322,7 +339,8 @@
       "Fee Status": "Pending",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "dF_mWXcJjbo"
     },
     {
       "Student ID": "STU1019",
@@ -340,7 +358,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "SXwv9GztdRk"
     },
     {
       "Student ID": "STU1020",
@@ -358,7 +377,8 @@
       "Fee Status": "Paid",
       "Assignment": "Pending",
       "Exam Registration": "Registered",
-      "Library Status": "1 Book Issued"
+      "Library Status": "1 Book Issued",
+      "id": "U6pNJ-YQk0s"
     },
     {
       "Student ID": "STU1021",
@@ -376,7 +396,8 @@
       "Fee Status": "Pending",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "1FdnHWU2AZs"
     },
     {
       "Student ID": "STU1022",
@@ -394,7 +415,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "6aRhJQO_-OA"
     },
     {
       "Student ID": "STU1023",
@@ -412,7 +434,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "pxNcyS4NMyE"
     },
     {
       "Student ID": "STU1024",
@@ -430,7 +453,8 @@
       "Fee Status": "Pending",
       "Assignment": "Pending",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "USlMNV7BwcA"
     },
     {
       "Student ID": "STU1025",
@@ -448,7 +472,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "1 Book Issued"
+      "Library Status": "1 Book Issued",
+      "id": "cA3eZdec7O4"
     },
     {
       "Student ID": "STU1026",
@@ -466,7 +491,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "aRcpABtZvo8"
     },
     {
       "Student ID": "STU1027",
@@ -484,7 +510,8 @@
       "Fee Status": "Pending",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "8MU4tzhCLUc"
     },
     {
       "Student ID": "STU1028",
@@ -502,7 +529,8 @@
       "Fee Status": "Paid",
       "Assignment": "Pending",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "wHrQkuScsaY"
     },
     {
       "Student ID": "STU1029",
@@ -520,7 +548,8 @@
       "Fee Status": "Paid",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "No Due"
+      "Library Status": "No Due",
+      "id": "FDT_bb99Ctg"
     },
     {
       "Student ID": "STU1030",
@@ -538,7 +567,22 @@
       "Fee Status": "Pending",
       "Assignment": "Submitted",
       "Exam Registration": "Registered",
-      "Library Status": "1 Book Issued"
+      "Library Status": "1 Book Issued",
+      "id": "NUlAgGvfGX4"
+    },
+    {
+      "id": "fYsUgAnS3s4",
+      "Student ID": "ST036",
+      "Full Name": "Meganathan",
+      "Email": "Meganathan@gmail.com",
+      "Phone": "7894563210",
+      "Department": "EEE",
+      "Year": "2",
+      "Semester": "4",
+      "Gender": "Male",
+      "Fee Status": "Paid",
+      "Attendance (%)": "",
+      "Marks (%)": ""
     }
   ],
   "teachers": [
@@ -940,7 +984,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "nF5A8D8VZvY"
     },
     {
       "Student ID": "STU1002",
@@ -952,7 +997,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "tl-XkXhQ5d8"
     },
     {
       "Student ID": "STU1003",
@@ -964,7 +1010,8 @@
       "Paid Amount": 45000,
       "Pending Amount": 40000,
       "Due Date": "2026-07-15",
-      "Status": "Pending"
+      "Status": "Pending",
+      "id": "QUy8PB_CR_w"
     },
     {
       "Student ID": "STU1004",
@@ -976,7 +1023,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "VIJjIw1PsMY"
     },
     {
       "Student ID": "STU1005",
@@ -988,7 +1036,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "KIFxSjaUJjc"
     },
     {
       "Student ID": "STU1006",
@@ -1000,7 +1049,8 @@
       "Paid Amount": 50000,
       "Pending Amount": 35000,
       "Due Date": "2026-07-15",
-      "Status": "Pending"
+      "Status": "Pending",
+      "id": "1jQaItyV3BU"
     },
     {
       "Student ID": "STU1007",
@@ -1012,7 +1062,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "xH0GBia4ns4"
     },
     {
       "Student ID": "STU1008",
@@ -1024,7 +1075,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "xh1dmeuajNk"
     },
     {
       "Student ID": "STU1009",
@@ -1036,7 +1088,8 @@
       "Paid Amount": 30000,
       "Pending Amount": 55000,
       "Due Date": "2026-07-15",
-      "Status": "Pending"
+      "Status": "Pending",
+      "id": "szBB2HaU6kM"
     },
     {
       "Student ID": "STU1010",
@@ -1048,7 +1101,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "1Qk6XyEKA8Q"
     },
     {
       "Student ID": "STU1011",
@@ -1060,7 +1114,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "qBz6qgYYMyw"
     },
     {
       "Student ID": "STU1012",
@@ -1072,7 +1127,8 @@
       "Paid Amount": 40000,
       "Pending Amount": 45000,
       "Due Date": "2026-07-15",
-      "Status": "Pending"
+      "Status": "Pending",
+      "id": "8pDglSREdXg"
     },
     {
       "Student ID": "STU1013",
@@ -1084,7 +1140,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "rcEpWQRwxJ8"
     },
     {
       "Student ID": "STU1014",
@@ -1096,7 +1153,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "AqUjebAYbMs"
     },
     {
       "Student ID": "STU1015",
@@ -1108,7 +1166,8 @@
       "Paid Amount": 50000,
       "Pending Amount": 35000,
       "Due Date": "2026-07-15",
-      "Status": "Pending"
+      "Status": "Pending",
+      "id": "p0bPAqaZw8k"
     },
     {
       "Student ID": "STU1016",
@@ -1120,7 +1179,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "SVBcE0zok_U"
     },
     {
       "Student ID": "STU1017",
@@ -1132,7 +1192,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "Zgxo3aQrVj0"
     },
     {
       "Student ID": "STU1018",
@@ -1144,7 +1205,8 @@
       "Paid Amount": 45000,
       "Pending Amount": 40000,
       "Due Date": "2026-07-15",
-      "Status": "Pending"
+      "Status": "Pending",
+      "id": "FxdxBvAJoVs"
     },
     {
       "Student ID": "STU1019",
@@ -1156,7 +1218,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "Rqm_xLl8sJs"
     },
     {
       "Student ID": "STU1020",
@@ -1168,7 +1231,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "t5iFO9qntiU"
     },
     {
       "Student ID": "STU1021",
@@ -1180,7 +1244,8 @@
       "Paid Amount": 30000,
       "Pending Amount": 55000,
       "Due Date": "2026-07-15",
-      "Status": "Pending"
+      "Status": "Pending",
+      "id": "lkL9CdI3pq0"
     },
     {
       "Student ID": "STU1022",
@@ -1192,7 +1257,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "OYEg4zqwgPc"
     },
     {
       "Student ID": "STU1023",
@@ -1204,7 +1270,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "dlSDpiK3HJI"
     },
     {
       "Student ID": "STU1024",
@@ -1216,7 +1283,8 @@
       "Paid Amount": 50000,
       "Pending Amount": 35000,
       "Due Date": "2026-07-15",
-      "Status": "Pending"
+      "Status": "Pending",
+      "id": "ao1F3opSAY4"
     },
     {
       "Student ID": "STU1025",
@@ -1228,7 +1296,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "Q6GJBG24OdE"
     },
     {
       "Student ID": "STU1026",
@@ -1240,7 +1309,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "J4sel9kElAE"
     },
     {
       "Student ID": "STU1027",
@@ -1252,7 +1322,8 @@
       "Paid Amount": 40000,
       "Pending Amount": 45000,
       "Due Date": "2026-07-15",
-      "Status": "Pending"
+      "Status": "Pending",
+      "id": "lHd9p0XAXto"
     },
     {
       "Student ID": "STU1028",
@@ -1264,7 +1335,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "1DXaYGt_3Oc"
     },
     {
       "Student ID": "STU1029",
@@ -1276,7 +1348,8 @@
       "Paid Amount": 85000,
       "Pending Amount": 0,
       "Due Date": "2026-07-15",
-      "Status": "Paid"
+      "Status": "Paid",
+      "id": "xLVILF1FbwA"
     },
     {
       "Student ID": "STU1030",
@@ -1288,24 +1361,25 @@
       "Paid Amount": 45000,
       "Pending Amount": 40000,
       "Due Date": "2026-07-15",
-      "Status": "Pending"
+      "Status": "Pending",
+      "id": "bzvjoM4WFcw"
     }
   ],
   "users": [
     {
-      "id": 1,
+      "id": "1",
       "username": "admin",
       "password": "admin123",
       "role": "Administrator"
     },
     {
-      "id": 2,
+      "id": "2",
       "username": "principal",
       "password": "principal123",
       "role": "Principal"
     },
     {
-      "id": 3,
+      "id": "3",
       "username": "staff",
       "password": "staff123",
       "role": "Staff"
@@ -1313,16 +1387,17 @@
   ],
   "events": [
     {
-      "id": 1,
+      "id": "1",
       "title": "Internal Exam",
       "date": "2026-07-10",
       "type": "Exam"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "Sports Day",
       "date": "2026-07-18",
       "type": "Event"
     }
-  ]
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

@@ -1,24 +1,19 @@
 import { useEffect, useState } from "react";
 import api from "../api/api";
 import TeacherAttendanceOverview from "../components/teacherattendanceoverview";
-import {
-  UserCircle2,
-  GraduationCap,
-  BookOpen,
-  Percent,
-} from "lucide-react";
+import { UserCircle2, GraduationCap, BookOpen, Percent } from "lucide-react";
 
 export default function Teachers() {
   const [teachers, setTeachers] = useState([]);
 
-useEffect(() => {
-  loadTeachers();
-}, []);
+  useEffect(() => {
+    loadTeachers();
+  }, []);
 
-const loadTeachers = async () => {
-  const res = await api.get("/teachers");
-  setTeachers(res.data);
-};
+  const loadTeachers = async () => {
+    const res = await api.get("/teachers");
+    setTeachers(res.data);
+  };
   return (
     <div className="space-y-8">
 
@@ -222,11 +217,10 @@ const loadTeachers = async () => {
                   <td className="px-6 py-5 text-center">
 
                     <span
-                      className={`px-4 py-2 rounded-full font-semibold ${
-                        teacher.attendance >= 75
+                      className={`px-4 py-2 rounded-full font-semibold ${teacher.attendance >= 75
                           ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40"
                           : "bg-red-500/20 text-red-400 border border-red-500/40"
-                      }`}
+                        }`}
                     >
                       {teacher.attendance}%
                     </span>

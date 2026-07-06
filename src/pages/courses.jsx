@@ -1,12 +1,7 @@
 
 import { useState, useEffect } from "react";
 import api from "../api/api";
-import {
-  BookOpen,
-  Clock,
-  Users,
-  ArrowRight,
-} from "lucide-react";
+import { BookOpen, Clock, Users, ArrowRight } from "lucide-react";
 export default function Courses() {
   const [courses, setCourses] = useState([]);
 
@@ -41,21 +36,7 @@ export default function Courses() {
         </div>
 
         <button
-          className="
-          bg-gradient-to-r
-          from-cyan-500
-          to-blue-600
-          hover:from-cyan-400
-          hover:to-blue-500
-          text-white
-          px-6
-          py-3
-          rounded-xl
-          shadow-lg
-          shadow-cyan-500/30
-          transition-all
-          duration-300
-          "
+          className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white px-6 py-3 rounded-xl shadow-lg shadow-cyan-500/30 transition-all duration-300"
         >
           + Add Course
         </button>
@@ -70,19 +51,7 @@ export default function Courses() {
 
           <div
             key={course.id}
-            className="
-            bg-[#1E293B]
-            border
-            border-slate-700
-            rounded-3xl
-            shadow-xl
-            hover:shadow-cyan-500/20
-            hover:border-cyan-500/40
-            hover:-translate-y-2
-            transition-all
-            duration-300
-            overflow-hidden
-            "
+            className="bg-[#1E293B] border border-slate-700 rounded-3xl shadow-xl hover:shadow-cyan-500/20 hover:border-cyan-500/40 hover:-translate-y-2 transition-all duration-300 overflow-hidden"
           >
 
             {/* Top */}
@@ -90,19 +59,7 @@ export default function Courses() {
             <div className="p-6">
 
               <div
-                className="
-                w-16
-                h-16
-                rounded-2xl
-                bg-gradient-to-r
-                from-cyan-500
-                to-blue-600
-                flex
-                items-center
-                justify-center
-                shadow-lg
-                shadow-cyan-500/30
-                "
+                className="w-16 h-16 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/30"
               >
 
                 <BookOpen
@@ -187,26 +144,7 @@ export default function Courses() {
             <div className="p-6 pt-0">
 
               <button
-                className="
-                w-full
-                py-3
-                rounded-xl
-                bg-gradient-to-r
-                from-cyan-500
-                to-blue-600
-                hover:from-cyan-400
-                hover:to-blue-500
-                text-white
-                font-semibold
-                flex
-                items-center
-                justify-center
-                gap-2
-                shadow-lg
-                shadow-cyan-500/20
-                transition-all
-                duration-300
-                "
+                className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-semibold flex items-center justify-center gap-2 shadow-lg shadow-cyan-500/20 transition-all duration-300"
               >
 
                 View Details

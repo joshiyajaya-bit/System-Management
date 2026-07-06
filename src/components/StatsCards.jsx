@@ -1,4 +1,4 @@
-import { FaUserGraduate,FaChalkboardTeacher, FaBook,FaMoneyBillWave,} from "react-icons/fa";
+import { FaUserGraduate, FaChalkboardTeacher, FaBook, FaMoneyBillWave, } from "react-icons/fa";
 
 import students from "../students/students.json";
 import teachers from "../students/teachers.json";
@@ -51,42 +51,11 @@ export default function StatsCards() {
 
       {cards.map((card, index) => (
 
-        <div
-          key={index}
-          className="
-          group
-          bg-[#1E293B]
-          border
-          border-slate-700
-          rounded-3xl
-          p-6
-          overflow-hidden
-          relative
-          transition-all
-          duration-500
-          hover:-translate-y-2
-          hover:border-cyan-500
-          hover:shadow-2xl
-        "
-        >
+        <div key={index} className="group bg-[#1E293B] border border-slate-700 rounded-3xl p-6 overflow-hidden relative transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500 hover:shadow-2xl">
 
           {/* Background Glow */}
 
-          <div
-            className="
-            absolute
-            -right-10
-            -top-10
-            w-32
-            h-32
-            rounded-full
-            bg-cyan-500/10
-            blur-3xl
-            group-hover:bg-cyan-400/20
-            transition-all
-            duration-500
-          "
-          />
+          <div className="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-cyan-500/10 blur-3xl group-hover:bg-cyan-400/20 transition-all duration-500" />
 
           {/* Top */}
 

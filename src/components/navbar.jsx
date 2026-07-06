@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import {
-  FaBell,FaSearch,FaUserCircle,FaCalendarAlt,FaClock,} from "react-icons/fa";
+  FaBell, FaSearch, FaUserCircle, FaCalendarAlt, FaClock,
+} from "react-icons/fa";
 
 export default function Navbar() {
   const [dateTime, setDateTime] = useState(new Date());
@@ -35,7 +36,7 @@ export default function Navbar() {
 
       <div className="flex items-center gap-5">
 
-       
+
         {/* Date */}
 
         <div className="hidden xl:flex items-center gap-3 bg-slate-800 px-4 py-2 rounded-2xl">

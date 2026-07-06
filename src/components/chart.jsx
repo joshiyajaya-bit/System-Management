@@ -105,18 +105,7 @@ export default function Charts({
               stroke="none"
             />
 
-            <Line
-              type="monotone"
-              dataKey="attendance"
-              stroke="#06B6D4"
-              strokeWidth={4}
-              dot={{
-                fill: "#06B6D4",
-                stroke: "#fff",
-                strokeWidth: 3,
-                r: 6,
-              }}
-            />
+            <Line type="monotone" dataKey="attendance" stroke="#06B6D4" strokeWidth={4} dot={{ fill: "#06B6D4", stroke: "#fff", strokeWidth: 3, r: 6 }} />
 
           </AreaChart>
 
@@ -203,12 +192,7 @@ export default function Charts({
               content={<CustomTooltip />}
             />
 
-            <Bar
-              dataKey="score"
-              fill="url(#performanceGradient)"
-              radius={[12, 12, 0, 0]}
-              barSize={45}
-            />
+            <Bar dataKey="score" fill="url(#performanceGradient)" radius={[12, 12, 0, 0]} barSize={45} />
 
           </BarChart>
 
