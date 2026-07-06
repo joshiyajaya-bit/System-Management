@@ -83,7 +83,7 @@ export default function CalendarCard() {
 
       {/* Calendar */}
 
-      <div className="mt-6 calendar-dark">
+      <div className="mt-6 calendar-dark bg-[#111827] rounded-3xl border border-slate-700 p-4">
 
         <Calendar
           onChange={setDate}
