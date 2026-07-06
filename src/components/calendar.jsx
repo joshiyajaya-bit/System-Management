@@ -31,7 +31,7 @@ export default function CalendarCard() {
             Calendar
           </h2>
 
-          <p className="text-slate-400 text-sm">
+         <p className="text-slate-400 text-xs mt-1">
             Schedule & Events
           </p>
 
