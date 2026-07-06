@@ -104,10 +104,10 @@ export default function CalendarCard() {
 
           {events.map((event) => (
 
-            <div
-              key={event.id}
-              className="flex items-center justify-between bg-[#111827] border border-slate-700 rounded-2xl p-1 hover:border-cyan-500 transition"
-            >
+           <div
+  key={event.id}
+  className="flex items-center justify-between bg-[#111827] border border-slate-700 rounded-2xl px-5 py-4 hover:border-cyan-500 hover:bg-slate-800 transition-all duration-300 shadow-lg"
+>
 
               <div className="flex items-center gap-3">
 
