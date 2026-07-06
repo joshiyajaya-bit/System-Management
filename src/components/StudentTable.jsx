@@ -36,7 +36,7 @@ export default function StudentTable({
 
           {/* Header */}
 
-          <thead className="bg-[#111827] border-b border-slate-700">
+         <thead className="sticky top-0 z-20 bg-[#111827] border-b border-slate-700 shadow-md">
 
             <tr>
 
@@ -89,15 +89,13 @@ export default function StudentTable({
               students.map((student, index) => (
 
                 <tr
-                  key={student["Student ID"] || index}
-                  className="
-                  border-b
-                  border-slate-700
-                  hover:bg-slate-800/60
-                  transition-all
-                  duration-300
-                  "
-                >
+  key={student["Student ID"] || index}
+  className={`border-b border-slate-700 transition-all duration-300 hover:bg-cyan-500/10 ${
+    index % 2 === 0
+      ? "bg-[#1E293B]"
+      : "bg-[#172033]"
+  }`}
+>
 
                   {/* Student ID */}
 
@@ -107,9 +105,25 @@ export default function StudentTable({
 
                   {/* Name */}
 
-                  <td className="px-5 py-4 text-slate-200">
-                    {student["Full Name"]}
-                  </td>
+                  <td className="px-5 py-4">
+  <div className="flex items-center gap-3">
+
+    <div className="w-11 h-11 rounded-full bg-cyan-500 flex items-center justify-center text-white font-bold text-lg">
+      {student["Full Name"]?.charAt(0)}
+    </div>
+
+    <div>
+      <h3 className="text-white font-semibold">
+        {student["Full Name"]}
+      </h3>
+
+      <p className="text-slate-400 text-xs">
+        {student["Student ID"]}
+      </p>
+    </div>
+
+  </div>
+</td>
 
                   {/* Email */}
 
@@ -127,7 +141,7 @@ export default function StudentTable({
 
                   <td className="px-5 py-4">
 
-                    <span className="px-3 py-1 rounded-full bg-cyan-500/20 text-cyan-300 text-sm">
+                    <span className="px-4 py-2 rounded-full bg-cyan-500/15 border border-cyan-500/30 text-cyan-300 text-xs font-semibold">
 
                       {student.Department}
 
@@ -155,8 +169,8 @@ export default function StudentTable({
 
                   <td className="px-5 py-4 text-center">
 
-                    <span
-                      className={`px-4 py-1 rounded-full text-sm font-semibold ${
+                   <span
+  className={`inline-flex items-center justify-center px-4 py-2 rounded-full text-xs font-bold ${
                         student["Fee Status"] === "Paid"
                           ? "bg-emerald-500/20 text-emerald-400 border border-emerald-500/40"
                           : "bg-red-500/20 text-red-400 border border-red-500/40"
@@ -169,25 +183,30 @@ export default function StudentTable({
 
                   {/* Actions */}
 
-                  <td className="px-5 py-4">
+                 <td className="px-5 py-4 w-[180px]">
 
-                    <div className="flex justify-center gap-3">
+                   <div className="flex items-center justify-center gap-4">
 
                       {/* View */}
 
                       <button
                         onClick={() => onView(student)}
-                        className="
-                        w-10
-                        h-10
-                        rounded-xl
-                        bg-cyan-500/20
-                        text-cyan-400
-                        hover:bg-cyan-500
-                        hover:text-white
-                        transition-all
-                        duration-300
-                        "
+                       className="
+w-11
+h-11
+flex
+items-center
+justify-center
+rounded-xl
+bg-yellow-500/15
+text-yellow-400
+hover:bg-yellow-500
+hover:text-white
+hover:scale-110
+transition-all
+duration-300
+shadow-md
+"
                       >
                         <Eye size={18} />
                       </button>
@@ -217,17 +236,22 @@ export default function StudentTable({
                         onClick={() =>
                           onDelete(student["Student ID"])
                         }
-                        className="
-                        w-10
-                        h-10
-                        rounded-xl
-                        bg-red-500/20
-                        text-red-400
-                        hover:bg-red-500
-                        hover:text-white
-                        transition-all
-                        duration-300
-                        "
+                       className="
+w-11
+h-11
+flex
+items-center
+justify-center
+rounded-xl
+bg-red-500/15
+text-red-400
+hover:bg-red-500
+hover:text-white
+hover:scale-110
+transition-all
+duration-300
+shadow-md
+"
                       >
                         <Trash2 size={18} />
                       </button>
